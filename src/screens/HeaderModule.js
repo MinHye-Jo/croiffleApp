@@ -29,7 +29,7 @@ const renderCrfLogo = (props) => (
 );
 
 // 알림
-const renderMyPage = (props) => (
+const renderOrderNoti = (props) => (
   <View style={{ flexDirection: 'row' }}>
     <TouchableOpacity onPress={() => props.auth == null ? props.navigation.navigate('LoginPage') : props.auth.accessToken == null ? props.navigation.navigate('LoginPage') : props.navigation.navigate('MyPage')}>
       <Image
@@ -44,12 +44,12 @@ const renderMyPage = (props) => (
 const HeaderModule = (props) => {
   return (
     <Header
-      containerStyle={{ height: 100 }}
+      containerStyle={{ height: 85 }}
       backgroundColor='#fff'
       placement='center'
       leftComponent={renderHeaderMenu(props)}
       centerComponent={renderCrfLogo(props)}
-      rightComponent={renderMyPage(props)}
+      rightComponent={renderOrderNoti(props)}
     />
   )
 };
