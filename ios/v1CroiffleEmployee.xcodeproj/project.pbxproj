@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* v1CroiffleEmployeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* v1CroiffleEmployeeTests.m */; };
+		048162B52671FA7100C5182A /* S-CoreDream-4Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 048162B32671FA7100C5182A /* S-CoreDream-4Regular.otf */; };
+		04C188A82671FC4500DB72AD /* S-CoreDream-5Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04C188A72671FC4500DB72AD /* S-CoreDream-5Medium.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -30,6 +32,8 @@
 		00E356EE1AD99517003FC87E /* v1CroiffleEmployeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = v1CroiffleEmployeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* v1CroiffleEmployeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v1CroiffleEmployeeTests.m; sourceTree = "<group>"; };
+		048162B32671FA7100C5182A /* S-CoreDream-4Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "S-CoreDream-4Regular.otf"; path = "../assets/fonts/S-CoreDream-4Regular.otf"; sourceTree = "<group>"; };
+		04C188A72671FC4500DB72AD /* S-CoreDream-5Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "S-CoreDream-5Medium.otf"; path = "../assets/fonts/S-CoreDream-5Medium.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* v1CroiffleEmployee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v1CroiffleEmployee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = v1CroiffleEmployee/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = v1CroiffleEmployee/AppDelegate.m; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6C134EB88DA24463BCDE3E32 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04C188A72671FC4500DB72AD /* S-CoreDream-5Medium.otf */,
+				048162B32671FA7100C5182A /* S-CoreDream-4Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +135,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				84E964390AFE42BC7D6B50A8 /* Pods */,
+				6C134EB88DA24463BCDE3E32 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -145,7 +159,6 @@
 				B8790B1F2B634CB5F57B7C88 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig */,
 				6B58D0C2FB60A55367476DC8 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -243,8 +256,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048162B52671FA7100C5182A /* S-CoreDream-4Regular.otf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				04C188A82671FC4500DB72AD /* S-CoreDream-5Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
