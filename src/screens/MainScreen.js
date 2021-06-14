@@ -7,7 +7,7 @@ import StoreManageButton from '@components/StoreManageButton'
 const Main = () => {
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: 'rgb(242, 243, 245)' }}>
       <View style={{ height: '55%' }}>
         <Image
           source={require('../../assets/image/main_img.jpg')}

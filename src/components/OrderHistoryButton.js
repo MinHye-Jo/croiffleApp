@@ -9,7 +9,7 @@ const OrderHistoryButton = () => {
       alignItems: 'center',
       backgroundColor: '#fff',
       borderRadius: 5,
-      shadowColor: 'gray',
+      shadowColor: 'grey',
       width: '40%',
       shadowColor: "#000",
       shadowOffset: {
