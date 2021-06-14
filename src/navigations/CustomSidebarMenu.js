@@ -99,7 +99,7 @@ const CustomSidebarMenu = (props) => {
 
       {/* 로그인 로그아웃 */}
       <View style={{ backgroundColor: 'rgb(242, 243, 245)', height: '5%', paddingLeft: 20, justifyContent: 'center' }}>
-        <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('LoginPage')}>
           <Text style={styles.font5M15}>로그인, 로그아웃</Text>
         </TouchableOpacity>
       </View>

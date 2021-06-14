@@ -43,7 +43,7 @@ const HeaderModule = (props) => {
   return (
     <Header
       containerStyle={{ height: 85 }}
-      backgroundColor='#fff'
+      backgroundColor='#ffffff'
       placement='center'
       leftComponent={renderHeaderMenu(props)}
       centerComponent={renderCrfLogo(props)}

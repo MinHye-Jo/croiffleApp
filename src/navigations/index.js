@@ -8,7 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import FirstPage from '@screens/FirstPage';
+import Login from '@screens/Login';
 import SecondPage from '@screens/SecondPage';
 import ThirdPage from '@screens/ThirdPage';
 
@@ -87,9 +87,9 @@ const Navigation = () => {
           component={secondScreenStack}
         />
         <Drawer.Screen
-          name="SecondPage2"
+          name="LoginPage"
           options={{ drawerLabel: 'Second page Option' }}
-          component={secondScreenStack}
+          component={Login}
         />
         <Drawer.Screen
           name="SecondPage3"
