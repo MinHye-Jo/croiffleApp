@@ -8,11 +8,14 @@ import { View } from 'react-native';
 
 const App = () => {
   return (
-    // <Navigation />
-    <View style={{ backgroundColor: 'rgb(242, 243, 245)', height: '100%' }}>
-      <HeaderModule />
-      <Main />
-    </View>
+    <Navigation />
+    // <View>
+
+    //   <View style={{ backgroundColor: 'rgb(242, 243, 245)', height: '100%' }}>
+    //     <HeaderModule />
+    //     <Main />
+    //   </View>
+    // </View>
 
   )
 };
