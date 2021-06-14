@@ -17,9 +17,7 @@ const renderHeaderMenu = (props) => (
 // 로고
 const renderCrfLogo = (props) => (
   <View style={{ flex: 1, flexDirection: 'row' }}>
-    <TouchableOpacity onPress={() => props.navigation.navigate('MainPage', {
-      screen: 'HomeTab'
-    })}>
+    <TouchableOpacity onPress={() => props.navigation.navigate('MainPage')}>
       <Image
         style={{ flex: 1, width: 180, height: 180, resizeMode: "contain" }}
         source={require('../../assets/image/logo_title_b.png')}
