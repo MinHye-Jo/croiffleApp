@@ -28,9 +28,9 @@ const Login = (props) => {
         <TextInput style={styles.greyInput} placeholder={"비밀번호"} placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' />
       </View>
 
-      <View style={styles.loginBtn}>
+      <View style={styles.blueBtn}>
         <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('MainPage')}>
-          <Text style={styles.LoginBtnTxt}>로그인</Text>
+          <Text style={styles.blueBtnTxt}>로그인</Text>
         </TouchableOpacity>
       </View>
 

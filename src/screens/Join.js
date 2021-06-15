@@ -12,7 +12,7 @@ const Join = (props) => {
     <View style={styles.topContainer}>
       <View style={{
         height: '15%',
-        marginTop: '40%',
+        marginTop: '20%',
         alignItems: 'center'
       }}>
         <Image source={require('../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
@@ -58,11 +58,11 @@ const Join = (props) => {
         </View>
       </View>
 
-      <View style={styles.loginBtn}>
-        <TouchableOpacity style={{ padding: 10 }}>
-          <Text style={styles.LoginBtnTxt}>다음</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('JoinFormPage')}>
+        <View style={styles.blueBtn}>
+          <Text style={styles.blueBtnTxt}>다음</Text>
+        </View>
+      </TouchableOpacity>
     </View >
   );
 };

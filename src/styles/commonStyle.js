@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   rowFlex2Left: {
     flex: 2,
@@ -50,31 +51,61 @@ const styles = StyleSheet.create({
     paddingTop: 10
   },
   greyInput: {
-    borderRadius: 3,
+    borderRadius: 5,
     borderColor: 'rgb(242, 243, 245)',
     backgroundColor: 'rgb(242, 243, 245)',
     fontFamily: 'S-CoreDream-4Regular',
     height: 50,
     padding: 10
   },
-  loginBtn: {
+  blueBtn: {
     margin: 20,
-    borderRadius: 3,
+    borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
     fontSize: 20,
     backgroundColor: 'rgb(0, 191, 213)'
   },
-  LoginBtnTxt: {
+  blueBtnTxt: {
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: 15,
     color: '#ffff'
   },
   greyBox: {
-    borderRadius: 3,
+    borderRadius: 5,
     borderColor: 'rgb(242, 243, 245)',
     backgroundColor: 'rgb(242, 243, 245)',
+  },
+  image25: {
+    resizeMode: 'contain',
+    width: 25,
+    height: 25
+  },
+  inputMaskRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
+    borderRadius: 5,
+    backgroundColor: 'rgb(242, 243, 245)',
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  inputMask: {
+    width: '100%',
+    paddingLeft: 10,
+    paddingRight: 10,
+    fontFamily: 'S-CoreDream-4Regular',
+    fontSize: 15
+  },
+  dropDown: {
+    backgroundColor: 'rgb(242, 243, 245)',
+    marginLeft: 20,
+    marginRight: 20,
+    fontFamily: 'S-CoreDream-4Regular',
+    fontSize: 15,
+    width: '90%',
+    borderColor: 'rgb(242, 243, 245)',
   }
 
 });
