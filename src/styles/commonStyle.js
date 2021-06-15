@@ -84,6 +84,22 @@ const styles = StyleSheet.create({
     borderColor: 'rgb(242, 243, 245)',
     backgroundColor: 'rgb(242, 243, 245)',
   },
+  storeWhiteBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 5,
+    backgroundColor: '#fff',
+    shadowColor: 'grey',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    height: 50,
+    paddingLeft: 10
+  },
   image25: {
     resizeMode: 'contain',
     width: 25,

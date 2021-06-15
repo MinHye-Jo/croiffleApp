@@ -33,8 +33,8 @@ const CustomSidebarMenu = (props) => {
       {/* 주문내역, 매장관리 버튼 */}
       <View style={{ height: '20%', backgroundColor: 'rgb(242, 243, 245)' }}>
         <View style={{ flexDirection: 'row' }}>
-          <OrderHistoryButton style={{ fontSize: 5 }} />
-          <StoreManageButton />
+          <OrderHistoryButton />
+          <StoreManageButton navigation={props.navigation} />
         </View>
       </View>
       {/* 사이드메뉴 항목 */}
