@@ -13,7 +13,6 @@ import TextInputMask from '@components/TextInputMask';
 
 
 const PasswordEdit = (props) => {
-
   return (
     <ScrollView style={styles.topContainer}>
       <View style={{ paddingLeft: 20, paddingRight: 20 }}>

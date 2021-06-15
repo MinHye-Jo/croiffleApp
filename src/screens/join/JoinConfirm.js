@@ -13,7 +13,7 @@ const JoinConfirm = (props) => {
         marginTop: '20%',
         alignItems: 'center'
       }}>
-        <Image source={require('../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
+        <Image source={require('../../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
       </View>
 
       <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>

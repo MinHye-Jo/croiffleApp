@@ -3,17 +3,18 @@
 import React, { useContext } from 'react';
 
 import Login from '@screens/Login';
-import Join from '@screens/Join';
-import JoinForm from '@screens/JoinForm';
-import JoinConfirm from '@screens/JoinConfirm';
-import Main from '@screens/MainPage';
-import PrivacyPolicy from '@screens/PrivacyPolicy';
-import TermsOfService from '@screens/TermsOfService';
+import Join from '@screens/join/Join';
+import JoinForm from '@screens/join/JoinForm';
+import JoinConfirm from '@screens/join/JoinConfirm';
+import Main from '@screens/main/MainPage';
+import PrivacyPolicy from '@screens/terms/PrivacyPolicy';
+import TermsOfService from '@screens/terms/TermsOfService';
 import PersonalInfo from '@screens/PersonalInfo';
 import PasswordEdit from '@screens/PasswordEdit';
+import CustomerSupport from '@screens/CustomerSupport';
 
-import HeaderModule from '@screens/HeaderModule';
-import PrevHeaderModule from '@screens/PrevHeaderModule';
+import HeaderModule from '@screens/header/HeaderModule';
+import PrevHeaderModule from '@screens/header/PrevHeaderModule';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -34,6 +35,7 @@ const PrevStackMove = (props) => {
 const MainStack = ({ navigation }) => {
   return (
     <Stack.Navigator initialRouteName="Main">
+      {/* 로그인 */}
       <Stack.Screen
         name="LoginPage"
         options={{
@@ -41,6 +43,7 @@ const MainStack = ({ navigation }) => {
         }}
         component={Login}
       />
+      {/* 메인 */}
       <Stack.Screen
         name="MainPage"
         component={Main}
@@ -50,6 +53,7 @@ const MainStack = ({ navigation }) => {
           )
         }}
       />
+      {/* 회원가입 메인 */}
       <Stack.Screen
         name="JoinPage"
         component={Join}
@@ -59,6 +63,7 @@ const MainStack = ({ navigation }) => {
           )
         }}
       />
+      {/* 회원가입 양식 */}
       <Stack.Screen
         name="JoinFormPage"
         component={JoinForm}
@@ -68,6 +73,7 @@ const MainStack = ({ navigation }) => {
           )
         }}
       />
+      {/* 회원가입 완료 */}
       <Stack.Screen
         name="JoinConfirmPage"
         component={JoinConfirm}
@@ -77,6 +83,7 @@ const MainStack = ({ navigation }) => {
           )
         }}
       />
+      {/* 개인정보관리 */}
       <Stack.Screen
         name="PersonalInfo"
         options={{
@@ -86,6 +93,7 @@ const MainStack = ({ navigation }) => {
         }}
         component={PersonalInfo}
       />
+      {/* 비밀번호 수정 */}
       <Stack.Screen
         name="PasswordEdit"
         options={{
@@ -95,6 +103,7 @@ const MainStack = ({ navigation }) => {
         }}
         component={PasswordEdit}
       />
+      {/* 서비스 이용약관 */}
       <Stack.Screen
         name="TermsOfService"
         options={{
@@ -104,6 +113,7 @@ const MainStack = ({ navigation }) => {
         }}
         component={TermsOfService}
       />
+      {/* 개인정보 처리방침 */}
       <Stack.Screen
         name="PrivacyPolicyPage"
         options={{
@@ -112,6 +122,16 @@ const MainStack = ({ navigation }) => {
           )
         }}
         component={PrivacyPolicy}
+      />
+      {/* 고객지원 */}
+      <Stack.Screen
+        name="CustomerSupport"
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+        component={CustomerSupport}
       />
     </Stack.Navigator>
   );

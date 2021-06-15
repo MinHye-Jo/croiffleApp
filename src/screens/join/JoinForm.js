@@ -31,7 +31,7 @@ const JoinForm = (props) => {
         <TextInputMask />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 이름 </Text>
-        <TextInput style={{ ...styles.greyInput, marginRight: 20 }} />
+        <TextInput style={{ ...styles.greyInput }} />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 휴대폰번호 </Text>
         <View style={styles.row}>

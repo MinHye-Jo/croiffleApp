@@ -60,7 +60,7 @@ const CustomSidebarMenu = (props) => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('TermsOfService')}>
           <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>서비스이용약관</Text>
@@ -70,7 +70,7 @@ const CustomSidebarMenu = (props) => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('PrivacyPolicyPage')}>
           <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>개인정보처리방침</Text>
@@ -80,7 +80,7 @@ const CustomSidebarMenu = (props) => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('CustomerSupport')}>
           <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>고객지원</Text>
