@@ -4,8 +4,7 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import styles from '@styles/commonStyle'
 
 
-const Login = () => {
-
+const Login = (props) => {
   return (
     <View style={styles.topContainer}>
       <View style={{
@@ -30,7 +29,7 @@ const Login = () => {
       </View>
 
       <View style={styles.loginBtn}>
-        <TouchableOpacity style={{ padding: 10 }}>
+        <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('MainPage')}>
           <Text style={styles.LoginBtnTxt}>로그인</Text>
         </TouchableOpacity>
       </View>
@@ -46,7 +45,7 @@ const Login = () => {
             <Text> 비밀번호 찾기 </Text>
           </TouchableOpacity>
           <Text> | </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate('JoinPage')}>
             <Text> 회원가입 </Text>
           </TouchableOpacity>
         </View>

@@ -42,7 +42,7 @@ const renderOrderNoti = (props) => (
 const HeaderModule = (props) => {
   return (
     <Header
-      containerStyle={{ height: 85 }}
+      containerStyle={{ height: 100 }}
       backgroundColor='#ffffff'
       placement='center'
       leftComponent={renderHeaderMenu(props)}

@@ -21,9 +21,18 @@ const styles = StyleSheet.create({
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: 15
   },
+  font5M20: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: 20
+  },
   font4R10: {
     fontFamily: 'S-CoreDream-4Regular',
     fontSize: 10
+  },
+  prevHeaderFont: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: 20,
+    color: '#fff'
   },
   hr: {
     borderBottomColor: "rgb(225, 225, 225)",
@@ -61,6 +70,11 @@ const styles = StyleSheet.create({
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: 15,
     color: '#ffff'
+  },
+  greyBox: {
+    borderRadius: 3,
+    borderColor: 'rgb(242, 243, 245)',
+    backgroundColor: 'rgb(242, 243, 245)',
   }
 
 });
