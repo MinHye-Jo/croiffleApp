@@ -1,9 +1,7 @@
 import React from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle'
-import CustomCheckBox from '@components/CustomCheckBox'
-import IconNextBlack from '@components/IconNextBlack'
+import styles from '@styles/commonStyle';
 
 
 const JoinConfirm = (props) => {
@@ -26,7 +24,7 @@ const JoinConfirm = (props) => {
 
       <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('LoginPage')}>
         <View style={styles.blueBtn}>
-          <Text style={styles.blueBtnTxt}>로그인 하기</Text>
+          <Text style={styles.btnTxtWhite}>로그인 하기</Text>
         </View>
       </TouchableOpacity>
     </View >

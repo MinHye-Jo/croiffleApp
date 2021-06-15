@@ -9,6 +9,7 @@ import JoinConfirm from '@screens/JoinConfirm';
 import Main from '@screens/MainPage';
 import PrivacyPolicy from '@screens/PrivacyPolicy';
 import TermsOfService from '@screens/TermsOfService';
+import PersonalInfo from '@screens/PersonalInfo';
 
 import HeaderModule from '@screens/HeaderModule';
 import PrevHeaderModule from '@screens/PrevHeaderModule';
@@ -33,10 +34,10 @@ const MainStack = ({ navigation }) => {
   return (
     <Stack.Navigator initialRouteName="Main">
       <Stack.Screen
+        name="LoginPage"
         options={{
           headerShown: false,
         }}
-        name="LoginPage"
         component={Login}
       />
       <Stack.Screen
@@ -76,21 +77,30 @@ const MainStack = ({ navigation }) => {
         }}
       />
       <Stack.Screen
+        name="PersonalInfo"
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
+        component={PersonalInfo}
+      />
+      <Stack.Screen
         name="TermsOfService"
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
         component={TermsOfService}
       />
       <Stack.Screen
+        name="PrivacyPolicyPage"
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        name="PrivacyPolicyPage"
         component={PrivacyPolicy}
       />
     </Stack.Navigator>

@@ -30,8 +30,6 @@ const Join = (props) => {
           <Text style={styles.font5M15}> 약관 전체동의 </Text>
         </View>
         <View style={styles.greyBox}>
-
-
           <View style={{ ...styles.row, alignItems: 'center', paddingTop: 10 }}>
             <CustomCheckBox />
             <View style={styles.rowFlex2Left}>
@@ -60,7 +58,7 @@ const Join = (props) => {
 
       <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('JoinFormPage')}>
         <View style={styles.blueBtn}>
-          <Text style={styles.blueBtnTxt}>다음</Text>
+          <Text style={styles.btnTxtWhite}>다음</Text>
         </View>
       </TouchableOpacity>
     </View >
