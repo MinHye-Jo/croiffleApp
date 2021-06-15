@@ -40,8 +40,8 @@ const CustomSidebarMenu = (props) => {
       {/* 사이드메뉴 항목 */}
       <DrawerContentScrollView {...props}>
         {/* <DrawerItemList {...props} /> */}
-        <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
-          <View style={{ ...styles.row, paddingLeft: 20, alignItems: 'center', paddingBottom: 10 }}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
+          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>개인정보관리</Text>
             </View>
@@ -51,7 +51,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
-          <View style={{ ...styles.row, paddingLeft: 20, alignItems: 'center', paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>비밀번호 수정</Text>
             </View>
@@ -61,7 +61,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
-          <View style={{ ...styles.row, paddingLeft: 20, alignItems: 'center', paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>서비스이용약관</Text>
             </View>
@@ -71,7 +71,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
-          <View style={{ ...styles.row, paddingLeft: 20, alignItems: 'center', paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>개인정보처리방침</Text>
             </View>
@@ -81,7 +81,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
-          <View style={{ ...styles.row, paddingLeft: 20, alignItems: 'center', paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>고객지원</Text>
             </View>
@@ -100,7 +100,7 @@ const CustomSidebarMenu = (props) => {
         </TouchableOpacity>
       </View>
 
-    </SafeAreaView>
+    </SafeAreaView >
   );
 };
 

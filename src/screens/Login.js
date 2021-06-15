@@ -28,11 +28,11 @@ const Login = (props) => {
         <TextInput style={styles.greyInput} placeholder={"비밀번호"} placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' />
       </View>
 
-      <View style={styles.blueBtn}>
-        <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('MainPage')}>
-          <Text style={styles.blueBtnTxt}>로그인</Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity style={{ padding: 10, margin: 10 }} onPress={() => props.navigation.navigate('MainPage')}>
+        <View style={styles.blueBtn}>
+          <Text style={styles.btnTxtWhite}>로그인</Text>
+        </View>
+      </TouchableOpacity>
 
 
       <View style={{ ...styles.font4R10, alignItems: 'center', paddingTop: 15 }}>

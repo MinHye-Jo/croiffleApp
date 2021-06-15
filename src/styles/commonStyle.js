@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     padding: 10
   },
   blueBtn: {
-    margin: 20,
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
@@ -67,7 +66,15 @@ const styles = StyleSheet.create({
     fontSize: 20,
     backgroundColor: 'rgb(0, 191, 213)'
   },
-  blueBtnTxt: {
+  greyBtn: {
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    fontSize: 20,
+    backgroundColor: 'rgb(174, 174, 174)'
+  },
+  btnTxtWhite: {
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: 15,
     color: '#ffff'
@@ -88,8 +95,6 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 5,
     backgroundColor: 'rgb(242, 243, 245)',
-    marginLeft: 20,
-    marginRight: 20,
   },
   inputMask: {
     width: '100%',
@@ -98,16 +103,6 @@ const styles = StyleSheet.create({
     fontFamily: 'S-CoreDream-4Regular',
     fontSize: 15
   },
-  dropDown: {
-    backgroundColor: 'rgb(242, 243, 245)',
-    marginLeft: 20,
-    marginRight: 20,
-    fontFamily: 'S-CoreDream-4Regular',
-    fontSize: 15,
-    width: '90%',
-    borderColor: 'rgb(242, 243, 245)',
-  }
-
 });
 
 export default styles;
