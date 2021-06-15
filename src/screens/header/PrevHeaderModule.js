@@ -7,7 +7,7 @@ import styles from '@styles/commonStyle'
 const renderPrevBtn = (props) => (
   <TouchableOpacity onPress={() => props.navigation.goBack()}>
     <Image
-      style={{ width: 25, height: 25, marginLeft: 10, resizeMode: "contain" }}
+      style={{ width: 25, height: 25, marginLeft: 5, resizeMode: "contain" }}
       source={require('../../../assets/image/icon/icon_prev_w.png')}
     />
   </TouchableOpacity>

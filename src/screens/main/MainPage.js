@@ -4,7 +4,7 @@ import { View, Image } from 'react-native';
 import OrderHistoryButton from '@components/OrderHistoryButton'
 import StoreManageButton from '@components/StoreManageButton'
 
-const Main = () => {
+const Main = (props) => {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'rgb(242, 243, 245)' }}>
@@ -16,7 +16,7 @@ const Main = () => {
       <View style={{ height: '25%' }}>
         <View style={{ flexDirection: 'row' }}>
           <OrderHistoryButton />
-          <StoreManageButton />
+          <StoreManageButton navigation={props.navigation} />
         </View>
       </View>
     </View >

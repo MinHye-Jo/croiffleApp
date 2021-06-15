@@ -12,6 +12,7 @@ import TermsOfService from '@screens/terms/TermsOfService';
 import PersonalInfo from '@screens/PersonalInfo';
 import PasswordEdit from '@screens/PasswordEdit';
 import CustomerSupport from '@screens/CustomerSupport';
+import StoreManagement from '@screens/storemanagement/StoreManagement';
 
 import HeaderModule from '@screens/header/HeaderModule';
 import PrevHeaderModule from '@screens/header/PrevHeaderModule';
@@ -52,6 +53,16 @@ const MainStack = ({ navigation }) => {
             <NavigationDrawerStructure navigationProps={navigation} />
           )
         }}
+      />
+      {/* 매장관리 */}
+      <Stack.Screen
+        name="StoreManagement"
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+        component={StoreManagement}
       />
       {/* 회원가입 메인 */}
       <Stack.Screen
@@ -133,6 +144,7 @@ const MainStack = ({ navigation }) => {
         }}
         component={CustomerSupport}
       />
+
     </Stack.Navigator>
   );
 
