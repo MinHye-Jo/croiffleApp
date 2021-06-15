@@ -15,7 +15,7 @@ const Join = (props) => {
         marginTop: '20%',
         alignItems: 'center'
       }}>
-        <Image source={require('../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
+        <Image source={require('../../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
       </View>
 
       <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>
@@ -56,7 +56,7 @@ const Join = (props) => {
         </View>
       </View>
 
-      <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('JoinFormPage')}>
+      <TouchableOpacity style={{ padding: 20, paddingTop: 10 }} onPress={() => props.navigation.navigate('JoinFormPage')}>
         <View style={styles.blueBtn}>
           <Text style={styles.btnTxtWhite}>다음</Text>
         </View>

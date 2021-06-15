@@ -13,7 +13,7 @@ const JoinConfirm = (props) => {
         marginTop: '20%',
         alignItems: 'center'
       }}>
-        <Image source={require('../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
+        <Image source={require('../../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
       </View>
 
       <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>
@@ -22,8 +22,8 @@ const JoinConfirm = (props) => {
         <Text style={styles.loginFont2}>승인 후 로그인이 가능합니다.</Text>
       </View>
 
-      <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('LoginPage')}>
-        <View style={styles.blueBtn}>
+      <TouchableOpacity onPress={() => props.navigation.navigate('LoginPage')}>
+        <View style={{ ...styles.blueBtn, margin: 20 }}>
           <Text style={styles.btnTxtWhite}>로그인 하기</Text>
         </View>
       </TouchableOpacity>

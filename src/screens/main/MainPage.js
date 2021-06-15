@@ -10,7 +10,7 @@ const Main = () => {
     <View style={{ flex: 1, backgroundColor: 'rgb(242, 243, 245)' }}>
       <View style={{ height: '55%' }}>
         <Image
-          source={require('../../assets/image/main_img.jpg')}
+          source={require('../../../assets/image/main_img.jpg')}
           style={{ width: '100%', height: '100%', resizeMode: 'stretch' }} />
       </View>
       <View style={{ height: '25%' }}>

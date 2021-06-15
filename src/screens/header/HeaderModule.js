@@ -8,7 +8,7 @@ const renderHeaderMenu = (props) => (
     <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
       <Image
         style={{ width: 25, height: 25, marginLeft: 10, resizeMode: "contain" }}
-        source={require('../../assets/image/icon/icon_menu_b.png')}
+        source={require('../../../assets/image/icon/icon_menu_b.png')}
       />
     </TouchableOpacity>
   </View>
@@ -20,7 +20,7 @@ const renderCrfLogo = (props) => (
     <TouchableOpacity onPress={() => props.navigation.navigate('MainPage')}>
       <Image
         style={{ flex: 1, width: 180, height: 180, resizeMode: "contain" }}
-        source={require('../../assets/image/logo_title_b.png')}
+        source={require('../../../assets/image/logo_title_b.png')}
       />
     </TouchableOpacity>
   </View>
@@ -32,7 +32,7 @@ const renderOrderNoti = (props) => (
     <TouchableOpacity onPress={() => props.auth == null ? props.navigation.navigate('LoginPage') : props.auth.accessToken == null ? props.navigation.navigate('LoginPage') : props.navigation.navigate('MyPage')}>
       <Image
         style={{ width: 25, height: 25, marginRight: 10, resizeMode: "contain" }}
-        source={require('../../assets/image/icon/icon_notice_b.png')}
+        source={require('../../../assets/image/icon/icon_notice_b.png')}
       />
     </TouchableOpacity>
   </View>
