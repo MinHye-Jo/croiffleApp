@@ -4,18 +4,14 @@ import {
   View,
   Image,
   Text,
-  Linking,
   TouchableOpacity,
 } from 'react-native';
 
-import {
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
+import { DrawerContentScrollView } from '@react-navigation/drawer';
 
 import OrderHistoryButton from '@components/OrderHistoryButton'
 import StoreManageButton from '@components/StoreManageButton'
+import IconNextBlack from '@components/IconNextBlack'
 
 import naviStyle from '@styles/naviStyle'
 import styles from '@styles/commonStyle'
@@ -50,7 +46,7 @@ const CustomSidebarMenu = (props) => {
               <Text style={styles.font5M15}>개인정보관리</Text>
             </View>
             <View style={styles.rowFlex1Right}>
-              <Image source={require('../../assets/image/icon/icon_next_b.png')} style={{ resizeMode: 'contain', width: 25, height: 25 }} />
+              <IconNextBlack />
             </View>
           </View>
         </TouchableOpacity>
@@ -60,7 +56,7 @@ const CustomSidebarMenu = (props) => {
               <Text style={styles.font5M15}>비밀번호 수정</Text>
             </View>
             <View style={styles.rowFlex1Right}>
-              <Image source={require('../../assets/image/icon/icon_next_b.png')} style={{ resizeMode: 'contain', width: 25, height: 25 }} />
+              <IconNextBlack />
             </View>
           </View>
         </TouchableOpacity>
@@ -70,7 +66,7 @@ const CustomSidebarMenu = (props) => {
               <Text style={styles.font5M15}>서비스이용약관</Text>
             </View>
             <View style={styles.rowFlex1Right}>
-              <Image source={require('../../assets/image/icon/icon_next_b.png')} style={{ resizeMode: 'contain', width: 25, height: 25 }} />
+              <IconNextBlack />
             </View>
           </View>
         </TouchableOpacity>
@@ -80,7 +76,7 @@ const CustomSidebarMenu = (props) => {
               <Text style={styles.font5M15}>개인정보처리방침</Text>
             </View>
             <View style={styles.rowFlex1Right}>
-              <Image source={require('../../assets/image/icon/icon_next_b.png')} style={{ resizeMode: 'contain', width: 25, height: 25 }} />
+              <IconNextBlack />
             </View>
           </View>
         </TouchableOpacity>
@@ -90,7 +86,7 @@ const CustomSidebarMenu = (props) => {
               <Text style={styles.font5M15}>고객지원</Text>
             </View>
             <View style={styles.rowFlex1Right}>
-              <Image source={require('../../assets/image/icon/icon_next_b.png')} style={{ resizeMode: 'contain', width: 25, height: 25 }} />
+              <IconNextBlack />
             </View>
           </View>
         </TouchableOpacity>
@@ -100,7 +96,7 @@ const CustomSidebarMenu = (props) => {
       {/* 로그인 로그아웃 */}
       <View style={{ backgroundColor: 'rgb(242, 243, 245)', height: '5%', paddingLeft: 20, justifyContent: 'center' }}>
         <TouchableOpacity onPress={() => props.navigation.navigate('LoginPage')}>
-          <Text style={styles.font5M15}>로그인, 로그아웃</Text>
+          <Text style={styles.font5M15}>로그아웃</Text>
         </TouchableOpacity>
       </View>
 
