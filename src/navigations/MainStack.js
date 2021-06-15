@@ -4,6 +4,8 @@ import React, { useContext } from 'react';
 
 import Login from '@screens/Login';
 import Join from '@screens/Join';
+import JoinForm from '@screens/JoinForm';
+import JoinConfirm from '@screens/JoinConfirm';
 import Main from '@screens/MainPage';
 import PrivacyPolicy from '@screens/PrivacyPolicy';
 import TermsOfService from '@screens/TermsOfService';
@@ -49,6 +51,24 @@ const MainStack = ({ navigation }) => {
       <Stack.Screen
         name="JoinPage"
         component={Join}
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+      />
+      <Stack.Screen
+        name="JoinFormPage"
+        component={JoinForm}
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+      />
+      <Stack.Screen
+        name="JoinConfirmPage"
+        component={JoinConfirm}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
