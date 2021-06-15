@@ -50,7 +50,7 @@ const CustomSidebarMenu = (props) => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('PasswordEdit')}>
           <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>비밀번호 수정</Text>

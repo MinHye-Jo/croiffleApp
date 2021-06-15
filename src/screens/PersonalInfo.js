@@ -17,8 +17,8 @@ import StoreSeelctList from '@components/StoreSeelctList';
 const PersonalInfo = (props) => {
 
   return (
-    <ScrollView>
-      <View style={{ ...styles.topContainer, paddingLeft: 20, paddingRight: 20 }}>
+    <ScrollView style={styles.topContainer}>
+      <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 40, marginBottom: 10 }}> 근무매장 </Text>
         <StoreSeelctList />
 
@@ -31,13 +31,13 @@ const PersonalInfo = (props) => {
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 휴대폰번호 변경</Text>
         <View style={styles.row}>
           <TextInput style={{ ...styles.greyInput, flex: 1.5 }} />
-          <View style={{ ...styles.blueBtn, flex: 1, margin: 10 }}>
+          <View style={{ ...styles.blueBtn, flex: 1, marginLeft: 10 }}>
             <Text style={styles.btnTxtWhite}>인증번호 발송</Text>
           </View>
         </View>
         <View style={styles.row}>
-          <TextInput style={{ ...styles.greyInput, flex: 1.5 }} placeholder="인증번호를 입력해주세요" />
-          <View style={{ ...styles.blueBtn, flex: 1, margin: 10 }}>
+          <TextInput style={{ ...styles.greyInput, flex: 1.5, marginTop: 10 }} />
+          <View style={{ ...styles.blueBtn, flex: 1, marginLeft: 10, marginTop: 10 }}>
             <Text style={styles.btnTxtWhite}>인증번호 확인</Text>
           </View>
         </View>
@@ -85,7 +85,7 @@ const PersonalInfo = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.navigate('JoinConfirmPage')}>
-          <View style={{ ...styles.greyBtn, marginTop: 15, marginBottom: 30 }}>
+          <View style={{ ...styles.greyBtn, marginTop: 15, marginBottom: 40 }}>
             <Text style={styles.btnTxtWhite}>회원탈퇴</Text>
           </View>
         </TouchableOpacity>

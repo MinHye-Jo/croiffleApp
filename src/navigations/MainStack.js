@@ -10,6 +10,7 @@ import Main from '@screens/MainPage';
 import PrivacyPolicy from '@screens/PrivacyPolicy';
 import TermsOfService from '@screens/TermsOfService';
 import PersonalInfo from '@screens/PersonalInfo';
+import PasswordEdit from '@screens/PasswordEdit';
 
 import HeaderModule from '@screens/HeaderModule';
 import PrevHeaderModule from '@screens/PrevHeaderModule';
@@ -84,6 +85,15 @@ const MainStack = ({ navigation }) => {
           )
         }}
         component={PersonalInfo}
+      />
+      <Stack.Screen
+        name="PasswordEdit"
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+        component={PasswordEdit}
       />
       <Stack.Screen
         name="TermsOfService"

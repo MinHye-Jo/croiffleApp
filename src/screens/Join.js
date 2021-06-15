@@ -56,7 +56,7 @@ const Join = (props) => {
         </View>
       </View>
 
-      <TouchableOpacity style={{ padding: 10 }} onPress={() => props.navigation.navigate('JoinFormPage')}>
+      <TouchableOpacity style={{ padding: 20, paddingTop: 10 }} onPress={() => props.navigation.navigate('JoinFormPage')}>
         <View style={styles.blueBtn}>
           <Text style={styles.btnTxtWhite}>다음</Text>
         </View>
