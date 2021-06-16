@@ -31,7 +31,9 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 매장정보 수정 </Text>
         </View>
-        <StoreManageSetButton />
+        <TouchableOpacity onPress={() => props.navigation.navigate('StoreInfoEdit')}>
+          <StoreManageSetButton />
+        </TouchableOpacity>
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>

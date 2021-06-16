@@ -13,6 +13,7 @@ import PersonalInfo from '@screens/PersonalInfo';
 import PasswordEdit from '@screens/PasswordEdit';
 import CustomerSupport from '@screens/CustomerSupport';
 import StoreManagement from '@screens/storemanagement/StoreManagement';
+import StoreInfoEdit from '@screens/storemanagement/StoreInfoEdit';
 
 import HeaderModule from '@screens/header/HeaderModule';
 import PrevHeaderModule from '@screens/header/PrevHeaderModule';
@@ -63,6 +64,16 @@ const MainStack = ({ navigation }) => {
           )
         }}
         component={StoreManagement}
+      />
+      {/* 매장정보 수정 */}
+      <Stack.Screen
+        name="StoreInfoEdit"
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+        component={StoreInfoEdit}
       />
       {/* 회원가입 메인 */}
       <Stack.Screen
