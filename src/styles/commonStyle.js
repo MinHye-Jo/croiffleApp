@@ -128,6 +128,10 @@ const styles = StyleSheet.create({
     fontFamily: 'S-CoreDream-4Regular',
     fontSize: 15
   },
+  redText: {
+    color: 'rgb(255, 83, 83)',
+    fontFamily: 'S-CoreDream-5Medium',
+  }
 });
 
 export default styles;
