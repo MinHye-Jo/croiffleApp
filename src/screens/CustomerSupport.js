@@ -12,7 +12,7 @@ import styles from '@styles/commonStyle';
 
 import CustomCheckBox from '@components/CustomCheckBox';
 import IconNextBlack from '@components/IconNextBlack';
-import StoreSeelctList from '@components/StoreSeelctList';
+import StoreSeelctList from '@components/selection/StoreSeelctList';
 
 
 const CustomerSupport = (props) => {
