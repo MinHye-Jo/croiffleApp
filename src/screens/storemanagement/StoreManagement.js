@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 
-import StoreManageSetButton from '@components/StoreManageSetButton'
+import StoreManageSetButton from '@components/button/StoreManageSetButton'
 import OnOffSwitchGrey from '@components/switch/OnOffSwitchGrey'
 import styles from '@styles/commonStyle'
 
