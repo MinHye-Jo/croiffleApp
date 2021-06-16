@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 
-const OnOffSwitch = () => {
+const OnOffSwitchWhite = () => {
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -23,7 +23,7 @@ const OnOffSwitch = () => {
     offBtn: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'rgb(242, 243, 245)',
+      backgroundColor: '#fff',
       borderRadius: 5,
       height: 30,
       width: 40
@@ -51,4 +51,4 @@ const OnOffSwitch = () => {
   );
 };
 
-export default OnOffSwitch;
+export default OnOffSwitchWhite;

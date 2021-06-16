@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 
 import StoreManageSetButton from '@components/StoreManageSetButton'
-import OnOffSwitch from '@components/switch/OnOffSwitch'
+import OnOffSwitchGrey from '@components/switch/OnOffSwitchGrey'
 import styles from '@styles/commonStyle'
 
 
@@ -22,7 +22,7 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 영업 일시중지 </Text>
         </View>
-        <OnOffSwitch />
+        <OnOffSwitchGrey />
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>
@@ -47,7 +47,9 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 휴무일 설정 </Text>
         </View>
-        <StoreManageSetButton />
+        <TouchableOpacity onPress={() => props.navigation.navigate('HolidaySetting')}>
+          <StoreManageSetButton />
+        </TouchableOpacity>
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>
@@ -63,7 +65,7 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 알림설정 </Text>
         </View>
-        <OnOffSwitch />
+        <OnOffSwitchGrey />
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>

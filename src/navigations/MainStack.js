@@ -15,6 +15,7 @@ import CustomerSupport from '@screens/CustomerSupport';
 import StoreManagement from '@screens/storemanagement/StoreManagement';
 import StoreInfoEdit from '@screens/storemanagement/StoreInfoEdit';
 import OpeningHours from '@screens/storemanagement/OpeningHours';
+import HolidaySetting from '@screens/storemanagement/HolidaySetting';
 import MenuManagement from '@screens/storemanagement/MenuManagement';
 
 import HeaderModule from '@screens/header/HeaderModule';
@@ -86,6 +87,16 @@ const MainStack = ({ navigation }) => {
           )
         }}
         component={OpeningHours}
+      />
+      {/* 휴무일 설정 */}
+      <Stack.Screen
+        name="HolidaySetting"
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+        component={HolidaySetting}
       />
       {/* 메뉴관리 */}
       <Stack.Screen
