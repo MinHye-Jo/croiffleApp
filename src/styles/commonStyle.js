@@ -100,6 +100,15 @@ const styles = StyleSheet.create({
     height: 50,
     paddingLeft: 10
   },
+  storeGreyBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 5,
+    borderColor: 'rgb(242, 243, 245)',
+    backgroundColor: 'rgb(242, 243, 245)',
+    height: 50,
+    paddingLeft: 10
+  },
   image25: {
     resizeMode: 'contain',
     width: 25,
