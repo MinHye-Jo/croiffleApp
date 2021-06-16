@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 
 import StoreManageSetButton from '@components/StoreManageSetButton'
-import OnOffSwitch from '@components/OnOffSwitch'
+import OnOffSwitch from '@components/switch/OnOffSwitch'
 import styles from '@styles/commonStyle'
 
 
@@ -54,7 +54,9 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 메뉴 관리 </Text>
         </View>
-        <StoreManageSetButton />
+        <TouchableOpacity onPress={() => props.navigation.navigate('MenuManagement')}>
+          <StoreManageSetButton />
+        </TouchableOpacity>
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>

@@ -15,6 +15,7 @@ import CustomerSupport from '@screens/CustomerSupport';
 import StoreManagement from '@screens/storemanagement/StoreManagement';
 import StoreInfoEdit from '@screens/storemanagement/StoreInfoEdit';
 import OpeningHours from '@screens/storemanagement/OpeningHours';
+import MenuManagement from '@screens/storemanagement/MenuManagement';
 
 import HeaderModule from '@screens/header/HeaderModule';
 import PrevHeaderModule from '@screens/header/PrevHeaderModule';
@@ -85,6 +86,16 @@ const MainStack = ({ navigation }) => {
           )
         }}
         component={OpeningHours}
+      />
+      {/* 메뉴관리 */}
+      <Stack.Screen
+        name="MenuManagement"
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+        component={MenuManagement}
       />
       {/* 회원가입 메인 */}
       <Stack.Screen
