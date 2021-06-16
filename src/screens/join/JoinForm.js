@@ -11,7 +11,7 @@ import {
 import styles from '@styles/commonStyle';
 
 import TextInputMask from '@components/TextInputMask';
-import StoreSeelctList from '@components/StoreSeelctList';
+import StoreSeelctList from '@components/selection/StoreSeelctList';
 
 
 const JoinForm = (props) => {

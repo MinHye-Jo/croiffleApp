@@ -22,23 +22,25 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 영업 일시중지 </Text>
         </View>
-        {/* <View style={styles.rowFlex1Right}> */}
         <OnOffSwitch />
-        {/* </View> */}
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 매장정보 수정 </Text>
         </View>
-        <StoreManageSetButton />
+        <TouchableOpacity onPress={() => props.navigation.navigate('StoreInfoEdit')}>
+          <StoreManageSetButton />
+        </TouchableOpacity>
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 영업시간 설정 </Text>
         </View>
-        <StoreManageSetButton />
+        <TouchableOpacity onPress={() => props.navigation.navigate('OpeningHours')}>
+          <StoreManageSetButton />
+        </TouchableOpacity>
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>
