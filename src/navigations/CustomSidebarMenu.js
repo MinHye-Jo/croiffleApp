@@ -9,8 +9,8 @@ import {
 
 import { DrawerContentScrollView } from '@react-navigation/drawer';
 
-import OrderHistoryButton from '@components/OrderHistoryButton'
-import StoreManageButton from '@components/StoreManageButton'
+import OrderHistoryButton from '@components/button/OrderHistoryButton'
+import StoreManageButton from '@components/button/StoreManageButton'
 import IconNextBlack from '@components/IconNextBlack'
 
 import naviStyle from '@styles/naviStyle'

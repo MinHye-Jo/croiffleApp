@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import { View, Text } from 'react-native';
 import JoinWebView from '@components/JoinWebView';
-import AgreeButton from '@components/AgreeButton';
+import AgreeButton from '@components/button/AgreeButton';
 
 const PrivacyPolicy = ({ navigation }) => {
   return (

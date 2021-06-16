@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 
-const OrderHistoryButton = () => {
+const StoreManageButton = ({ navigation }) => {
 
   const styles = StyleSheet.create({
     container: {
@@ -19,18 +20,20 @@ const OrderHistoryButton = () => {
       shadowOpacity: 0.25,
       shadowRadius: 3.84,
       elevation: 5,
-      margin: 20
+      marginTop: 20,
+      marginRight: 20,
+      marginBottom: 20,
     },
   });
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={{ padding: 10 }}>
-        <Image source={require('../../assets/image/icon/icon_list_b.png')} style={{ height: '70%', resizeMode: 'contain' }} />
-        <Text style={{ textAlign: 'center', paddingTop: 10, fontFamily: 'S-CoreDream-5Medium', fontSize: 18 }}>주문내역</Text>
+      <TouchableOpacity style={{ padding: 10 }} onPress={() => navigation.navigate('StoreManagement')}>
+        <Image source={require('../../../assets/image/icon/icon_management.png')} style={{ height: '70%', resizeMode: 'contain' }} />
+        <Text style={{ textAlign: 'center', paddingTop: 10, fontFamily: 'S-CoreDream-5Medium', fontSize: 18 }}>매장관리</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default OrderHistoryButton;
+export default StoreManageButton;
