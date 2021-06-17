@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 
 const CustomCheckBox = () => {
   const styles = StyleSheet.create({

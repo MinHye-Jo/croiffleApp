@@ -1,6 +1,4 @@
-
-
-import React, { useContext } from 'react';
+import React from 'react';
 
 import Login from '@screens/Login';
 import FindId from '@screens/FindId';
