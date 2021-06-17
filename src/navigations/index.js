@@ -16,7 +16,7 @@ const Navigation = () => {
     <NavigationContainer>
       <Drawer.Navigator
         drawerContent={(props) => <CustomSidebarMenu {...props} />}
-        drawerStyle={{ padding: 0, margin: 0 }}>
+      >
         <Stack.Screen name="MainStack" component={MainStack} />
 
         {/* <Drawer.Screen

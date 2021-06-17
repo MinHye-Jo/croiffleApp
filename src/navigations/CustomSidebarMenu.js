@@ -7,14 +7,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import { DrawerContentScrollView } from '@react-navigation/drawer';
-
 import OrderHistoryButton from '@components/button/OrderHistoryButton'
 import StoreManageButton from '@components/button/StoreManageButton'
 import IconNextBlack from '@components/IconNextBlack'
 
 import naviStyle from '@styles/naviStyle'
 import styles from '@styles/commonStyle'
+import { ScrollView } from 'react-native-gesture-handler';
 
 const CustomSidebarMenu = (props) => {
   return (
@@ -31,17 +30,17 @@ const CustomSidebarMenu = (props) => {
         </View>
       </View>
       {/* 주문내역, 매장관리 버튼 */}
-      <View style={{ height: '20%', backgroundColor: 'rgb(242, 243, 245)' }}>
+      <View style={{ height: 150, backgroundColor: 'rgb(242, 243, 245)' }}>
         <View style={{ flexDirection: 'row' }}>
           <OrderHistoryButton />
           <StoreManageButton navigation={props.navigation} />
         </View>
       </View>
       {/* 사이드메뉴 항목 */}
-      <DrawerContentScrollView {...props}>
+      <ScrollView {...props} style={{ paddingLeft: 20, paddingTop: 20 }} >
         {/* <DrawerItemList {...props} /> */}
         <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
-          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>개인정보관리</Text>
             </View>
@@ -51,7 +50,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.navigate('PasswordEdit')}>
-          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>비밀번호 수정</Text>
             </View>
@@ -61,7 +60,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.navigate('TermsOfService')}>
-          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>서비스이용약관</Text>
             </View>
@@ -71,7 +70,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.navigate('PrivacyPolicyPage')}>
-          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>개인정보처리방침</Text>
             </View>
@@ -81,7 +80,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => props.navigation.navigate('CustomerSupport')}>
-          <View style={{ ...styles.row, paddingLeft: 20, paddingBottom: 10 }}>
+          <View style={{ ...styles.row, paddingBottom: 10 }}>
             <View style={styles.rowFlex2Left}>
               <Text style={styles.font5M15}>고객지원</Text>
             </View>
@@ -91,7 +90,7 @@ const CustomSidebarMenu = (props) => {
           </View>
         </TouchableOpacity>
         <View style={styles.hr}></View>
-      </DrawerContentScrollView>
+      </ScrollView>
 
       {/* 로그인 로그아웃 */}
       <View style={{ backgroundColor: 'rgb(242, 243, 245)', height: '5%', paddingLeft: 20, justifyContent: 'center' }}>

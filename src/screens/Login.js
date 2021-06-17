@@ -37,7 +37,7 @@ const Login = (props) => {
 
       <View style={{ ...styles.font4R10, alignItems: 'center', paddingTop: 15 }}>
         <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate('FindId')}>
             <Text> 아이디 찾기 </Text>
           </TouchableOpacity>
           <Text> | </Text>
