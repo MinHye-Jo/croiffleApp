@@ -1,20 +1,14 @@
 import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle'
+import styles from '@styles/commonStyle';
+import Logo from '@components/image/Logo';
 
 
 const FindId = (props) => {
   return (
     <View style={styles.topContainer}>
-      <View style={{
-        height: '15%',
-        marginTop: '20%',
-        alignItems: 'center'
-      }}>
-        <Image source={require('../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
-      </View>
-
+      <Logo />
       <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>
         <Text style={styles.loginFont}>아이디 찾기</Text>
         <Text style={styles.loginFont2}>회원가입 시 입력한 이름과</Text>

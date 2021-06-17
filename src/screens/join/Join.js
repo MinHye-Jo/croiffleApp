@@ -1,22 +1,16 @@
 import React from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle'
-import CustomCheckBox from '@components/CustomCheckBox'
-import IconNextBlack from '@components/IconNextBlack'
-
+import styles from '@styles/commonStyle';
+import CustomCheckBox from '@components/CustomCheckBox';
+import IconNextBlack from '@components/IconNextBlack';
+import Logo from '@components/image/Logo';
 
 const Join = (props) => {
 
   return (
     <View style={styles.topContainer}>
-      <View style={{
-        height: '15%',
-        marginTop: '20%',
-        alignItems: 'center'
-      }}>
-        <Image source={require('../../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
-      </View>
+      <Logo />
 
       <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>
         <Text style={styles.loginFont}>고객님!</Text>

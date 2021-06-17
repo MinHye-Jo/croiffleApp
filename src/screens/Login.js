@@ -1,18 +1,15 @@
 import React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle'
+import styles from '@styles/commonStyle';
+import Logo from '@components/image/Logo';
 
 
 const Login = (props) => {
   return (
     <View style={styles.topContainer}>
-      <View style={{
-        height: '15%',
-        marginTop: '40%',
-        alignItems: 'center'
-      }}>
-        <Image source={require('../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
+      <View style={{ marginTop: '25%' }}>
+        <Logo />
       </View>
 
       <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>
@@ -22,10 +19,10 @@ const Login = (props) => {
       </View>
 
       <View style={{ paddingTop: 30, paddingLeft: 20, paddingRight: 20 }}>
-        <TextInput style={styles.greyInput} placeholder={"아이디"} placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' />
+        <TextInput style={styles.greyInput} placeholder="아이디" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' />
       </View>
       <View style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 20 }}>
-        <TextInput style={styles.greyInput} placeholder={"비밀번호"} placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' />
+        <TextInput style={styles.greyInput} placeholder="비밀번호" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' />
       </View>
 
       <TouchableOpacity style={{ padding: 10, margin: 10 }} onPress={() => props.navigation.navigate('MainPage')}>
@@ -41,7 +38,7 @@ const Login = (props) => {
             <Text> 아이디 찾기 </Text>
           </TouchableOpacity>
           <Text> | </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate('FindPassword')} >
             <Text> 비밀번호 찾기 </Text>
           </TouchableOpacity>
           <Text> | </Text>

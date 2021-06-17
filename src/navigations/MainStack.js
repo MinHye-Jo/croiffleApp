@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 
 import Login from '@screens/Login';
 import FindId from '@screens/FindId';
+import FindPassword from '@screens/FindPassword';
 import Join from '@screens/join/Join';
 import JoinForm from '@screens/join/JoinForm';
 import JoinConfirm from '@screens/join/JoinConfirm';
@@ -113,6 +114,16 @@ const MainStack = ({ navigation }) => {
       <Stack.Screen
         name="FindId"
         component={FindId}
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+      />
+      {/* 아이디 찾기 */}
+      <Stack.Screen
+        name="FindPassword"
+        component={FindPassword}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
