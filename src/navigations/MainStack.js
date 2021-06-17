@@ -5,23 +5,29 @@ import React, { useContext } from 'react';
 import Login from '@screens/Login';
 import FindId from '@screens/FindId';
 import FindPassword from '@screens/FindPassword';
+
 import Join from '@screens/join/Join';
 import JoinForm from '@screens/join/JoinForm';
 import JoinConfirm from '@screens/join/JoinConfirm';
+
 import Main from '@screens/main/MainPage';
+
 import PrivacyPolicy from '@screens/terms/PrivacyPolicy';
 import TermsOfService from '@screens/terms/TermsOfService';
+
 import PersonalInfo from '@screens/PersonalInfo';
 import PasswordEdit from '@screens/PasswordEdit';
 import CustomerSupport from '@screens/CustomerSupport';
-import StoreManagement from '@screens/storemanagement/StoreManagement';
-import StoreInfoEdit from '@screens/storemanagement/StoreInfoEdit';
-import OpeningHours from '@screens/storemanagement/OpeningHours';
-import HolidaySetting from '@screens/storemanagement/HolidaySetting';
-import MenuManagement from '@screens/storemanagement/MenuManagement';
+
+import StoreManagement from '@screens/store/StoreManagement';
+import StoreInfoEdit from '@screens/store/StoreInfoEdit';
+import OpeningHours from '@screens/store/OpeningHours';
+import HolidaySetting from '@screens/store/HolidaySetting';
+import MenuManagement from '@screens/store/MenuManagement';
 
 import HeaderModule from '@screens/header/HeaderModule';
 import PrevHeaderModule from '@screens/header/PrevHeaderModule';
+
 
 import { createStackNavigator } from '@react-navigation/stack';
 
