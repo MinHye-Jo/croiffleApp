@@ -2,19 +2,14 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 import styles from '@styles/commonStyle';
+import Logo from '@components/image/Logo';
 
 
 const JoinConfirm = (props) => {
 
   return (
     <View style={styles.topContainer}>
-      <View style={{
-        height: '15%',
-        marginTop: '20%',
-        alignItems: 'center'
-      }}>
-        <Image source={require('../../../assets/image/logo_b.png')} style={{ height: '100%', resizeMode: 'contain' }} />
-      </View>
+      <Logo />
 
       <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>
         <Text style={styles.loginFont}>회원가입 완료!</Text>
@@ -23,7 +18,7 @@ const JoinConfirm = (props) => {
       </View>
 
       <TouchableOpacity onPress={() => props.navigation.navigate('LoginPage')}>
-        <View style={{ ...styles.blueBtn, margin: 20 }}>
+        <View style={{ ...styles.blueBtn, margin: 20, marginTop: 40 }}>
           <Text style={styles.btnTxtWhite}>로그인 하기</Text>
         </View>
       </TouchableOpacity>
