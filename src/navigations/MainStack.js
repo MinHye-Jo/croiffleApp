@@ -3,6 +3,7 @@
 import React, { useContext } from 'react';
 
 import Login from '@screens/Login';
+import FindId from '@screens/FindId';
 import Join from '@screens/join/Join';
 import JoinForm from '@screens/join/JoinForm';
 import JoinConfirm from '@screens/join/JoinConfirm';
@@ -107,6 +108,16 @@ const MainStack = ({ navigation }) => {
           )
         }}
         component={MenuManagement}
+      />
+      {/* 아이디 찾기 */}
+      <Stack.Screen
+        name="FindId"
+        component={FindId}
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
       />
       {/* 회원가입 메인 */}
       <Stack.Screen
