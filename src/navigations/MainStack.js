@@ -17,6 +17,8 @@ import PersonalInfo from '@screens/PersonalInfo';
 import PasswordEdit from '@screens/PasswordEdit';
 import CustomerSupport from '@screens/CustomerSupport';
 
+import OrderHistory from '@screens/order/OrderHistory';
+
 import StoreManagement from '@screens/store/StoreManagement';
 import StoreInfoEdit from '@screens/store/StoreInfoEdit';
 import OpeningHours from '@screens/store/OpeningHours';
@@ -64,55 +66,65 @@ const MainStack = ({ navigation }) => {
           )
         }}
       />
-      {/* 매장관리 */}
+      {/* 주문내역 */}
       <Stack.Screen
-        name="StoreManagement"
+        name="OrderHistory"
+        component={OrderHistory}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
+      />
+      {/* 매장관리 */}
+      <Stack.Screen
+        name="StoreManagement"
         component={StoreManagement}
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
       />
       {/* 매장정보 수정 */}
       <Stack.Screen
         name="StoreInfoEdit"
+        component={StoreInfoEdit}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={StoreInfoEdit}
       />
       {/* 영업시간 설정 */}
       <Stack.Screen
         name="OpeningHours"
+        component={OpeningHours}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={OpeningHours}
       />
       {/* 휴무일 설정 */}
       <Stack.Screen
         name="HolidaySetting"
+        component={HolidaySetting}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={HolidaySetting}
       />
       {/* 메뉴관리 */}
       <Stack.Screen
         name="MenuManagement"
+        component={MenuManagement}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={MenuManagement}
       />
       {/* 아이디 찾기 */}
       <Stack.Screen
@@ -167,52 +179,52 @@ const MainStack = ({ navigation }) => {
       {/* 개인정보관리 */}
       <Stack.Screen
         name="PersonalInfo"
+        component={PersonalInfo}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={PersonalInfo}
       />
       {/* 비밀번호 수정 */}
       <Stack.Screen
         name="PasswordEdit"
+        component={PasswordEdit}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={PasswordEdit}
       />
       {/* 서비스 이용약관 */}
       <Stack.Screen
         name="TermsOfService"
+        component={TermsOfService}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={TermsOfService}
       />
       {/* 개인정보 처리방침 */}
       <Stack.Screen
         name="PrivacyPolicyPage"
+        component={PrivacyPolicy}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={PrivacyPolicy}
       />
       {/* 고객지원 */}
       <Stack.Screen
         name="CustomerSupport"
+        component={CustomerSupport}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
           )
         }}
-        component={CustomerSupport}
       />
 
     </Stack.Navigator>

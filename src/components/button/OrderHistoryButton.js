@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 
-const OrderHistoryButton = () => {
+const OrderHistoryButton = ({ navigation }) => {
 
   const styles = StyleSheet.create({
     container: {
@@ -25,7 +25,7 @@ const OrderHistoryButton = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={{ padding: 10 }}>
+      <TouchableOpacity style={{ padding: 10 }} onPress={() => navigation.navigate('OrderHistory')}>
         <Image source={require('../../../assets/image/icon/icon_list_b.png')} style={{ height: '70%', resizeMode: 'contain' }} />
         <Text style={{ textAlign: 'center', paddingTop: 10, fontFamily: 'S-CoreDream-5Medium', fontSize: 18 }}>주문내역</Text>
       </TouchableOpacity>
