@@ -15,7 +15,7 @@ const Main = (props) => {
       </View>
       <View style={{ height: '25%' }}>
         <View style={{ flexDirection: 'row' }}>
-          <OrderHistoryButton />
+          <OrderHistoryButton navigation={props.navigation} />
           <StoreManageButton navigation={props.navigation} />
         </View>
       </View>
