@@ -24,8 +24,6 @@ const renderCenterTitle = (props) => (
 );
 
 const PrevHeaderModule = (props) => {
-  console.log(props)
-
   return (
     <Header
       containerStyle={{ height: 100 }}
