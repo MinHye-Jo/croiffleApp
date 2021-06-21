@@ -15,11 +15,12 @@ const renderPrevBtn = (props) => (
 
 // 타이틀
 const renderCenterTitle = (props) => (
-  <TouchableOpacity onPress={() => props.navigation.goBack()}>
+
+  < TouchableOpacity onPress={() => props.navigation.goBack()}>
     <View style={{ flexDirection: 'row', marginTop: 3 }}>
-      <Text style={styles.prevHeaderFont}>타이틀</Text>
+      <Text style={styles.prevHeaderFont}>{props.title}</Text>
     </View>
-  </TouchableOpacity>
+  </TouchableOpacity >
 );
 
 const PrevHeaderModule = (props) => {

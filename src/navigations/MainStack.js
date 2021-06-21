@@ -42,7 +42,7 @@ const NavigationDrawerStructure = (props) => {
 
 const PrevStackMove = (props) => {
   return (
-    <PrevHeaderModule navigation={props.navigationProps} />
+    <PrevHeaderModule navigation={props.navigationProps} title={props.title} />
   );
 };
 
@@ -52,10 +52,10 @@ const MainStack = ({ navigation }) => {
       {/* 로그인 */}
       <Stack.Screen
         name="LoginPage"
+        component={Login}
         options={{
           headerShown: false,
         }}
-        component={Login}
       />
       {/* 메인 */}
       <Stack.Screen
@@ -73,7 +73,7 @@ const MainStack = ({ navigation }) => {
         component={OrderHistory}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="주문내역" />
           )
         }}
       />
@@ -83,7 +83,7 @@ const MainStack = ({ navigation }) => {
         component={OrderDetail}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="주문내역" />
           )
         }}
       />
@@ -93,7 +93,7 @@ const MainStack = ({ navigation }) => {
         component={StoreManagement}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="매장관리" />
           )
         }}
       />
@@ -103,7 +103,7 @@ const MainStack = ({ navigation }) => {
         component={StoreInfoEdit}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="매장정보 수정" />
           )
         }}
       />
@@ -113,7 +113,7 @@ const MainStack = ({ navigation }) => {
         component={OpeningHours}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="영업시간 설정" />
           )
         }}
       />
@@ -123,7 +123,7 @@ const MainStack = ({ navigation }) => {
         component={HolidaySetting}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="휴무일 설정" />
           )
         }}
       />
@@ -133,7 +133,7 @@ const MainStack = ({ navigation }) => {
         component={MenuManagement}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="메뉴관리" />
           )
         }}
       />
@@ -143,17 +143,17 @@ const MainStack = ({ navigation }) => {
         component={FindId}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="아이디 찾기" />
           )
         }}
       />
-      {/* 아이디 찾기 */}
+      {/* 비밀번호 찾기 */}
       <Stack.Screen
         name="FindPassword"
         component={FindPassword}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="비밀번호 찾기" />
           )
         }}
       />
@@ -163,7 +163,7 @@ const MainStack = ({ navigation }) => {
         component={Join}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="회원가입" />
           )
         }}
       />
@@ -173,7 +173,7 @@ const MainStack = ({ navigation }) => {
         component={JoinForm}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="회원가입" />
           )
         }}
       />
@@ -183,7 +183,7 @@ const MainStack = ({ navigation }) => {
         component={JoinConfirm}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="회원가입" />
           )
         }}
       />
@@ -193,7 +193,7 @@ const MainStack = ({ navigation }) => {
         component={PersonalInfo}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="개인정보관리" />
           )
         }}
       />
@@ -203,7 +203,7 @@ const MainStack = ({ navigation }) => {
         component={PasswordEdit}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="비밀번호 수정" />
           )
         }}
       />
@@ -213,7 +213,7 @@ const MainStack = ({ navigation }) => {
         component={TermsOfService}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="서비스 이용약관" />
           )
         }}
       />
@@ -223,7 +223,7 @@ const MainStack = ({ navigation }) => {
         component={PrivacyPolicy}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="개인정보처리방침" />
           )
         }}
       />
@@ -233,7 +233,7 @@ const MainStack = ({ navigation }) => {
         component={CustomerSupport}
         options={{
           header: () => (
-            <PrevStackMove navigationProps={navigation} />
+            <PrevStackMove navigationProps={navigation} title="고객지원" />
           )
         }}
       />
