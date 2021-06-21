@@ -14,7 +14,7 @@ const OrderHistory = (props) => {
       </View>
       <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }}>
         <View>
-          <OrderMenuDetail />
+          <OrderMenuDetail navigation={props.navigation} />
         </View >
       </ScrollView>
     </View >

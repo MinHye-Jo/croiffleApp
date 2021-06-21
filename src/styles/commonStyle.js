@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: 15
   },
+  font5M15blue: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: 15,
+    color: 'rgb(0, 191, 213)'
+  },
   font5M20: {
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: 20
@@ -29,6 +34,10 @@ const styles = StyleSheet.create({
   font4R10: {
     fontFamily: 'S-CoreDream-4Regular',
     fontSize: 10
+  },
+  font4R15: {
+    fontFamily: 'S-CoreDream-4Regular',
+    fontSize: 15
   },
   prevHeaderFont: {
     fontFamily: 'S-CoreDream-5Medium',
@@ -83,6 +92,15 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: 'rgb(242, 243, 245)',
     backgroundColor: 'rgb(242, 243, 245)',
+  },
+  greyTxtBox: {
+    borderRadius: 5,
+    borderColor: 'rgb(242, 243, 245)',
+    backgroundColor: 'rgb(242, 243, 245)',
+    height: 40,
+    justifyContent: 'center',
+    paddingLeft: 10,
+    paddingRight: 10
   },
   storeWhiteBox: {
     flexDirection: 'row',

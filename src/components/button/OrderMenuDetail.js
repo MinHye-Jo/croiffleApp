@@ -48,8 +48,7 @@ const OrderMenuDetail = ({ navigation }) => {
   });
 
   return (
-    // <TouchableOpacity onPress={() => navigation.navigate('OrderHistory')}>
-    <TouchableOpacity >
+    <TouchableOpacity onPress={() => navigation.navigate('OrderDetail')}>
       <View style={styles.container}>
         <View style={styles.imgContainer}>
           <Image source={require('../../../assets/image/croiffle_basil.jpg')} style={styles.img} />

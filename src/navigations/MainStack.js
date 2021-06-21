@@ -18,6 +18,7 @@ import PasswordEdit from '@screens/PasswordEdit';
 import CustomerSupport from '@screens/CustomerSupport';
 
 import OrderHistory from '@screens/order/OrderHistory';
+import OrderDetail from '@screens/order/OrderDetail';
 
 import StoreManagement from '@screens/store/StoreManagement';
 import StoreInfoEdit from '@screens/store/StoreInfoEdit';
@@ -70,6 +71,16 @@ const MainStack = ({ navigation }) => {
       <Stack.Screen
         name="OrderHistory"
         component={OrderHistory}
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} />
+          )
+        }}
+      />
+      {/* 주문상세 */}
+      <Stack.Screen
+        name="OrderDetail"
+        component={OrderDetail}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} />
