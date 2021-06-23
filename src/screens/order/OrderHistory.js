@@ -13,7 +13,8 @@ const OrderHistory = (props) => {
         <OrderTabButton />
       </View>
       <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }}>
-        <View>
+        <View style={{ padding: 20 }}>
+          <OrderMenuDetail navigation={props.navigation} />
           <OrderMenuDetail navigation={props.navigation} />
         </View >
       </ScrollView>
