@@ -15,7 +15,7 @@ const OrderMenuDetail = ({ navigation }) => {
       elevation: 3,
       borderRadius: 5,
       padding: 15,
-      margin: 20
+      marginBottom: 15
     },
     imgContainer: {
       flex: 1,
