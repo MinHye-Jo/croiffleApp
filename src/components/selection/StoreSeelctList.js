@@ -1,32 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-
-const items = [
-  { label: 'Apple', value: 'apple' },
-  { label: 'Banana', value: 'banana' }
-];
 
 const StoreSeelctList = () => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgb(242, 243, 245)',
+      borderColor: 'rgb(242, 243, 245)',
+      borderRadius: 5
+    },
+    txt: {
       fontFamily: 'S-CoreDream-4Regular',
       fontSize: 15,
-      borderColor: 'rgb(242, 243, 245)'
     }
   });
+
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState('갈매점');
+  const [items, setItems] = useState([
+    { label: '갈매점', value: '갈매점' },
+    { label: '광화문점', value: '광화문점' }
+  ]);
 
   return (
     <DropDownPicker
       style={styles.container}
-      // open={open}
-      // value={value}
+      textStyle={styles.txt}
+      dropDownContainerStyle={{ backgroundColor: 'rgb(242, 243, 245)', }}
+      open={open}
+      value={value}
       items={items}
-    // setValue={setValue}
+      setOpen={setOpen}
+      setValue={setValue}
+      listMode="SCROLLVIEW"
     // setItems={setItems}
-    // setOpen={setOpen}
     />
   );
 };

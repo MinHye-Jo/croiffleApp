@@ -39,10 +39,13 @@ const Login = (props) => {
       </View>
 
       <View style={{ paddingTop: 30, paddingLeft: 20, paddingRight: 20 }}>
-        <TextInput style={styles.greyInput} placeholder="아이디" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' onChange={(e) => setId(e.target.value)} />
+        <TextInput style={styles.greyInput} placeholder="아이디" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none'
+          onChange={(e) => setId(e.target.value)} />
       </View>
       <View style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 20 }}>
-        <TextInput style={styles.greyInput} placeholder="비밀번호" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' onChange={(e) => setPassword(e.target.value)} />
+        <TextInput style={styles.greyInput} placeholder="비밀번호" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none'
+          secureTextEntry={true}
+          onChange={(e) => setPassword(e.target.value)} />
       </View>
 
       <TouchableOpacity style={{ padding: 10, margin: 10 }} onPress={() => serviceLogin()}>
