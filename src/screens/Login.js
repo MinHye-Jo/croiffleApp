@@ -1,11 +1,31 @@
-import React from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
-
-import styles from '@styles/commonStyle';
 import Logo from '@components/image/Logo';
-
+import styles from '@styles/commonStyle';
+import React, { useState } from 'react';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { login } from '@service/home';
+import { setJwtToken } from '@common/http';
 
 const Login = (props) => {
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+
+  const serviceLogin = async () => {
+    const re = await login(id, password);
+
+    console.log('=======================');
+    console.log(re);
+
+    if (re.data) {
+      // 성공~~ 리다이렉트
+      setJwtToken(re.token);
+    }
+    else {
+      // 실패~~
+      // 실패메세지 처리 ?? 
+
+    }
+  }
+
   return (
     <View style={styles.topContainer}>
       <View style={{ marginTop: '25%' }}>
@@ -19,18 +39,17 @@ const Login = (props) => {
       </View>
 
       <View style={{ paddingTop: 30, paddingLeft: 20, paddingRight: 20 }}>
-        <TextInput style={styles.greyInput} placeholder="아이디" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' />
+        <TextInput style={styles.greyInput} placeholder="아이디" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' onChange={(e) => setId(e.target.value)} />
       </View>
       <View style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 20 }}>
-        <TextInput style={styles.greyInput} placeholder="비밀번호" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' />
+        <TextInput style={styles.greyInput} placeholder="비밀번호" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none' onChange={(e) => setPassword(e.target.value)} />
       </View>
 
-      <TouchableOpacity style={{ padding: 10, margin: 10 }} onPress={() => props.navigation.navigate('MainPage')}>
+      <TouchableOpacity style={{ padding: 10, margin: 10 }} onPress={() => serviceLogin()}>
         <View style={styles.blueBtn}>
-          <Text style={styles.btnTxtWhite}>로그인</Text>
+          <Text style={styles.btnTxtWhite} >로그인</Text>
         </View>
       </TouchableOpacity>
-
 
       <View style={{ ...styles.font4R10, alignItems: 'center', paddingTop: 15 }}>
         <View style={{ flexDirection: 'row' }}>
