@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 
-const CustomCheckBox = () => {
+const CustomCheckBox = ({ checked, onChange }) => {
   const styles = StyleSheet.create({
     container: {
       resizeMode: 'contain',
@@ -12,8 +12,12 @@ const CustomCheckBox = () => {
     },
   });
 
+  const image = checked ? require('../../assets/image/icon/icon_check_b.png') : require('../../assets/image/icon/icon_check_g.png');
+
   return (
-    <Image source={require('../../assets/image/icon/icon_check_g.png')} style={styles.container} />
+    <TouchableOpacity activeOpacity={.5} onPress={() => onChange(!checked)}>
+      <Image source={image} style={styles.container} />
+    </TouchableOpacity>
   );
 };
 
