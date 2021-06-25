@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from '@styles/commonStyle';
 import CustomCheckBox from '@components/CustomCheckBox';
