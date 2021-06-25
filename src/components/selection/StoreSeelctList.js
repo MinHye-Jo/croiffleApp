@@ -18,10 +18,11 @@ const StoreSeelctList = () => {
 
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('갈매점');
-  const [items, setItems] = useState([
+
+  const items = [
     { label: '갈매점', value: '갈매점' },
     { label: '광화문점', value: '광화문점' }
-  ]);
+  ];
 
   return (
     <DropDownPicker
@@ -34,7 +35,6 @@ const StoreSeelctList = () => {
       setOpen={setOpen}
       setValue={setValue}
       listMode="SCROLLVIEW"
-    // setItems={setItems}
     />
   );
 };
