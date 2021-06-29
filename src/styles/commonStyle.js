@@ -149,6 +149,11 @@ const styles = StyleSheet.create({
   redText: {
     color: 'rgb(255, 83, 83)',
     fontFamily: 'S-CoreDream-5Medium',
+  },
+  errText: {
+    color: 'rgb(255, 83, 83)',
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: 12
   }
 });
 

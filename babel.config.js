@@ -9,6 +9,7 @@ module.exports = {
           '@': './src',
           '@config': './src/config',
           '@common': './src/common',
+          '@hook': './src/hook',
           '@service': './src/service',
           '@components': './src/components',
           '@screens': './src/screens',

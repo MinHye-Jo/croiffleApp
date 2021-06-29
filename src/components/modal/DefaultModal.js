@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import Modal from 'react-native-modal';
 
-const DefaultModal = ({ modalOpen, onClose, modalText }) => {
+const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, modalTextThi }) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -13,6 +13,14 @@ const DefaultModal = ({ modalOpen, onClose, modalText }) => {
     modalcontainer: {
       width: '100%',
       height: '32%',
+      borderRadius: 10,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      padding: 20
+    },
+    modalcontainer2: {
+      width: '100%',
+      height: '35%',
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
@@ -53,12 +61,13 @@ const DefaultModal = ({ modalOpen, onClose, modalText }) => {
   return (
     <Modal isVisible={modalOpen}>
       <View style={styles.container}>
-        <View style={styles.modalcontainer} >
+        <View style={modalTextThi == "" ? styles.modalcontainer : styles.modalcontainer2} >
           <View style={styles.container}>
-            <Text style={styles.title}>알림</Text>
+            <Text style={styles.title}>{title == "" ? "알림" : title}</Text>
             <Image source={require('../../../assets/image/icon/icon_popup_b.png')} style={styles.imgContainer} />
             <Text style={styles.txt}>{modalText}</Text>
-            {/* <Text style={styles.txt}>뭐시기 뭐시기 ~~~</Text> */}
+            {modalTextSec != "" && <Text style={styles.txt}>{modalTextSec}</Text>}
+            {modalTextThi != "" && <Text style={styles.txt}>{modalTextThi}</Text>}
 
             <TouchableOpacity style={styles.blueBtn} onPress={() => onClose()}>
               <View>

@@ -1,8 +1,9 @@
-import Logo from '@components/image/Logo';
-import styles from '@styles/commonStyle';
 import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { login } from '@service/home';
+
+import Logo from '@components/image/Logo';
+import styles from '@styles/commonStyle';
+import { login } from '@service/auth';
 import { setJwtToken } from '@common/http';
 
 const Login = (props) => {
