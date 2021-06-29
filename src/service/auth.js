@@ -19,3 +19,13 @@ export const join = (data) => {
 export const sendAuthCode = (phoneNumber) => {
   return http.post('/auth/sendAuthCode', { phoneNumber });
 }
+
+// 인증번호 확인
+export const confirmAuthCode = (phoneNumber, authCode) => {
+  return http.post('/auth/confirmAuthCode/phone', { phoneNumber, authCode });
+}
+
+// 아이디 중복확인
+export const checkID = (id) => {
+  return http.post('/auth/checkID', { id });
+}

@@ -35,9 +35,10 @@ const noErrImageSrc = require('../../assets/image/icon/icon_check_b.png');
 // input 타입별 Mask 처리함수
 const TextInputMask = (props) => {
   const [image, setImage] = useState(errImageSrc);
-  const [secu, setSecu] = useState(props.secureTextEntry || false);
   const [isError, setIsError] = useState(false);
   const [initFlag, setInitFlag] = useState(false);
+  const secu = props.secureTextEntry || false;
+  const placeholder = props.placeholder || "";
 
   useEffect(() => {
     if (initFlag) setImage(isError ? errImageSrc : noErrImageSrc);
@@ -76,7 +77,10 @@ const TextInputMask = (props) => {
             autoCapitalize='none'
             autoCorrect={false}
             style={styles.inputMask}
+            placeholderTextColor='rgb(174, 174, 174)'
             secureTextEntry={secu}
+            placeholder={placeholder}
+            textContentType={'oneTimeCode'}
             onChangeText={onChange} />
         </View>
         <Image style={{ ...styles.image25, marginRight: 10 }} source={image} />
