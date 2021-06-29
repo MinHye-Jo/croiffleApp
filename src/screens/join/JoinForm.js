@@ -128,8 +128,6 @@ const JoinForm = (props) => {
       return;
     }
 
-    console.log('===============1111========');
-    console.log("오나?");
     // 회원가입용 데이터만 사용
     const params = { ...signUpInfo };
     delete params.pwdConf;
@@ -138,17 +136,14 @@ const JoinForm = (props) => {
 
     // 회원가입 API 호출
     const re = await join(params);
-    console.log('===============1111========');
-    console.log(re.data);
     if (re.data && re.data.return_code == 200) {
       props.navigation.navigate('JoinConfirmPage')
     } else {
       setModalData("회원가입 실패", re.data.return_message);
     }
-
   }
 
-  // 모달 데이터 초기화
+  // 모달 데이터처리 공통함수
   const setModalData = (title, txt1, txt2, txt3) => {
     setModalOpen(true);
     setModalTitle(title || "");
@@ -156,7 +151,6 @@ const JoinForm = (props) => {
     setModalTextSec(txt2 || "");
     setModalTextThi(txt3 || "");
   }
-
 
   return (
     <ScrollView style={styles.topContainer}>
