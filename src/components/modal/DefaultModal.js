@@ -63,7 +63,7 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
       <View style={styles.container}>
         <View style={modalTextThi == "" ? styles.modalcontainer : styles.modalcontainer2} >
           <View style={styles.container}>
-            <Text style={styles.title}>{title == "" ? "알림" : title}</Text>
+            <Text style={styles.title}>{!title ? "알림" : title}</Text>
             <Image source={require('../../../assets/image/icon/icon_popup_b.png')} style={styles.imgContainer} />
             <Text style={styles.txt}>{modalText}</Text>
             {modalTextSec != "" && <Text style={styles.txt}>{modalTextSec}</Text>}
