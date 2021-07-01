@@ -76,11 +76,11 @@ const TextInputMask = (props) => {
           <TextInput
             autoCapitalize='none'
             autoCorrect={false}
+            textContentType={'oneTimeCode'}
             style={styles.inputMask}
             placeholderTextColor='rgb(174, 174, 174)'
             secureTextEntry={secu}
             placeholder={placeholder}
-            textContentType={'oneTimeCode'}
             onChangeText={onChange} />
         </View>
         <Image style={{ ...styles.image25, marginRight: 10 }} source={image} />
