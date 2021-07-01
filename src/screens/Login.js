@@ -1,34 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import DeviceInfo from 'react-native-device-info';
 
 import Logo from '@components/image/Logo';
 import styles from '@styles/commonStyle';
+import DefaultModal from '@components/modal/DefaultModal';
+
 import { login } from '@service/auth';
 import { setJwtToken } from '@common/http';
 
 const Login = (props) => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+  const [inputChk, setInputChk] = useState(false);
+
+  // 모달 데이터
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalText, setModalText] = useState('');
+
+  useEffect(() => {
+    if (id && password) setInputChk(true);
+    else setInputChk(false);
+  }, [id, password]);
 
   const serviceLogin = async () => {
-    const re = await login(id, password);
+    const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
 
-    console.log('=======================');
-    console.log(re);
+    const re = await login(id, password, osType);
 
-    if (re.data) {
-      // 성공~~ 리다이렉트
-      setJwtToken(re.token);
+    if (re.data && re.data.return_code == 200) {
+      // setJwtToken(re.token);
+      props.navigation.navigate('MainPage')
     }
     else {
-      // 실패~~
-      // 실패메세지 처리 ?? 
-
+      setModalOpen(true);
+      setModalText(re.data.return_message);
     }
   }
 
   return (
     <View style={styles.topContainer}>
+      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} modalText={modalText} />
+
       <View style={{ marginTop: '25%' }}>
         <Logo />
       </View>
@@ -41,16 +54,18 @@ const Login = (props) => {
 
       <View style={{ paddingTop: 30, paddingLeft: 20, paddingRight: 20 }}>
         <TextInput style={styles.greyInput} placeholder="아이디" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none'
-          onChange={(e) => setId(e.target.value)} />
+          onChangeText={(e) => setId(e)} />
       </View>
       <View style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 20 }}>
         <TextInput style={styles.greyInput} placeholder="비밀번호" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none'
           secureTextEntry={true}
-          onChange={(e) => setPassword(e.target.value)} />
+          onChangeText={(e) => setPassword(e)} />
       </View>
 
-      <TouchableOpacity style={{ padding: 10, margin: 10 }} onPress={() => serviceLogin()}>
-        <View style={styles.blueBtn}>
+      <TouchableOpacity style={{ padding: 10, margin: 10 }}
+        disabled={!inputChk}
+        onPress={() => serviceLogin()}>
+        <View style={inputChk ? styles.blueBtn : styles.greyBtn}>
           <Text style={styles.btnTxtWhite} >로그인</Text>
         </View>
       </TouchableOpacity>
@@ -71,8 +86,6 @@ const Login = (props) => {
         </View>
       </View>
     </View >
-
-
   );
 };
 

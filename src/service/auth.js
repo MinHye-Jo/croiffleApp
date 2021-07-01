@@ -1,8 +1,8 @@
 import http from '@common/http';
 
 // 로그인
-export const login = (id, password) => {
-  return http.post('/auth/login', { id, password });
+export const login = (id, password, osType) => {
+  return http.post('/auth/login', { id, password, osType });
 }
 
 // 로그아웃
@@ -28,4 +28,9 @@ export const confirmAuthCode = (phoneNumber, authCode) => {
 // 아이디 중복확인
 export const checkID = (id) => {
   return http.post('/auth/checkID', { id });
+}
+
+// 아이디 찾기
+export const findId = (name, phoneNumber) => {
+  return http.post('/auth/findId', { name, phoneNumber });
 }
