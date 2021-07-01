@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
+import { shopList } from '@service/shop';
 
 const StoreSeelctList = () => {
   const styles = StyleSheet.create({
@@ -19,11 +20,19 @@ const StoreSeelctList = () => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState('');
 
-  const items = [
-    { label: '선택', value: '' },
-    { label: '갈매점', value: '갈매점' },
-    { label: '광화문점', value: '광화문점' }
-  ];
+  let items = [{ label: '선택', value: '' }];
+
+  useEffect(async () => {
+    const re = await shopList();
+    console.log("==========")
+    console.log(re)
+  }, []);
+
+  //  items = [
+  //   { label: '선택', value: '' },
+  //   { label: '갈매점', value: '갈매점' },
+  //   { label: '광화문점', value: '광화문점' }
+  // ];
 
   return (
     <DropDownPicker
