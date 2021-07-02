@@ -11,7 +11,7 @@ import styles from '@styles/commonStyle';
 
 import CustomCheckBox from '@components/CustomCheckBox';
 import IconNextBlack from '@components/IconNextBlack';
-import StoreSeelctList from '@components/selection/StoreSeelctList';
+import StoreSelectList from '@components/selection/StoreSelectList';
 
 
 const PersonalInfo = (props) => {
@@ -20,7 +20,7 @@ const PersonalInfo = (props) => {
     <ScrollView style={styles.topContainer}>
       <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 40, marginBottom: 10 }}> 근무매장 </Text>
-        <StoreSeelctList />
+        <StoreSelectList />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 이름 </Text>
         <TextInput style={{ ...styles.greyInput }} />

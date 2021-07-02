@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 
 import styles from '@styles/commonStyle';
-import HoursSeelctList from '@components/selection/HoursSeelctList';
-import MinuteSeelctList from '@components/selection/MinuteSeelctList';
+import HoursSelectList from '@components/selection/HoursSelectList';
+import MinuteSelectList from '@components/selection/MinuteSelectList';
 
 const OpeningHours = (props) => {
 
@@ -20,39 +20,39 @@ const OpeningHours = (props) => {
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 월~금 </Text>
 
         <View style={{ ...styles.row, flex: 1 }}>
-          <HoursSeelctList />
-          <MinuteSeelctList />
+          <HoursSelectList />
+          <MinuteSelectList />
           <Text style={styles.font5M15}>부터</Text>
         </View>
         <View style={{ ...styles.row, flex: 1, marginTop: 10 }}>
-          <HoursSeelctList />
-          <MinuteSeelctList />
+          <HoursSelectList />
+          <MinuteSelectList />
           <Text style={styles.font5M15}>까지</Text>
         </View>
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 토요일 </Text>
 
         <View style={{ ...styles.row, flex: 1 }}>
-          <HoursSeelctList />
-          <MinuteSeelctList />
+          <HoursSelectList />
+          <MinuteSelectList />
           <Text style={styles.font5M15}>부터</Text>
         </View>
         <View style={{ ...styles.row, flex: 1, marginTop: 10 }}>
-          <HoursSeelctList />
-          <MinuteSeelctList />
+          <HoursSelectList />
+          <MinuteSelectList />
           <Text style={styles.font5M15}>까지</Text>
         </View>
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 일요일 </Text>
 
         <View style={{ ...styles.row, flex: 1 }}>
-          <HoursSeelctList />
-          <MinuteSeelctList />
+          <HoursSelectList />
+          <MinuteSelectList />
           <Text style={styles.font5M15}>부터</Text>
         </View>
         <View style={{ ...styles.row, flex: 1, marginTop: 10 }}>
-          <HoursSeelctList />
-          <MinuteSeelctList />
+          <HoursSelectList />
+          <MinuteSelectList />
           <Text style={styles.font5M15}>까지</Text>
         </View>
 

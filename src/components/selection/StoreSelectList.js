@@ -4,7 +4,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 import { shopList } from '@service/shop';
 
-const StoreSeelctList = () => {
+const StoreSelectList = ({ value, onChange }) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgb(242, 243, 245)',
@@ -17,22 +17,19 @@ const StoreSeelctList = () => {
     }
   });
 
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('');
+  const initItems = [{ label: '선택', value: 0 }];
 
-  let items = [{ label: '선택', value: '' }];
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState(initItems);
 
   useEffect(async () => {
-    const re = await shopList();
-    console.log("==========")
-    console.log(re)
-  }, []);
+    const { data } = await shopList();
+    if (data.response) {
+      data.response.map(o => initItems.push({ label: o.shopName, value: o.shopId }))
+    }
 
-  //  items = [
-  //   { label: '선택', value: '' },
-  //   { label: '갈매점', value: '갈매점' },
-  //   { label: '광화문점', value: '광화문점' }
-  // ];
+    setItems(initItems);
+  }, []);
 
   return (
     <DropDownPicker
@@ -43,10 +40,12 @@ const StoreSeelctList = () => {
       value={value}
       items={items}
       setOpen={setOpen}
-      setValue={setValue}
+      setValue={(getValue) => {
+        onChange(getValue());
+      }}
       listMode="SCROLLVIEW"
     />
   );
 };
 
-export default StoreSeelctList;
+export default StoreSelectList;
