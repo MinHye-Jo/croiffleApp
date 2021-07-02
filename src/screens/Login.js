@@ -26,15 +26,15 @@ const Login = (props) => {
   const serviceLogin = async () => {
     const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
 
-    const re = await login(id, password, osType);
+    const { data } = await login(id, password, osType);
 
-    if (re.data && re.data.return_code == 200) {
-      // setJwtToken(re.token);
+    if (data && data.return_code == 200) {
+      // setJwtToken(token);
       props.navigation.navigate('MainPage')
     }
     else {
       setModalOpen(true);
-      setModalText(re.data.return_message);
+      setModalText(data.response.returnMessage);
     }
   }
 

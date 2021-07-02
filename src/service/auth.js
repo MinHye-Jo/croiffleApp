@@ -36,6 +36,6 @@ export const findId = (name, phoneNumber) => {
 }
 
 // 비밀번호 찾기 인증번호 확인
-export const confirmAuthCodeSendPwd = (phoneNumber, authCode) => {
-  return http.post('/auth/confirmAuthCode', { phoneNumber, authCode });
+export const confirmAuthCodeSendPwd = (id, phoneNumber, authCode) => {
+  return http.post('/auth/confirmAuthCode', { id, phoneNumber, authCode });
 }
