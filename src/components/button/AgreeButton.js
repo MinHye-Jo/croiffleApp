@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
-const AgreeButton = () => {
+const AgreeButton = ({ navigation, route, type }) => {
   const styles = StyleSheet.create({
     container: {
       marginBottom: 20,
@@ -22,9 +22,13 @@ const AgreeButton = () => {
   });
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}
+      onPress={() => {
+        navigation.goBack();
+        route.params.onAgree(type);
+      }}>
       <Text style={styles.text}>동의</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

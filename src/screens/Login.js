@@ -7,7 +7,7 @@ import styles from '@styles/commonStyle';
 import DefaultModal from '@components/modal/DefaultModal';
 
 import { login } from '@service/auth';
-import { setJwtToken } from '@common/http';
+import { setToken } from '@common/http';
 
 const Login = (props) => {
   const [id, setId] = useState('');
@@ -29,7 +29,7 @@ const Login = (props) => {
     const { data } = await login(id, password, osType);
 
     if (data && data.return_code == 200) {
-      // setJwtToken(token);
+      setToken(data.response.token);
       props.navigation.navigate('MainPage')
     }
     else {

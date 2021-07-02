@@ -1,14 +1,14 @@
 // 개인정보 처리방침
-import React, { useContext } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import JoinWebView from '@components/JoinWebView';
 import AgreeButton from '@components/button/AgreeButton';
 
-const PrivacyPolicy = ({ navigation }) => {
+const PrivacyPolicy = ({ navigation, route }) => {
   return (
     <View style={{ flex: 1 }}>
       <JoinWebView />
-      <AgreeButton />
+      <AgreeButton navigation={navigation} route={route} type={"service"} />
     </View>
   );
 };
