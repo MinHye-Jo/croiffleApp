@@ -19,6 +19,8 @@ const http = axios.create(axiosConfig);
 http.interceptors.request.use((config) => {
   config.headers.token = initToken;
 
+  console.log(initToken);
+
   return config;
 });
 
