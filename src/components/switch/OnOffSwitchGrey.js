@@ -44,7 +44,7 @@ const OnOffSwitchGrey = ({ onClick, flagVal }) => {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => onClick(0)}>
         <View style={flagVal == 0 ? styles.onBtn : styles.offBtn}>
-          <Text style={flagVal == 0 ? styles.onTxt : styles.offTxt}>켜짐</Text>
+          <Text style={flagVal == 0 ? styles.onTxt : styles.offTxt}>꺼짐</Text>
         </View>
       </TouchableOpacity>
     </View>
