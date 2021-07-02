@@ -10,7 +10,7 @@ import {
 
 import styles from '@styles/commonStyle';
 import TextInputMask from '@components/TextInputMask';
-import StoreSeelctList from '@components/selection/StoreSeelctList';
+import StoreSelectList from '@components/selection/StoreSelectList';
 import DefaultModal from '@components/modal/DefaultModal';
 import validateHook from '@hook/validateHook'
 
@@ -20,7 +20,7 @@ import { join, sendAuthCode, confirmAuthCode, checkID } from '@service/auth';
 const JoinForm = (props) => {
   // 회원가입 데이터
   const [signUpInfo, setSignUpInfo] = useState({
-    shopId: 1,
+    shopId: 0,
     id: '',
     name: '',
     password: '',
@@ -28,7 +28,7 @@ const JoinForm = (props) => {
     phoneNumber: '',
     authCode: '',
     termsPrivacy: 1,
-    termsUser: 1
+    termsUser: 1,
   });
 
   // 입력 데이터 유효성 검사용 데이터
@@ -43,6 +43,8 @@ const JoinForm = (props) => {
   const [modalTitle, setModalTitle] = useState('');
   const [modalTextSec, setModalTextSec] = useState('');
   const [modalTextThi, setModalTextThi] = useState('');
+
+  const [value, setValue] = useState('');
 
   // 유효성 검사 모델 바인드
   const [model, isValidate] = validateHook();
@@ -86,7 +88,6 @@ const JoinForm = (props) => {
       ...signUpInfo,
       [key]: value
     })
-
   }
 
   // 인증번호 발송
@@ -132,7 +133,6 @@ const JoinForm = (props) => {
     const params = { ...signUpInfo };
     delete params.pwdConf;
     delete params.authCode;
-    console.log(params)
 
     // 회원가입 API 호출
     const re = await join(params);
@@ -163,7 +163,10 @@ const JoinForm = (props) => {
           <Text style={styles.font5M15blue}>  (필수)</Text>
         </View>
 
-        <StoreSeelctList />
+        <StoreSelectList value={signUpInfo.shopId} onChange={(shopId) => {
+          console.log(shopId)
+          setSignUpInfo({ ...signUpInfo, shopId });
+        }} />
 
         <View style={{ ...styles.row, marginTop: 20, marginBottom: 10 }}>
           <Text style={styles.font5M15}>아이디</Text>

@@ -8,7 +8,7 @@ const items = [
   { label: 'Banana', value: 'banana' }
 ];
 
-const ApiSeelctList = () => {
+const MinuteSelectList = () => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -16,8 +16,7 @@ const ApiSeelctList = () => {
       fontFamily: 'S-CoreDream-4Regular',
       fontSize: 15,
       borderColor: 'rgb(242, 243, 245)',
-      width: 125,
-      height: 50,
+      width: 150,
       marginRight: 10
     }
   });
@@ -34,7 +33,8 @@ const ApiSeelctList = () => {
       // setOpen={setOpen}
       />
     </View>
+
   );
 };
 
-export default ApiSeelctList;
+export default MinuteSelectList;

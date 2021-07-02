@@ -12,7 +12,7 @@ import styles from '@styles/commonStyle';
 
 import CustomCheckBox from '@components/CustomCheckBox';
 import IconNextBlack from '@components/IconNextBlack';
-import StoreSeelctList from '@components/selection/StoreSeelctList';
+import StoreSelectList from '@components/selection/StoreSelectList';
 
 
 const CustomerSupport = (props) => {
@@ -27,7 +27,7 @@ const CustomerSupport = (props) => {
         <TextInput style={{ ...styles.greyInput, height: 120, paddingTop: 10 }} placeholder="내용을 입력해주세요" multiline={true} />
 
         <Text style={{ ...styles.font5M15, marginTop: 40, marginBottom: 10 }}> 근무매장 </Text>
-        <StoreSeelctList />
+        <StoreSelectList />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 이름 </Text>
         <TextInput style={{ ...styles.greyInput }} />

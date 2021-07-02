@@ -8,7 +8,7 @@ const items = [
   { label: 'Banana', value: 'banana' }
 ];
 
-const HoursSeelctList = () => {
+const HoursSelectList = () => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -36,4 +36,4 @@ const HoursSeelctList = () => {
   );
 };
 
-export default HoursSeelctList;
+export default HoursSelectList;
