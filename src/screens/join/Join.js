@@ -41,6 +41,11 @@ const Join = (props) => {
     }
   };
 
+  // 동의 콜백 이벤트
+  const onAgree = (type) => {
+    agresChange(type, true);
+  }
+
   // 회원가입 진행
   const nextBtnAction = () => {
     if (!agree.all) setModalOpen(true);
@@ -70,7 +75,8 @@ const Join = (props) => {
               <Text style={styles.font5M15}> 서비스 이용약관 (필수) </Text>
             </View>
             <View style={styles.rowFlex1Right}>
-              <TouchableOpacity onPress={() => props.navigation.navigate('TermsOfService')}>
+              <TouchableOpacity navigation={props.navigation}
+                onPress={() => props.navigation.navigate('TermsOfService', { onAgree })}>
                 <IconNextBlack />
               </TouchableOpacity>
             </View>
@@ -82,7 +88,8 @@ const Join = (props) => {
               <Text style={styles.font5M15}> 개인정보 처리방침 (필수) </Text>
             </View>
             <View style={styles.rowFlex1Right}>
-              <TouchableOpacity onPress={() => props.navigation.navigate('PrivacyPolicyPage')}>
+              <TouchableOpacity navigation={props.navigation}
+                onPress={() => props.navigation.navigate('PrivacyPolicyPage', { onAgree })}>
                 <IconNextBlack />
               </TouchableOpacity>
             </View>

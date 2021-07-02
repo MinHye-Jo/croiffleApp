@@ -2,7 +2,7 @@ import defaultConfig from '@config/defaultConfig';
 import axios from 'axios';
 import DeviceInfo from 'react-native-device-info';
 
-let jwtToken = '';
+let initToken = '';
 
 const { apiUrl } = defaultConfig;
 const axiosConfig = {
@@ -17,13 +17,13 @@ const axiosConfig = {
 const http = axios.create(axiosConfig);
 
 http.interceptors.request.use((config) => {
-  config.headers.authorization = jwtToken;
+  config.headers.token = initToken;
 
   return config;
 });
 
-export const setJwtToken = (token) => {
-  jwtToken = token;
+export const setToken = (token) => {
+  initToken = token;
 };
 
 export default http;

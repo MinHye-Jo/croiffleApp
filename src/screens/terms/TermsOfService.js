@@ -1,14 +1,14 @@
 // 서비스 이용약관
-import React, { useContext } from 'react';
-import { View, Text } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 import JoinWebView from '@components/JoinWebView';
 import AgreeButton from '@components/button/AgreeButton';
 
-const TermsOfService = ({ navigation }) => {
+const TermsOfService = ({ navigation, route }) => {
   return (
     <View style={{ flex: 1 }}>
       <JoinWebView />
-      <AgreeButton />
+      <AgreeButton navigation={navigation} route={route} type={"terms"} />
     </View>
   );
 };
