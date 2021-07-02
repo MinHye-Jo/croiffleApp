@@ -90,7 +90,7 @@ const JoinForm = (props) => {
   }
 
   // 인증번호 발송
-  const authCodeApi = async () => {
+  const sendAuthCodeApi = async () => {
     const re = await sendAuthCode(signUpInfo.phoneNumber);
 
     if (re.data && re.data.return_code == 200) {
@@ -235,7 +235,7 @@ const JoinForm = (props) => {
             onChangeText={e => updateInput('phoneNumber', e)} />
           <TouchableOpacity style={{ flex: 1, marginLeft: 10 }}
             disabled={signUpInfo.phoneNumber ? false : true}
-            onPress={authCodeApi}>
+            onPress={sendAuthCodeApi}>
             <View style={signUpInfo.phoneNumber ? styles.blueBtn : styles.greyBtn}>
               <Text style={styles.btnTxtWhite}>인증번호 발송</Text>
             </View>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import Modal from 'react-native-modal';
 
-const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, modalTextThi }) => {
+const FindPwdModal = ({ modalOpen, onClose, navigation }) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -12,15 +12,7 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
     },
     modalcontainer: {
       width: '100%',
-      height: '32%',
-      borderRadius: 10,
-      backgroundColor: 'white',
-      alignItems: 'center',
-      padding: 20
-    },
-    modalcontainer2: {
-      width: '100%',
-      height: '35%',
+      height: '37%',
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
@@ -49,6 +41,13 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
       fontFamily: 'S-CoreDream-4Regular',
       fontSize: 15
     },
+    redTxt: {
+      fontFamily: 'S-CoreDream-4Regular',
+      fontSize: 15,
+      color: 'rgb(255, 83, 83)',
+      marginTop: 10,
+      marginBottom: 5
+    },
     blueBtn: {
       borderRadius: 5,
       alignItems: 'center',
@@ -66,29 +65,32 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
     },
   });
 
+  const btnAction = () => {
+    onClose();
+    navigation.navigate('LoginPage');
+  }
 
   return (
     <Modal isVisible={modalOpen}>
       <View style={styles.container}>
-        <View style={modalTextThi == "" ? styles.modalcontainer : styles.modalcontainer2} >
+        <View style={styles.modalcontainer} >
           <View style={styles.container}>
             <View style={{ flexDirection: "row" }}>
               <View style={styles.titleContainer}>
-                <Text style={styles.title}>{!title ? "알림" : title}</Text>
+                <Text style={styles.title}>비밀번호 찾기</Text>
               </View>
               <TouchableOpacity style={{ flex: 1 }} onPress={() => onClose()}>
                 <Image source={require('../../../assets/image/icon/icon_close_b.png')} style={styles.closeImg} />
               </TouchableOpacity>
             </View>
             <Image source={require('../../../assets/image/icon/icon_popup_b.png')} style={styles.imgContainer} />
-            <Text style={styles.txt}>{modalText}</Text>
-            {modalTextSec != "" && <Text style={styles.txt}>{modalTextSec}</Text>}
-            {modalTextThi != "" && <Text style={styles.txt}>{modalTextThi}</Text>}
+            <Text style={styles.txt}>초기화된 비밀번호를 </Text>
+            <Text style={styles.txt}>휴대폰 번호로 보내드렸습니다.</Text>
+            <Text style={styles.redTxt}>※ [개인정보관리]에서 변경 가능합니다.</Text>
 
-            <TouchableOpacity style={styles.blueBtn} onPress={() => onClose()}>
-              <Text style={styles.btnTxtWhite}>확인</Text>
+            <TouchableOpacity style={styles.blueBtn} onPress={() => btnAction()}>
+              <Text style={styles.btnTxtWhite}>로그인 하기</Text>
             </TouchableOpacity>
-
           </View>
         </View>
       </View>
@@ -96,4 +98,4 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
   );
 };
 
-export default DefaultModal;
+export default FindPwdModal;

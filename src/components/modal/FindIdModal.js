@@ -18,6 +18,15 @@ const FindIdModal = ({ modalOpen, onClose, modalText, navigation }) => {
       alignItems: 'center',
       padding: 20
     },
+    titleContainer: {
+      flex: 7,
+      paddingLeft: 15,
+      alignItems: 'center'
+    },
+    closeImg: {
+      resizeMode: 'contain',
+      height: 20
+    },
     imgContainer: {
       resizeMode: 'contain',
       height: 75,
@@ -68,7 +77,14 @@ const FindIdModal = ({ modalOpen, onClose, modalText, navigation }) => {
       <View style={styles.container}>
         <View style={styles.modalcontainer} >
           <View style={styles.container}>
-            <Text style={styles.title}>아이디 찾기</Text>
+            <View style={{ flexDirection: "row" }}>
+              <View style={styles.titleContainer}>
+                <Text style={styles.title}>아이디 찾기</Text>
+              </View>
+              <TouchableOpacity style={{ flex: 1 }} onPress={() => onClose()}>
+                <Image source={require('../../../assets/image/icon/icon_close_b.png')} style={styles.closeImg} />
+              </TouchableOpacity>
+            </View>
             <Image source={require('../../../assets/image/icon/icon_popup_b.png')} style={styles.imgContainer} />
             <Text style={styles.txt}>회원님의 아이디는</Text>
             <Text style={{ ...styles.txt, color: 'rgb(0, 191, 213)' }}>{modalText}</Text>
@@ -80,9 +96,7 @@ const FindIdModal = ({ modalOpen, onClose, modalText, navigation }) => {
                 </View>
               </TouchableOpacity>
               <TouchableOpacity style={styles.blueBtn} onPress={() => btnAction('LoginPage')}>
-                <View>
-                  <Text style={styles.btnTxtWhite}>로그인 하기</Text>
-                </View>
+                <Text style={styles.btnTxtWhite}>로그인 하기</Text>
               </TouchableOpacity>
             </View>
           </View>
