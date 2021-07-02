@@ -39,3 +39,13 @@ export const findId = (name, phoneNumber) => {
 export const confirmAuthCodeSendPwd = (id, phoneNumber, authCode) => {
   return http.post('/auth/confirmAuthCode', { id, phoneNumber, authCode });
 }
+
+// 사용자정보 조회
+export const getUserInfo = () => {
+  return http.post('/auth/user', {});
+}
+
+// 사용자정보 수정
+export const modifyUserInfo = () => {
+  return http.post('/auth/user/modify', {});
+}

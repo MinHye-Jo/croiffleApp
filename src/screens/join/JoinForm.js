@@ -163,10 +163,8 @@ const JoinForm = (props) => {
           <Text style={styles.font5M15blue}>  (필수)</Text>
         </View>
 
-        <StoreSelectList value={signUpInfo.shopId} onChange={(shopId) => {
-          console.log(shopId)
-          setSignUpInfo({ ...signUpInfo, shopId });
-        }} />
+        <StoreSelectList value={signUpInfo.shopId}
+          onChange={(shopId) => { setSignUpInfo({ ...signUpInfo, shopId }) }} />
 
         <View style={{ ...styles.row, marginTop: 20, marginBottom: 10 }}>
           <Text style={styles.font5M15}>아이디</Text>

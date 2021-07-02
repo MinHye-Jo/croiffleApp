@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
-const OnOffSwitchGrey = () => {
+const OnOffSwitchGrey = ({ onClick, flagVal }) => {
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -37,14 +37,14 @@ const OnOffSwitchGrey = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <View style={styles.onBtn}>
-          <Text style={styles.onTxt}>켜짐</Text>
+      <TouchableOpacity onPress={() => onClick(1)}>
+        <View style={flagVal == 1 ? styles.onBtn : styles.offBtn}>
+          <Text style={flagVal == 1 ? styles.onTxt : styles.offTxt}>켜짐</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <View style={styles.offBtn}>
-          <Text style={styles.offTxt}>켜짐</Text>
+      <TouchableOpacity onPress={() => onClick(0)}>
+        <View style={flagVal == 0 ? styles.onBtn : styles.offBtn}>
+          <Text style={flagVal == 0 ? styles.onTxt : styles.offTxt}>켜짐</Text>
         </View>
       </TouchableOpacity>
     </View>

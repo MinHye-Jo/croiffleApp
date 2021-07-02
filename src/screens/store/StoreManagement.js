@@ -1,20 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 
+import styles from '@styles/commonStyle'
 import StoreManageSetButton from '@components/button/StoreManageSetButton'
 import OnOffSwitchGrey from '@components/switch/OnOffSwitchGrey'
-import styles from '@styles/commonStyle'
+import DefaultModal from '@components/modal/DefaultModal';
 
+import { getUserInfo } from '@service/auth';
+import { suspension, notification } from '@service/shop';
 
 const StoreManagement = (props) => {
+  const [shopId, setShopId] = useState('');
+  const [shopName, setShopName] = useState('');
+  const [pause, setPause] = useState(1);
+  const [noti, setNoti] = useState(1);
+
+  // 모달 데이터
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalText, setModalText] = useState('');
+
+  useEffect(async () => {
+    const { data } = await getUserInfo();
+
+    if (data.return_code == 200) {
+      setShopId(data.response.shopId);
+      setShopName(data.response.shopName);
+      setPause(Number(data.response.businessSuspension));
+      setNoti(Number(data.response.notificationSetting));
+    }
+  }, []);
+
+  // 영업 일시중지
+  const setPauseApi = async () => {
+    const { data } = await suspension(shopId);
+    if (data.return_code == 200) {
+      setPause(Number(data.response))
+    } else {
+      setModalOpen(true);
+      setModalText(data.return_message)
+    }
+  }
+
+  // 알림설정
+  const setNotiApi = async () => {
+    const { data } = await notification(shopId);
+    if (data.return_code == 200) {
+      setNoti(Number(data.response))
+    } else {
+      setModalOpen(true);
+      setModalText(data.return_message)
+    }
+  }
+
   return (
     <View style={{ backgroundColor: 'rgb(242, 243, 245)', padding: 20 }}>
+
+      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} modalText={modalText} />
+
       <View style={styles.storeWhiteBox}>
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 매장 </Text>
         </View>
         <View style={{ ...styles.greyBox, marginRight: 10, width: 80, alignItems: 'center', height: 30, justifyContent: 'center' }}>
-          <Text style={styles.font5M15}> 광화문점 </Text>
+          <Text style={styles.font5M15}> {shopName} </Text>
         </View>
       </View>
 
@@ -22,7 +70,7 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 영업 일시중지 </Text>
         </View>
-        <OnOffSwitchGrey />
+        <OnOffSwitchGrey onClick={(data) => setPauseApi()} flagVal={pause} />
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>
@@ -65,7 +113,7 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 알림설정 </Text>
         </View>
-        <OnOffSwitchGrey />
+        <OnOffSwitchGrey onClick={(data) => setNotiApi()} flagVal={noti} />
       </View>
 
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>
