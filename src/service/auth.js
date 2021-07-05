@@ -16,8 +16,8 @@ export const join = (data) => {
 }
 
 // 인증번호 발송
-export const sendAuthCode = (phoneNumber) => {
-  return http.post('/auth/sendAuthCode', { phoneNumber });
+export const sendAuthCode = (phoneNumber, id) => {
+  return http.post('/auth/sendAuthCode', { phoneNumber, id });
 }
 
 // 인증번호 확인

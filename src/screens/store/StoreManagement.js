@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from '@styles/commonStyle'
 import StoreManageSetButton from '@components/button/StoreManageSetButton'
@@ -77,7 +77,7 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 매장정보 수정 </Text>
         </View>
-        <TouchableOpacity onPress={() => props.navigation.navigate('StoreInfoEdit')}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('StoreInfoEdit', { shopId })}>
           <StoreManageSetButton />
         </TouchableOpacity>
       </View>
