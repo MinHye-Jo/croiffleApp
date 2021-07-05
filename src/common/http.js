@@ -19,6 +19,8 @@ const http = axios.create(axiosConfig);
 http.interceptors.request.use((config) => {
   config.headers.token = initToken;
 
+
+  console.log(" 왜사라짐? ");
   console.log(initToken);
 
   return config;
@@ -27,5 +29,17 @@ http.interceptors.request.use((config) => {
 export const setToken = (token) => {
   initToken = token;
 };
+
+
+http.postFile = (url, params) => {
+  const frm = new FormData();
+
+  for (const key in params) {
+    frm.append(key, typeof params[key] === 'object' && !params[key].type ? JSON.stringify(params[key]) : params[key]);
+  }
+
+  return http.post(url, frm);
+};
+
 
 export default http;

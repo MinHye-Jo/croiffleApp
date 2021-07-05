@@ -32,7 +32,7 @@ const FindPassword = (props) => {
 
   // 인증번호 발송
   const sendAuthCodeApi = async () => {
-    const re = await sendAuthCode(phoneNumber);
+    const re = await sendAuthCode(phoneNumber, id);
 
     if (re.data && re.data.return_code == 200) {
       setPhoneChk(true);
@@ -107,9 +107,9 @@ const FindPassword = (props) => {
             <TextInput style={{ ...styles.greyInput, flex: 1.5 }}
               onChangeText={(e) => chkPhoneNumber(e)} />
             <TouchableOpacity style={{ flex: 1, marginLeft: 10 }}
-              disabled={phoneNumber ? false : true}
+              disabled={phoneNumber && id ? false : true}
               onPress={sendAuthCodeApi}>
-              <View style={phoneNumber ? styles.blueBtn : styles.greyBtn}>
+              <View style={phoneNumber && id ? styles.blueBtn : styles.greyBtn}>
                 <Text style={styles.btnTxtWhite}>인증번호 발송</Text>
               </View>
             </TouchableOpacity>
