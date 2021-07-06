@@ -38,7 +38,12 @@ http.postFile = (url, params) => {
     frm.append(key, typeof params[key] === 'object' && !params[key].type ? JSON.stringify(params[key]) : params[key]);
   }
 
-  return http.post(url, frm);
+  console.log('================11111', JSON.stringify(frm, 0, true))
+  return http.post(url, frm, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  });
 };
 
 

@@ -97,7 +97,7 @@ const Join = (props) => {
         </View>
       </View>
 
-      <TouchableOpacity style={{ padding: 20, paddingTop: 10 }} onPress={() => nextBtnAction()}>
+      <TouchableOpacity style={{ padding: 20, paddingTop: 10 }} onPress={nextBtnAction}>
         <View style={styles.blueBtn}>
           <Text style={styles.btnTxtWhite}>다음</Text>
         </View>
