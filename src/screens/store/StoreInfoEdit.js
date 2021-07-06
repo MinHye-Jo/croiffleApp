@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
-import DocumentPicker from 'react-native-document-picker';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+
 
 import FindPostCode from '@components/modal/FindPostCode';
 import DefaultModal from '@components/modal/DefaultModal';
@@ -14,12 +15,14 @@ const StoreInfoEdit = ({ navigation, route }) => {
   const [shopInfo, setShopInfo] = useState({
     shopId: route.params.shopId,
     shopName: '',
-    file: '',
+    file: null,
     addressRoad: '',
     addressDetail: '',
     postalCode: '',
     phone: ''
   });
+
+  const [fileName, setFileName] = useState('')
 
   // 모달 데이터
   const [postModalOpen, setPostModalOpen] = useState(false);
@@ -32,7 +35,7 @@ const StoreInfoEdit = ({ navigation, route }) => {
     if (data.return_code == 200) {
       setShopInfo({
         ...(Object.keys(shopInfo).reduce((obj, key) => {
-          if (key == "file") obj[key] = data.response.shopImgUrl;
+          if (key == "file") setFileName(data.response.shopImgUrl);
           else obj[key] = data.response[key];
           return obj;
         }, {}))
@@ -60,6 +63,31 @@ const StoreInfoEdit = ({ navigation, route }) => {
         [key]: value
       })
     }
+  }
+
+  // 이미지 파일 업로드
+  const selectImage = () => {
+    let options = {
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    launchImageLibrary(options, (response) => {
+      if (response.error) {
+        setModalOpen(true);
+        setModalText("이미지 업로드에 실패하였습니다.");
+      } else {
+        const resData = response.assets[0];
+        setFileName(resData.fileName);
+        updateInput('file', {
+          name: resData.fileName,
+          type: resData.type,
+          uri: Platform.OS === 'ios' ? resData.uri.replace('file://', '') : resData.uri
+        })
+      }
+    });
   }
 
   // 매장 정보 수정 api
@@ -93,11 +121,11 @@ const StoreInfoEdit = ({ navigation, route }) => {
           <TextInput style={{ ...styles.greyInput, flex: 1.5 }}
             placeholder="파일을 첨부해주세요"
             placeholderTextColor="rgb(174, 174, 174)"
-            value={shopInfo.file}
+            value={fileName}
           />
-          <View style={{ ...styles.blueBtn, flex: 1, marginLeft: 10 }}>
+          <TouchableOpacity style={{ ...styles.blueBtn, flex: 1, marginLeft: 10 }} onPress={selectImage}>
             <Text style={styles.btnTxtWhite}>사진 등록</Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 매장주소 </Text>
