@@ -1,4 +1,4 @@
-package com.v1croiffleemployee;
+package com.croifflekitchen.employee;
 
 import com.facebook.react.ReactActivity;
 

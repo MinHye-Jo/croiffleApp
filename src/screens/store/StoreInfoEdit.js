@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
+import DocumentPicker from 'react-native-document-picker';
 
 import FindPostCode from '@components/modal/FindPostCode';
 import DefaultModal from '@components/modal/DefaultModal';

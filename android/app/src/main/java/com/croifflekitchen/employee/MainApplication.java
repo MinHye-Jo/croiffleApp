@@ -1,4 +1,4 @@
-package com.v1croiffleemployee;
+package com.croifflekitchen.employee;
 
 import android.app.Application;
 import android.content.Context;
