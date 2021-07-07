@@ -104,7 +104,7 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 메뉴 관리 </Text>
         </View>
-        <TouchableOpacity onPress={() => props.navigation.navigate('MenuManagement')}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('MenuManagement', { shopId })}>
           <StoreManageSetButton />
         </TouchableOpacity>
       </View>

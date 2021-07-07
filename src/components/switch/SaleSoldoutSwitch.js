@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
-const SaleSoldoutSwitch = () => {
+const SaleSoldoutSwitch = ({ onClick, data, flagVal }) => {
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -37,14 +37,14 @@ const SaleSoldoutSwitch = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <View style={styles.onBtn}>
-          <Text style={styles.onTxt}>판매</Text>
+      <TouchableOpacity onPress={() => onClick('sale', data)}>
+        <View style={flagVal == "0" ? styles.onBtn : styles.offBtn}>
+          <Text style={flagVal == "0" ? styles.onTxt : styles.offTxt}>판매</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <View style={styles.offBtn}>
-          <Text style={styles.offTxt}>품절</Text>
+      <TouchableOpacity onPress={() => onClick('sold', data)}>
+        <View style={flagVal == "1" ? styles.onBtn : styles.offBtn}>
+          <Text style={flagVal == "1" ? styles.onTxt : styles.offTxt}>품절</Text>
         </View>
       </TouchableOpacity>
     </View>

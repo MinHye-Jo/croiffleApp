@@ -20,8 +20,7 @@ http.interceptors.request.use((config) => {
   config.headers.token = initToken;
 
 
-  console.log(" 왜사라짐? ");
-  console.log(initToken);
+  console.log("토큰 : ", initToken);
 
   return config;
 });
@@ -38,7 +37,6 @@ http.postFile = (url, params) => {
     frm.append(key, typeof params[key] === 'object' && !params[key].type ? JSON.stringify(params[key]) : params[key]);
   }
 
-  console.log('================11111', JSON.stringify(frm, 0, true))
   return http.post(url, frm, {
     headers: {
       'Content-Type': 'multipart/form-data'
