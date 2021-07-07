@@ -10,7 +10,7 @@ import styles from '@styles/commonStyle';
 
 import { shopDetail, shopEdit } from '@service/shop';
 
-const StoreInfoEdit = ({ navigation, route }) => {
+const StoreInfoEdit = ({ route }) => {
   // 매장 데이터
   const [shopInfo, setShopInfo] = useState({
     shopId: route.params.shopId,
