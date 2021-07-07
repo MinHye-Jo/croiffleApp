@@ -19,11 +19,6 @@ const Navigation = () => {
       >
         <Stack.Screen name="MainStack" component={MainStack} />
 
-        {/* <Drawer.Screen
-          name="PrivacyPolicyPage"
-          component={secondScreenStack}
-        /> */}
-
       </Drawer.Navigator>
     </NavigationContainer >
   );

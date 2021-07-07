@@ -1,36 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
+const initItems = [{ label: '오전00시', value: "00" }];
+for (let i = 1; i < 24; i++) {
+  if (i < 12) {
+    initItems.push({ label: i < 10 ? `오전0${i}시` : `오전${i}시`, value: i < 10 ? `0${i}` : `${i}` });
+  } else {
+    const hour = i == 12 ? 12 : i - 12;
+    initItems.push({ label: hour < 10 ? `오후0${hour}시` : `오후${hour}시`, value: `${i}` });
+  }
+}
 
-const items = [
-  { label: 'Apple', value: 'apple' },
-  { label: 'Banana', value: 'banana' }
-];
-
-const HoursSelectList = () => {
+const HoursSelectList = ({ value, onChange }) => {
   const styles = StyleSheet.create({
     container: {
-      flex: 1,
       backgroundColor: 'rgb(242, 243, 245)',
       fontFamily: 'S-CoreDream-4Regular',
       fontSize: 15,
       borderColor: 'rgb(242, 243, 245)',
-      width: 150,
-      marginRight: 10
+      width: 150
+    },
+    txt: {
+      fontFamily: 'S-CoreDream-4Regular',
+      fontSize: 15,
     }
   });
 
+  const [open, setOpen] = useState(false);
+
   return (
-    <View>
+    <View style={{ marginRight: 10 }}>
       <DropDownPicker
         style={styles.container}
-        // open={open}
-        // value={value}
-        items={items}
-      // setValue={setValue}
-      // setItems={setItems}
-      // setOpen={setOpen}
+        textStyle={styles.txt}
+        dropDownContainerStyle={{ backgroundColor: 'rgb(242, 243, 245)' }}
+        open={open}
+        value={value}
+        items={initItems}
+        setOpen={setOpen}
+        setValue={(getValue) => {
+          onChange(getValue());
+        }}
+        listMode="SCROLLVIEW"
       />
     </View>
   );

@@ -86,7 +86,7 @@ const StoreManagement = (props) => {
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 영업시간 설정 </Text>
         </View>
-        <TouchableOpacity onPress={() => props.navigation.navigate('OpeningHours')}>
+        <TouchableOpacity onPress={() => props.navigation.navigate('OpeningHours', { shopId })}>
           <StoreManageSetButton />
         </TouchableOpacity>
       </View>
