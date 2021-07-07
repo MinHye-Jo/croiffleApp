@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 
-
+import styles from '@styles/commonStyle';
 import FindPostCode from '@components/modal/FindPostCode';
 import DefaultModal from '@components/modal/DefaultModal';
-import styles from '@styles/commonStyle';
 
 import { shopDetail, shopEdit } from '@service/shop';
 

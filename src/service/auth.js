@@ -40,6 +40,11 @@ export const confirmAuthCodeSendPwd = (id, phoneNumber, authCode) => {
   return http.post('/auth/confirmAuthCode', { id, phoneNumber, authCode });
 }
 
+// 비밀번호 수정
+export const modifyPassword = (id, password, passwordNew) => {
+  return http.post('/auth/user/modifyPassword', { id, password, passwordNew });
+}
+
 // 사용자정보 조회
 export const getUserInfo = () => {
   return http.post('/auth/user', {});

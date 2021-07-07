@@ -30,6 +30,7 @@ const Login = (props) => {
 
     if (data && data.return_code == 200) {
       setToken(data.response.token);
+      console.log(data.response)
       props.navigation.navigate('MainPage')
     }
     else {

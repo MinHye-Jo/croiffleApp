@@ -1,15 +1,10 @@
 import React from 'react';
 
-import {
-  ScrollView,
-  View,
-  Text,
-  TouchableOpacity
-} from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, TextInput } from 'react-native';
 
 import styles from '@styles/commonStyle';
-
 import TextInputMask from '@components/TextInputMask';
+import { modifyPassword } from '@service/auth';
 
 
 const PasswordEdit = (props) => {
@@ -17,7 +12,7 @@ const PasswordEdit = (props) => {
     <ScrollView style={styles.topContainer}>
       <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 40, marginBottom: 10 }}> 현재 비밀번호 </Text>
-        <TextInputMask />
+        <TextInput style={styles.greyInput} />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 신규 비밀번호 </Text>
         <TextInputMask />
