@@ -1,27 +1,135 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { ScrollView, View, Text, TouchableOpacity, TextInput } from 'react-native';
 
 import styles from '@styles/commonStyle';
 import TextInputMask from '@components/TextInputMask';
+import DefaultModal from '@components/modal/DefaultModal';
+import validateHook from '@hook/validateHook'
+
 import { modifyPassword } from '@service/auth';
 
 
 const PasswordEdit = (props) => {
+  // 회원가입 데이터
+  const [pwdInfo, setPwdInfo] = useState({
+    id: window.userInfo.user_id,
+    password: '',
+    passwordNew: '',
+    pwdConf: ''
+  });
+  const [pwdChkFailMsg, setPwdChkFailMsg] = useState('');
+  const [inputChk, setInputChk] = useState(false);
+
+  // 유효성 검사 모델 바인드
+  const [model, isValidate] = validateHook();
+
+  // 모달 데이터
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
+  const [modalText, setModalText] = useState('');
+
+  // 데이터 변경 체크
+  useEffect(() => {
+    let emptyChk = true;
+    for (const key in pwdInfo) {
+      if (pwdInfo[key] == '') {
+        emptyChk = false;
+        break;
+      }
+    }
+
+    // 회원가입 버튼 제어
+    if (isValidate() && !pwdChkFailMsg && emptyChk) setInputChk(true);
+    else setInputChk(false);
+
+  }, [pwdInfo]);
+
+  // 입력 데이터 셋
+  const updateInput = (key, value) => {
+    const pwdMap = {
+      passwordNew: 'pwdConf',
+      pwdConf: 'passwordNew'
+    }
+
+    // 신규 비밀번호와 비밀번호 확인 비교
+    if (key == "passwordNew" || key == "pwdConf") {
+      if (pwdInfo[pwdMap[key]] !== value) {
+        setPwdChkFailMsg("비밀번호가 일치하지 않습니다.");
+      } else {
+        setPwdChkFailMsg("");
+      }
+    }
+
+    setPwdInfo({
+      ...pwdInfo,
+      [key]: value
+    })
+  }
+
+  const modifyPwdApi = async () => {
+
+    // 유효 데이터만 사용
+    const params = { ...pwdInfo };
+    delete params.pwdConf;
+
+    const { data } = await modifyPassword(params);
+    console.log(data);
+
+    if (data && data.return_code == 200) {
+      setModalOpen(true);
+      setModalTitle("비밀번호 수정");
+      setModalText("비밀번호 수정이 완료되었습니다.");
+    } else {
+      setModalOpen(true);
+      setModalTitle("비밀번호 수정실패");
+      setModalText(data.return_message);
+    }
+  }
+
   return (
     <ScrollView style={styles.topContainer}>
+
+      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} title={modalTitle} modalText={modalText} />
+
       <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 40, marginBottom: 10 }}> 현재 비밀번호 </Text>
-        <TextInput style={styles.greyInput} />
+        <TextInput style={styles.greyInput}
+          secureTextEntry={true}
+          onChangeText={e => updateInput('password', e)} />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 신규 비밀번호 </Text>
-        <TextInputMask />
+        <TextInputMask
+          type="pwd"
+          model={model}
+          name="pwd"
+          macthFlag={true}
+          value={pwdInfo.password}
+          maxLength={50}
+          changeText={e => updateInput('passwordNew', e)}
+          secureTextEntry={true}
+          placeholder="숫자와 영문 대,소문자를 포함하여 6자리 이상"
+        />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 비밀번호 확인 </Text>
-        <TextInputMask />
+        <TextInputMask
+          type="pwd"
+          model={model}
+          name="pwdConf"
+          macthFlag={true}
+          value={pwdInfo.pwdConf}
+          maxLength={50}
+          changeText={e => updateInput('pwdConf', e)}
+          secureTextEntry={true}
+          placeholder="한번 더 입력해주세요"
+        />
+        {pwdChkFailMsg != "" && <Text style={styles.errText}>{pwdChkFailMsg} </Text>}
 
-        <TouchableOpacity onPress={() => props.navigation.navigate('JoinConfirmPage')}>
-          <View style={{ ...styles.blueBtn, marginTop: 40 }}>
+        <TouchableOpacity
+          style={{ marginTop: 40 }}
+          disabled={!inputChk}
+          onPress={modifyPwdApi}>
+          <View style={inputChk ? styles.blueBtn : styles.greyBtn}>
             <Text style={styles.btnTxtWhite}>저장</Text>
           </View>
         </TouchableOpacity>

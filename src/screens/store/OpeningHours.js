@@ -15,6 +15,7 @@ const OpeningHours = ({ route }) => {
 
   // 모달 데이터
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
   const [modalText, setModalText] = useState('');
 
   useEffect(async () => {
@@ -45,9 +46,11 @@ const OpeningHours = ({ route }) => {
     const { data } = await shopEnvEdit(envData);
     if (data.return_code == 200) {
       setModalOpen(true);
-      setModalText("영업시간 수정이 완료되었습니다.");
+      setModalTitle("영업시간 설정");
+      setModalText("저장 되었습니다.");
     } else {
       setModalOpen(true);
+      setModalTitle("영업시간 설정실패");
       setModalText(data.return_message)
     }
   }
@@ -55,7 +58,7 @@ const OpeningHours = ({ route }) => {
   return (
     <ScrollView style={styles.topContainer}>
 
-      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} modalText={modalText} />
+      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} title={modalTitle} modalText={modalText} />
 
       <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 월~금 </Text>

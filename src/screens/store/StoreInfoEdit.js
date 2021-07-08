@@ -26,6 +26,7 @@ const StoreInfoEdit = ({ route }) => {
   // 모달 데이터
   const [postModalOpen, setPostModalOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState('');
   const [modalText, setModalText] = useState('');
 
   useEffect(async () => {
@@ -94,9 +95,11 @@ const StoreInfoEdit = ({ route }) => {
     const { data } = await shopEdit(shopInfo);
     if (data.return_code == 200) {
       setModalOpen(true);
-      setModalText("매장정보 수정이 완료되었습니다.")
+      setModalTitle("매장정보 수정");
+      setModalText("저장 되었습니다.")
     } else {
       setModalOpen(true);
+      setModalTitle("매장정보 수정실패");
       setModalText(data.return_message)
     }
   }
@@ -104,7 +107,7 @@ const StoreInfoEdit = ({ route }) => {
   return (
     <ScrollView style={styles.topContainer}>
 
-      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} modalText={modalText} />
+      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} title={modalTitle} modalText={modalText} />
 
       <FindPostCode modalOpen={postModalOpen}
         onClose={() => setPostModalOpen(false)}

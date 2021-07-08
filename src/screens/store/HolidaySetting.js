@@ -9,7 +9,8 @@ import {
 } from 'react-native';
 
 import styles from '@styles/commonStyle';
-import ApiSelectList from '@components/selection/ApiSelectList';
+import WeekSelectList from '@components/selection/WeekSelectList';
+import DaySelectList from '@components/selection/DaySelectList';
 import AddButton from '@components/button/AddButton';
 import OnOffSwitchWhite from '@components/switch/OnOffSwitchWhite';
 
@@ -24,8 +25,8 @@ const HolidaySetting = (props) => {
         </View>
 
         <View style={{ ...styles.row, flex: 1, marginTop: 10 }}>
-          <ApiSelectList />
-          <ApiSelectList />
+          <WeekSelectList value={"1"} />
+          <DaySelectList value={"1"} />
           <View style={{ ...styles.greyBox, alignItems: 'center', justifyContent: 'center', width: 80, height: 50 }}>
             <Text style={styles.redText}>삭제</Text>
           </View>
@@ -38,8 +39,8 @@ const HolidaySetting = (props) => {
 
         <View style={{ ...styles.row, flex: 1, marginTop: 10 }}>
           {/* 추후 데이터 피커로 변경 되어야함 */}
-          <ApiSelectList />
-          <ApiSelectList />
+          <WeekSelectList />
+          <DaySelectList />
           <View style={{ ...styles.greyBox, alignItems: 'center', justifyContent: 'center', width: 80, height: 50 }}>
             <Text style={styles.redText}>삭제</Text>
           </View>
