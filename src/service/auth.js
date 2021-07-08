@@ -41,8 +41,8 @@ export const confirmAuthCodeSendPwd = (id, phoneNumber, authCode) => {
 }
 
 // 비밀번호 수정
-export const modifyPassword = (id, password, passwordNew) => {
-  return http.post('/auth/user/modifyPassword', { id, password, passwordNew });
+export const modifyPassword = (data) => {
+  return http.post('/auth/user/modifyPassword', data);
 }
 
 // 사용자정보 조회

@@ -257,7 +257,7 @@ const JoinForm = (props) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity onPress={joinEmployee} style={{ marginTop: 30, marginBottom: 40 }} disabled={inputChk ? false : true}>
+        <TouchableOpacity onPress={joinEmployee} style={{ marginTop: 30, marginBottom: 40 }} disabled={!inputChk}>
           <View style={inputChk ? styles.blueBtn : styles.greyBtn} >
             <Text style={styles.btnTxtWhite}>회원가입</Text>
           </View>
