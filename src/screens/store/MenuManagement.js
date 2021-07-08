@@ -19,7 +19,6 @@ const MenuManagement = ({ route }) => {
 
   useEffect(async () => {
     const { data } = await menuList(shopId);
-    console.log(data.response)
     if (data.return_code == 200) {
       setMenuData(data.response);
     }

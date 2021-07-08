@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-const OrderRequest = () => {
+const OrderPickupDone = () => {
 
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'rgb(255, 96, 1)',
+      backgroundColor: 'rgb(174, 174, 174)',
       alignItems: 'center',
       borderRadius: 50,
       height: 30,
@@ -22,9 +22,9 @@ const OrderRequest = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.txt}>주문요청중</Text>
+      <Text style={styles.txt}>픽업완료</Text>
     </View>
   );
 };
 
-export default OrderRequest;
+export default OrderPickupDone;

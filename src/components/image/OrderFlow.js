@@ -10,8 +10,6 @@ const OrderFlow = () => {
       alignItems: 'center',
       height: 30,
       justifyContent: 'center',
-      marginLeft: 20,
-      marginRight: 20
     },
     viewContainer: {
       flex: 1,
@@ -20,13 +18,13 @@ const OrderFlow = () => {
     txt: {
       color: 'rgb(174, 174, 174)',
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: 14,
       marginTop: 10
     },
     activeTxt: {
       color: 'rgb(0, 191, 213)',
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: 14,
       marginTop: 10
     }
   });
@@ -46,7 +44,13 @@ const OrderFlow = () => {
       <Image source={require('../../../assets/image/icon/icon_next_g.png')} style={{ width: 25, resizeMode: 'contain' }} />
 
       <View style={styles.viewContainer}>
-        <Image source={require('../../../assets/image/icon/icon_step3_g.png')} style={{ height: 35, resizeMode: 'contain' }} />
+        <Image source={require('../../../assets/image/icon/icon_step2_g.png')} style={{ height: 35, resizeMode: 'contain' }} />
+        <Text style={styles.txt}>준비완료</Text>
+      </View>
+      <Image source={require('../../../assets/image/icon/icon_next_g.png')} style={{ width: 25, resizeMode: 'contain' }} />
+
+      <View style={styles.viewContainer}>
+        <Image source={require('../../../assets/image/icon/icon_step4_g.png')} style={{ height: 35, resizeMode: 'contain' }} />
         <Text style={styles.txt}>픽업완료</Text>
       </View>
     </View>

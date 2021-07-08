@@ -6,7 +6,7 @@ import Logo from '@components/image/Logo';
 import styles from '@styles/commonStyle';
 import DefaultModal from '@components/modal/DefaultModal';
 
-import { login } from '@service/auth';
+import { login, getUserInfo } from '@service/auth';
 import { setToken } from '@common/http';
 
 const Login = (props) => {
@@ -23,6 +23,7 @@ const Login = (props) => {
     else setInputChk(false);
   }, [id, password]);
 
+  // 로그인 API 연동
   const serviceLogin = async () => {
     const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
 
@@ -30,9 +31,16 @@ const Login = (props) => {
 
     if (data && data.return_code == 200) {
       setToken(data.response.token);
-      console.log(data.response)
-      window.userInfo = data.response;
-      props.navigation.navigate('MainPage')
+
+      // 토큰 정보 저장 후 유저 상세 정보 저장 
+      const userInfo = await getUserInfo();
+      if (userInfo.data && userInfo.data.return_code == 200) {
+        window.userInfo = userInfo.data.response;
+        props.navigation.navigate('MainPage')
+      } else {
+        setModalOpen(true);
+        setModalText(userInfo.data.response.returnMessage);
+      }
     }
     else {
       setModalOpen(true);
