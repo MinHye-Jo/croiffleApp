@@ -13,7 +13,7 @@ import { modifyPassword } from '@service/auth';
 const PasswordEdit = (props) => {
   // 회원가입 데이터
   const [pwdInfo, setPwdInfo] = useState({
-    id: window.userInfo.user_id,
+    id: window.userInfo.id,
     password: '',
     passwordNew: '',
     pwdConf: ''
@@ -74,7 +74,6 @@ const PasswordEdit = (props) => {
     delete params.pwdConf;
 
     const { data } = await modifyPassword(params);
-    console.log(data);
 
     if (data && data.return_code == 200) {
       setModalOpen(true);

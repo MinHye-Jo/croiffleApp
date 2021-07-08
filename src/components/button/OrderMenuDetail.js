@@ -1,8 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
+import moment from 'moment';
 import OrderRequest from '@components/image/OrderRequest'
+import OrderPreparing from '@components/image/OrderPreparing'
+import OrderComplete from '@components/image/OrderComplete'
+import OrderDenial from '@components/image/OrderDenial'
+import OrderPickupDone from '@components/image/OrderPickupDone'
 
-const OrderMenuDetail = ({ navigation }) => {
+const OrderMenuDetail = ({ navigation, data }) => {
+  const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const orderDate = moment(data.createdAt).format("YYYY-MM-DD");
 
   const styles = StyleSheet.create({
     container: {
@@ -21,12 +28,10 @@ const OrderMenuDetail = ({ navigation }) => {
       flex: 1,
       alignContent: 'center',
       justifyContent: 'center',
-      paddingLeft: 5,
-      paddingRight: 5,
     },
     img: {
-      width: 100,
-      height: 100,
+      width: '100%',
+      height: '100%',
       resizeMode: 'contain',
       borderRadius: 5,
       position: 'absolute',
@@ -47,23 +52,45 @@ const OrderMenuDetail = ({ navigation }) => {
     }
   });
 
+  const renderSwitch = () => {
+    switch (data.status) {
+      case "1":
+        return <OrderRequest />;
+      case "2":
+        return <OrderPreparing />;
+      case "3":
+        return <OrderComplete />;
+      case "4":
+        return <OrderDenial />;
+      case "5":
+        return <OrderPickupDone />;
+    }
+  }
+
   return (
     <TouchableOpacity onPress={() => navigation.navigate('OrderDetail')}>
       <View style={styles.container}>
-        <View style={styles.imgContainer}>
-          <Image source={require('../../../assets/image/croiffle_basil.jpg')} style={styles.img} />
-          <OrderRequest />
+        <View style={{ flex: 1, marginRight: 10 }}>
+          <View style={styles.imgContainer}>
+            <Image source={require('../../../assets/image/croiffle_basil.jpg')} style={styles.img} />
+            {renderSwitch()}
+          </View>
         </View>
 
-        <View style={{ marginLeft: 10, marginTop: 10, position: 'relative' }}>
-          <Text style={styles.fontBlack}>플레인 크로플 외 1</Text>
+        <View style={{ flex: 2, marginTop: 10, position: 'relative' }}>
+          <Text style={styles.fontBlack}>{data.orderName}</Text>
           <View style={{ flexDirection: 'row', marginTop: 10 }}>
             <Text style={styles.fontBlack}>픽업시간  </Text>
-            <Text style={styles.fontBlue}>11시 30분</Text>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={styles.fontBlue}>{data.pickupHour}</Text>
+              <Text style={styles.fontBlue}>시 </Text>
+              <Text style={styles.fontBlue}>{data.pickupMinute}</Text>
+              <Text style={styles.fontBlue}>분</Text>
+            </View>
           </View>
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
-            <Text style={styles.fontGrey}>125,000원  </Text>
-            <Text style={styles.fontGrey}>2021.05.20 15:30</Text>
+            <Text style={styles.fontGrey}>{price}원  </Text>
+            <Text style={styles.fontGrey}>{orderDate}</Text>
           </View>
 
         </View>

@@ -10,7 +10,7 @@ import { getUserInfo } from '@service/auth';
 import { suspension, notification } from '@service/shop';
 
 const StoreManagement = (props) => {
-  const [shopId, setShopId] = useState('');
+  const shopId = window.userInfo.shopId;
   const [shopName, setShopName] = useState('');
   const [pause, setPause] = useState(1);
   const [noti, setNoti] = useState(1);
@@ -23,7 +23,6 @@ const StoreManagement = (props) => {
     const { data } = await getUserInfo();
 
     if (data.return_code == 200) {
-      setShopId(data.response.shopId);
       setShopName(data.response.shopName);
       setPause(Number(data.response.businessSuspension));
       setNoti(Number(data.response.notificationSetting));

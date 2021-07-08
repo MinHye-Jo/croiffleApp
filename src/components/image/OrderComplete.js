@@ -5,10 +5,12 @@ const OrderComplete = () => {
 
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'rgb(174, 174, 174)',
+      backgroundColor: 'rgb(41, 57, 150)',
       alignItems: 'center',
       borderRadius: 50,
       height: 30,
+      marginLeft: 10,
+      marginRight: 10,
       justifyContent: 'center',
     },
     txt: {
@@ -20,7 +22,7 @@ const OrderComplete = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.txt}>픽업완료</Text>
+      <Text style={styles.txt}>준비완료</Text>
     </View>
   );
 };

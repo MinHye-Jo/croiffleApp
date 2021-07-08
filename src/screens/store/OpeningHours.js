@@ -21,7 +21,6 @@ const OpeningHours = ({ route }) => {
   useEffect(async () => {
     const { data } = await shopEnv(route.params.shopId);
 
-    console.log(data)
     if (data.return_code == 200) {
       setEnvData(data.response);
     } else {
