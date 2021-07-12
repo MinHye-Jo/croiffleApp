@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Login from '@screens/Login';
-import FindId from '@screens/FindId';
+import FindIdPage from '@screens/FindIdPage';
 import FindPassword from '@screens/FindPassword';
 
 import Join from '@screens/join/Join';
@@ -139,8 +139,8 @@ const MainStack = ({ navigation }) => {
       />
       {/* 아이디 찾기 */}
       <Stack.Screen
-        name="FindId"
-        component={FindId}
+        name="FindIdPage"
+        component={FindIdPage}
         options={{
           header: () => (
             <PrevStackMove navigationProps={navigation} title="아이디 찾기" />

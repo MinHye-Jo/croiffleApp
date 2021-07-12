@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   ScrollView,
@@ -15,12 +15,27 @@ import StoreSelectList from '@components/selection/StoreSelectList';
 
 
 const PersonalInfo = (props) => {
+  // 개인정보 데이터
+  const [userInfo, setUserInfo] = useState({
+    shopId: 0,
+    id: '',
+    name: '',
+    phoneNumber: '',
+    authCode: '',
+    addressRoad: '',
+    addressDetail: '',
+    postalCode: ''
+  });
+
+  console.log(window.userInfo)
+
 
   return (
     <ScrollView style={styles.topContainer}>
       <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 40, marginBottom: 10 }}> 근무매장 </Text>
-        <StoreSelectList />
+        <StoreSelectList value={userInfo.shopId}
+          onChange={(shopId) => { setUserInfo({ ...userInfo, shopId }) }} />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 이름 </Text>
         <TextInput style={{ ...styles.greyInput }} />
