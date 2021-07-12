@@ -83,6 +83,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     backgroundColor: 'rgb(174, 174, 174)'
   },
+  redBtn: {
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    fontSize: 20,
+    backgroundColor: 'rgb(255, 96, 1)'
+  },
   btnTxtWhite: {
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: 15,

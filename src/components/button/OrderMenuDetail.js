@@ -68,7 +68,7 @@ const OrderMenuDetail = ({ navigation, data }) => {
   }
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('OrderDetail')}>
+    <TouchableOpacity onPress={() => navigation.navigate('OrderDetail', { 'orderId': data.orderId, 'status': data.status })}>
       <View style={styles.container}>
         <View style={{ flex: 1, marginRight: 10 }}>
           <View style={styles.imgContainer}>

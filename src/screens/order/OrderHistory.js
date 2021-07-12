@@ -29,7 +29,6 @@ const OrderHistory = (props) => {
     const { data } = await orderList(window.userInfo.shopId, status, "20210706");
 
     if (data.return_code == 200) {
-      console.log(data.response)
       setOrderData(data.response);
       const cntData = {
         reqCnt: 0,
