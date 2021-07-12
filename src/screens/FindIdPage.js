@@ -8,7 +8,7 @@ import DefaultModal from '@components/modal/DefaultModal';
 
 import { findId } from '@service/auth';
 
-const FindId = (props) => {
+const FindIdPage = (props) => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [inputChk, setInputChk] = useState(false);
@@ -77,4 +77,4 @@ const FindId = (props) => {
   );
 };
 
-export default FindId;
+export default FindIdPage;
