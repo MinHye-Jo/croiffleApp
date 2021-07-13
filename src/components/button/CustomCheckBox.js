@@ -12,7 +12,9 @@ const CustomCheckBox = ({ checked, onChange }) => {
     },
   });
 
-  const image = checked ? require('../../assets/image/icon/icon_check_b.png') : require('../../assets/image/icon/icon_check_g.png');
+  const image = checked ?
+    require('../../../assets/image/icon/icon_check_b.png') :
+    require('../../../assets/image/icon/icon_check_g.png');
 
   return (
     <TouchableOpacity activeOpacity={.5} onPress={() => onChange(!checked)}>

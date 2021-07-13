@@ -9,7 +9,7 @@ import {
 
 import OrderHistoryButton from '@components/button/OrderHistoryButton'
 import StoreManageButton from '@components/button/StoreManageButton'
-import IconNextBlack from '@components/IconNextBlack'
+import IconNextBlack from '@components/image/IconNextBlack'
 
 import naviStyle from '@styles/naviStyle'
 import styles from '@styles/commonStyle'
