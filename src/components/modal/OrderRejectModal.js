@@ -140,7 +140,7 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
             </View>
           </View>
 
-          <View style={{ ...styles.content, marginTop: 20, marginBottom: 10 }}>
+          <View style={{ marginTop: 20, marginBottom: 10 }}>
             <Text style={{ ...styles.txt, marginBottom: 5 }}>특이사항 (선택)</Text>
             <TextInput style={styles.inputBox}
               placeholder="내용을 입력해주세요"
@@ -157,7 +157,7 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
               marginBottom: 30
             }} />
 
-            <View style={styles.content}>
+            <View>
               <Text style={{ ...styles.txt, marginBottom: 5 }}>품절처리 항목을 선택해주세요</Text>
               <View style={styles.greyBox}>
                 {menuData && menuData.length > 0 &&
