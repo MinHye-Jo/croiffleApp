@@ -119,7 +119,7 @@ const OrderDetail = ({ route }) => {
       <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} modalText={modalText} />
 
       <View style={{ backgroundColor: '#fff', padding: 20, height: 100 }}>
-        <OrderFlow />
+        <OrderFlow orderStatus={orderData.status} />
       </View>
       <View style={styles.hr} />
       <ScrollView style={{ backgroundColor: '#fff', paddingLeft: 20, paddingRight: 20 }}>
@@ -200,6 +200,16 @@ const OrderDetail = ({ route }) => {
           </TouchableOpacity>
           <TouchableOpacity style={{ ...styles.blueBtn, flex: 1, marginLeft: 5 }} onPress={orderReceiptApi}>
             <Text style={styles.btnTxtWhite}>주문 접수</Text>
+          </TouchableOpacity>
+        </View>}
+        {orderData.status == "2" && <View style={{ ...styles.row, marginTop: 20, marginBottom: 30 }}>
+          <TouchableOpacity style={{ ...styles.redBtn, flex: 1, marginRight: 5 }} onPress={() => setRejectModalOpen(true)}>
+            <View>
+              <Text style={styles.btnTxtWhite}>준비완료 알림전송</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={{ ...styles.blueBtn, flex: 1, marginLeft: 5 }} onPress={orderReceiptApi}>
+            <Text style={styles.btnTxtWhite}>완료처리</Text>
           </TouchableOpacity>
         </View>}
       </ScrollView>
