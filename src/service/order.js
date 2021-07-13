@@ -14,3 +14,8 @@ export const orderDetail = (orderId) => {
 export const orderReceipt = (orderId, shopId) => {
   return http.post(`/order/receipt/${orderId}`, { shopId });
 }
+
+// 주문 거부
+export const orderReject = (orderId, data) => {
+  return http.post(`/order/reject/${orderId}`, data);
+}

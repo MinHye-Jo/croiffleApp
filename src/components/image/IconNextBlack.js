@@ -11,7 +11,7 @@ const IconNextBlack = () => {
   });
 
   return (
-    <Image source={require('../../assets/image/icon/icon_next_b.png')} style={styles.container} />
+    <Image source={require('../../../assets/image/icon/icon_next_b.png')} style={styles.container} />
   );
 };
 

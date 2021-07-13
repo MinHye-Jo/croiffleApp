@@ -4,13 +4,21 @@ import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import styles from '@styles/commonStyle';
 import OrderFlow from '@components/image/OrderFlow';
 import DefaultModal from '@components/modal/DefaultModal';
+import OrderRejectModal from '@components/modal/OrderRejectModal';
 
-import { orderDetail, orderReceipt } from '@service/order';
+import { orderDetail, orderReceipt, orderReject } from '@service/order';
+
+// 1.업소사정으로 취소 / 2.재료소진 / 3.요청사항 불가
+const rejectType = {
+  cancel: "1",
+  material: "2",
+  request: "3"
+}
 
 const OrderDetail = ({ route }) => {
   const orderId = route.params.orderId;
-  const status = route.params.status;
   const [orderData, setOrderData] = useState({
+    status: '0',
     price: 0,
     pickupHour: '00',
     pickupMinute: '00',
@@ -23,6 +31,7 @@ const OrderDetail = ({ route }) => {
   // 모달 데이터
   const [modalOpen, setModalOpen] = useState(false);
   const [modalText, setModalText] = useState('');
+  const [rejectModalOpen, setRejectModalOpen] = useState(false);
 
   useEffect(async () => {
     const { data } = await orderDetail(orderId);
@@ -53,8 +62,59 @@ const OrderDetail = ({ route }) => {
     }
   }
 
+  // 주문 거부 API
+  const orderRejectApi = async (rejectData) => {
+    setRejectModalOpen(false);
+
+    // 주문 거절 사유
+    let reject;
+    for (let key in rejectData.rejectRadio) {
+      if (rejectData.rejectRadio[key] == true) {
+        reject = rejectType[key];
+        break;
+      }
+    }
+
+    // 품절 메뉴 리스트
+    let rejectMenu = [];
+    for (let key in rejectData.rejectMenu) {
+      if (rejectData.rejectMenu[key] == true) {
+        rejectMenu.push({ menuId: Number(key), shopId: window.userInfo.shopId });
+      }
+    };
+
+    const bodyData = {
+      shopId: window.userInfo.shopId,
+      rejectType: reject,
+      rejectReason: rejectData.rejectReason,
+      soldoutMenuIdList: rejectMenu
+    }
+
+    console.log("===========222")
+    console.log(bodyData)
+
+    const { data } = await orderReject(orderId, bodyData);
+
+    console.log("===========333")
+    console.log(data)
+
+    if (data.return_code == 200) {
+      setModalOpen(true);
+      setModalText("주문이 거부되었습니다.");
+    } else {
+      console.log("???????????")
+      setModalOpen(true);
+      setModalText(data.return_message);
+    }
+  }
+
   return (
     <View style={styles.topContainer}>
+      <OrderRejectModal
+        menuData={orderData.orderDetail}
+        modalOpen={rejectModalOpen}
+        onClose={() => setRejectModalOpen(false)}
+        onAction={(data) => orderRejectApi(data)} />
 
       <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} modalText={modalText} />
 
@@ -90,11 +150,9 @@ const OrderDetail = ({ route }) => {
                       </View>
                     </View>
                   )
-                })
-                }
+                })}
               </View>)
-          })
-          }
+          })}
           <View style={{ ...styles.hr, marginTop: 10, marginBottom: 10, marginLeft: 5, marginRight: 5 }} />
 
           <View style={{ ...styles.row, justifyContent: 'space-between' }}>
@@ -102,7 +160,6 @@ const OrderDetail = ({ route }) => {
             <Text style={styles.font5M15blue}>{orderData.price}원</Text>
           </View>
         </View>
-
 
         <Text style={{ ...styles.font5M15, marginBottom: 10, marginTop: 20 }}>픽업시간</Text>
         <View style={styles.greyTxtBox}>
@@ -135,8 +192,8 @@ const OrderDetail = ({ route }) => {
             <Text style={{ ...styles.font4R15 }}>{orderData.mobile}</Text>
           </View>
         </View>
-        <View style={{ ...styles.row, marginTop: 20, marginBottom: 30 }}>
-          <TouchableOpacity style={{ ...styles.redBtn, flex: 1, marginRight: 5 }} onPress={() => btnAction('LoginPage')}>
+        {orderData.status == "1" && <View style={{ ...styles.row, marginTop: 20, marginBottom: 30 }}>
+          <TouchableOpacity style={{ ...styles.redBtn, flex: 1, marginRight: 5 }} onPress={() => setRejectModalOpen(true)}>
             <View>
               <Text style={styles.btnTxtWhite}>주문 거부</Text>
             </View>
@@ -144,7 +201,7 @@ const OrderDetail = ({ route }) => {
           <TouchableOpacity style={{ ...styles.blueBtn, flex: 1, marginLeft: 5 }} onPress={orderReceiptApi}>
             <Text style={styles.btnTxtWhite}>주문 접수</Text>
           </TouchableOpacity>
-        </View>
+        </View>}
       </ScrollView>
     </View >
   );
