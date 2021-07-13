@@ -61,9 +61,9 @@ const OrderMenuDetail = ({ navigation, data }) => {
       case "3":
         return <OrderComplete />;
       case "4":
-        return <OrderDenial />;
-      case "5":
         return <OrderPickupDone />;
+      case "5":
+        return <OrderDenial />;
     }
   }
 

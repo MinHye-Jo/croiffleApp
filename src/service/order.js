@@ -19,3 +19,13 @@ export const orderReceipt = (orderId, shopId) => {
 export const orderReject = (orderId, data) => {
   return http.post(`/order/reject/${orderId}`, data);
 }
+
+// 주문 준비완료
+export const orderReady = (orderId, shopId) => {
+  return http.post(`/order/ready/${orderId}`, { shopId });
+}
+
+// 주문 픽업완료
+export const orderComplete = (orderId, shopId, orderUniqueness) => {
+  return http.post(`/order/complete/${orderId}`, { shopId, orderUniqueness });
+}

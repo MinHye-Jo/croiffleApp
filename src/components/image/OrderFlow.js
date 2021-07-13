@@ -28,7 +28,7 @@ const OrderFlow = ({ orderStatus }) => {
       marginTop: 10
     }
   });
-  console.log(orderStatus)
+
   const img1 = orderStatus == "1" ?
     require('../../../assets/image/icon/icon_step1_b.png') :
     require('../../../assets/image/icon/icon_step1_g.png');
@@ -41,7 +41,7 @@ const OrderFlow = ({ orderStatus }) => {
     require('../../../assets/image/icon/icon_step3_b.png') :
     require('../../../assets/image/icon/icon_step3_g.png');
 
-  const img4 = orderStatus == "4" || orderStatus == "5" ?
+  const img4 = orderStatus == "4" ?
     require('../../../assets/image/icon/icon_step4_b.png') :
     require('../../../assets/image/icon/icon_step4_g.png');
 
@@ -68,7 +68,7 @@ const OrderFlow = ({ orderStatus }) => {
 
       <View style={styles.viewContainer}>
         <Image source={img4} style={{ height: 35, resizeMode: 'contain' }} />
-        <Text style={orderStatus == "4" || orderStatus == "5" ? styles.activeTxt : styles.txt}>픽업완료</Text>
+        <Text style={orderStatus == "4" ? styles.activeTxt : styles.txt}>픽업완료</Text>
       </View>
     </View>
   );
