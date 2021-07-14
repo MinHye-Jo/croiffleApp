@@ -7,16 +7,16 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
-import styles from '@styles/commonStyle';
+import styles from 'styles/commonStyle';
 
-import CustomCheckBox from '@components/button/CustomCheckBox';
-import IconNextBlack from '@components/image/IconNextBlack';
-import StoreSelectList from '@components/selection/StoreSelectList';
-import DefaultModal from '@components/modal/DefaultModal';
-import DefaultActionModal from '@components/modal/DefaultActionModal';
-import FindPostCode from '@components/modal/FindPostCode';
+import CustomCheckBox from 'components/button/CustomCheckBox';
+import IconNextBlack from 'components/image/IconNextBlack';
+import StoreSelectList from 'components/selection/StoreSelectList';
+import DefaultModal from 'components/modal/DefaultModal';
+import DefaultActionModal from 'components/modal/DefaultActionModal';
+import FindPostCode from 'components/modal/FindPostCode';
 
-import { modifyUserInfo, sendAuthCode, confirmAuthCode, userWithdrawal } from '@service/auth';
+import { modifyUserInfo, sendAuthCode, confirmAuthCode, userWithdrawal } from 'services/auth';
 
 const PersonalInfo = (props) => {
   // 개인정보 데이터

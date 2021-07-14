@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View, TouchableOpacity, Text } from 'react-native';
 import { Header } from 'react-native-elements';
-import styles from '@styles/commonStyle'
+import styles from 'styles/commonStyle'
 
 // 이전페이지
 const renderPrevBtn = (props) => (

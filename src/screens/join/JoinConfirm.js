@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import Logo from '@components/image/Logo';
+import styles from 'styles/commonStyle';
+import Logo from 'components/image/Logo';
 
 const JoinConfirm = (props) => {
 

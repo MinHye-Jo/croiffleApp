@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 
-import styles from '@styles/commonStyle';
-import FindPostCode from '@components/modal/FindPostCode';
-import DefaultModal from '@components/modal/DefaultModal';
+import styles from 'styles/commonStyle';
+import FindPostCode from 'components/modal/FindPostCode';
+import DefaultModal from 'components/modal/DefaultModal';
 
-import { shopDetail, shopEdit } from '@service/shop';
+import { shopDetail, shopEdit } from 'services/shop';
 
 const StoreInfoEdit = ({ route }) => {
   // 매장 데이터

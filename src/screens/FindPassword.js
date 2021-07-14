@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import Logo from '@components/image/Logo';
+import styles from 'styles/commonStyle';
+import Logo from 'components/image/Logo';
 
-import DefaultModal from '@components/modal/DefaultModal';
-import FindPwdModal from '@components/modal/FindPwdModal';
+import DefaultModal from 'components/modal/DefaultModal';
+import FindPwdModal from 'components/modal/FindPwdModal';
 
-import { sendAuthCodePwd, confirmAuthCodeSendPwd } from '@service/auth';
+import { sendAuthCode, confirmAuthCodeSendPwd } from 'services/auth';
 
 const FindPassword = (props) => {
   const [id, setId] = useState('');
@@ -32,7 +32,7 @@ const FindPassword = (props) => {
 
   // 인증번호 발송
   const sendAuthCodePwdApi = async () => {
-    const re = await sendAuthCodePwd(phoneNumber, id);
+    const re = await sendAuthCode(phoneNumber, id);
 
     if (re.data && re.data.return_code == 200) {
       setPhoneChk(true);

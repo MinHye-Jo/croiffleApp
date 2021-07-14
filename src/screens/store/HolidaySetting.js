@@ -8,11 +8,11 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import WeekSelectList from '@components/selection/WeekSelectList';
-import DaySelectList from '@components/selection/DaySelectList';
-import AddButton from '@components/button/AddButton';
-import OnOffSwitchWhite from '@components/switch/OnOffSwitchWhite';
+import styles from 'styles/commonStyle';
+import WeekSelectList from 'components/selection/WeekSelectList';
+import DaySelectList from 'components/selection/DaySelectList';
+import AddButton from 'components/button/AddButton';
+import OnOffSwitchWhite from 'components/switch/OnOffSwitchWhite';
 
 const HolidaySetting = (props) => {
 

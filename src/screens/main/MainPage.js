@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 
-import OrderHistoryButton from '@components/button/OrderHistoryButton'
-import StoreManageButton from '@components/button/StoreManageButton'
+import OrderHistoryButton from 'components/button/OrderHistoryButton'
+import StoreManageButton from 'components/button/StoreManageButton'
 
 const Main = (props) => {
 

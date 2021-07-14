@@ -1,4 +1,4 @@
-import http from '@common/http';
+import http from 'common/http';
 
 // 주문 목록
 export const orderList = (shopId, status, orderDate) => {

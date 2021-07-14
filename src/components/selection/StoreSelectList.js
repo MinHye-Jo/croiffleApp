@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 
-import { shopList } from '@service/shop';
+import { shopList } from 'services/shop';
 
 const StoreSelectList = ({ value, onChange, disabled }) => {
   const styles = StyleSheet.create({

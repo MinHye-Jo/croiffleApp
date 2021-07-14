@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import OrderFlow from '@components/image/OrderFlow';
-import OrderFlowReject from '@components/image/OrderFlowReject';
-import DefaultModal from '@components/modal/DefaultModal';
-import OrderRejectModal from '@components/modal/OrderRejectModal';
-import OrderCompleteModal from '@components/modal/OrderCompleteModal';
+import styles from 'styles/commonStyle';
+import OrderFlow from 'components/image/OrderFlow';
+import OrderFlowReject from 'components/image/OrderFlowReject';
+import DefaultModal from 'components/modal/DefaultModal';
+import OrderRejectModal from 'components/modal/OrderRejectModal';
+import OrderCompleteModal from 'components/modal/OrderCompleteModal';
 
-import { orderDetail, orderReceipt, orderReject, orderReady, orderComplete } from '@service/order';
+import { orderDetail, orderReceipt, orderReject, orderReady, orderComplete } from 'services/order';
 
 // 1.업소사정으로 취소 / 2.재료소진 / 3.요청사항 불가
 const rejectType = {

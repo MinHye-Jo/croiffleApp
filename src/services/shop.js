@@ -1,4 +1,4 @@
-import http from '@common/http';
+import http from 'common/http';
 
 // 매장목록
 export const shopList = () => {

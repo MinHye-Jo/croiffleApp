@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Image, TextInput, Text, View, StyleSheet } from 'react-native';
-import styles from '@styles/commonStyle';
+import styles from 'styles/commonStyle';
 
 // 타입별 정규 표현식
 const maskTypeList = {

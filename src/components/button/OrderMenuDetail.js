@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 import moment from 'moment';
-import OrderRequest from '@components/image/OrderRequest'
-import OrderPreparing from '@components/image/OrderPreparing'
-import OrderComplete from '@components/image/OrderComplete'
-import OrderDenial from '@components/image/OrderDenial'
-import OrderPickupDone from '@components/image/OrderPickupDone'
+import OrderRequest from 'components/image/OrderRequest'
+import OrderPreparing from 'components/image/OrderPreparing'
+import OrderComplete from 'components/image/OrderComplete'
+import OrderDenial from 'components/image/OrderDenial'
+import OrderPickupDone from 'components/image/OrderPickupDone'
 
 const OrderMenuDetail = ({ navigation, data }) => {
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

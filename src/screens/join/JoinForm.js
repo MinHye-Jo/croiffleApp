@@ -8,13 +8,13 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import TextInputMask from '@components/TextInputMask';
-import StoreSelectList from '@components/selection/StoreSelectList';
-import DefaultModal from '@components/modal/DefaultModal';
-import validateHook from '@hook/validateHook'
+import styles from 'styles/commonStyle';
+import TextInputMask from 'components/TextInputMask';
+import StoreSelectList from 'components/selection/StoreSelectList';
+import DefaultModal from 'components/modal/DefaultModal';
+import validateHook from 'hook/validateHook'
 
-import { join, sendAuthCode, confirmAuthCode, checkID } from '@service/auth';
+import { join, sendAuthCode, confirmAuthCode, checkID } from 'services/auth';
 
 
 const JoinForm = (props) => {

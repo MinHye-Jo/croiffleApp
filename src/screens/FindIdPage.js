@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import Logo from '@components/image/Logo';
-import FindIdModal from '@components/modal/FindIdModal';
-import DefaultModal from '@components/modal/DefaultModal';
+import styles from 'styles/commonStyle';
+import Logo from 'components/image/Logo';
+import FindIdModal from 'components/modal/FindIdModal';
+import DefaultModal from 'components/modal/DefaultModal';
 
-import { findId } from '@service/auth';
+import { findId } from 'services/auth';
 
 const FindIdPage = (props) => {
   const [name, setName] = useState('');

@@ -8,11 +8,11 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import styles from '@styles/commonStyle';
+import styles from 'styles/commonStyle';
 
-import CustomCheckBox from '@components/button/CustomCheckBox';
-import IconNextBlack from '@components/image/IconNextBlack';
-import StoreSelectList from '@components/selection/StoreSelectList';
+import CustomCheckBox from 'components/button/CustomCheckBox';
+import IconNextBlack from 'components/image/IconNextBlack';
+import StoreSelectList from 'components/selection/StoreSelectList';
 
 
 const CustomerSupport = (props) => {

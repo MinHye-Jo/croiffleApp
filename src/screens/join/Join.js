@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import CustomCheckBox from '@components/button/CustomCheckBox';
-import IconNextBlack from '@components/image/IconNextBlack';
-import Logo from '@components/image/Logo';
-import DefaultModal from '@components/modal/DefaultModal';
+import styles from 'styles/commonStyle';
+import CustomCheckBox from 'components/button/CustomCheckBox';
+import IconNextBlack from 'components/image/IconNextBlack';
+import Logo from 'components/image/Logo';
+import DefaultModal from 'components/modal/DefaultModal';
 
 const Join = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
