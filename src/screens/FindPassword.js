@@ -7,7 +7,7 @@ import Logo from '@components/image/Logo';
 import DefaultModal from '@components/modal/DefaultModal';
 import FindPwdModal from '@components/modal/FindPwdModal';
 
-import { sendAuthCode, confirmAuthCodeSendPwd } from '@service/auth';
+import { sendAuthCodePwd, confirmAuthCodeSendPwd } from '@service/auth';
 
 const FindPassword = (props) => {
   const [id, setId] = useState('');
@@ -31,8 +31,8 @@ const FindPassword = (props) => {
   }
 
   // 인증번호 발송
-  const sendAuthCodeApi = async () => {
-    const re = await sendAuthCode(phoneNumber, id);
+  const sendAuthCodePwdApi = async () => {
+    const re = await sendAuthCodePwd(phoneNumber, id);
 
     if (re.data && re.data.return_code == 200) {
       setPhoneChk(true);
@@ -108,7 +108,7 @@ const FindPassword = (props) => {
               onChangeText={(e) => chkPhoneNumber(e)} />
             <TouchableOpacity style={{ flex: 1, marginLeft: 10 }}
               disabled={phoneNumber && id ? false : true}
-              onPress={sendAuthCodeApi}>
+              onPress={sendAuthCodePwdApi}>
               <View style={phoneNumber && id ? styles.blueBtn : styles.greyBtn}>
                 <Text style={styles.btnTxtWhite}>인증번호 발송</Text>
               </View>

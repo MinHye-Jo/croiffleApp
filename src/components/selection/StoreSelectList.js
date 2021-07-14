@@ -4,7 +4,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 import { shopList } from '@service/shop';
 
-const StoreSelectList = ({ value, onChange }) => {
+const StoreSelectList = ({ value, onChange, disabled }) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgb(242, 243, 245)',
@@ -17,19 +17,26 @@ const StoreSelectList = ({ value, onChange }) => {
     }
   });
 
-  const initItems = [{ label: '선택', value: 0 }];
-
+  const [selectValue, setSelectValue] = useState(0);
   const [open, setOpen] = useState(false);
-  const [items, setItems] = useState(initItems);
+  const [items, setItems] = useState([]);
+  const disableFlag = disabled ? disabled : false;
 
+  // 매장정보 불러오기
   useEffect(async () => {
+    const dataItems = [{ label: '선택', value: 0 }];
     const { data } = await shopList();
+
     if (data.response) {
-      data.response.map(o => initItems.push({ label: o.shopName, value: o.shopId }))
+      data.response.map(o => dataItems.push({ label: o.shopName, value: o.shopId }))
     }
 
-    setItems(initItems);
+    setItems(dataItems);
   }, []);
+
+  useEffect(() => {
+    setSelectValue(value);
+  }, [items, value]);
 
   return (
     <DropDownPicker
@@ -37,8 +44,9 @@ const StoreSelectList = ({ value, onChange }) => {
       textStyle={styles.txt}
       dropDownContainerStyle={{ backgroundColor: 'rgb(242, 243, 245)', }}
       open={open}
-      value={value}
+      value={selectValue}
       items={items}
+      disabled={disableFlag}
       setOpen={setOpen}
       setValue={(getValue) => {
         onChange(getValue());

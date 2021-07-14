@@ -14,6 +14,17 @@ const AgreeButton = ({ navigation, route, type }) => {
       backgroundColor: 'rgb(0, 191, 213)',
       borderRadius: 5
     },
+    containerDisabled: {
+      marginBottom: 20,
+      marginLeft: 20,
+      marginRight: 20,
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 50,
+      fontSize: 20,
+      backgroundColor: 'rgb(174, 174, 174)',
+      borderRadius: 5
+    },
     text: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 18,
@@ -22,7 +33,8 @@ const AgreeButton = ({ navigation, route, type }) => {
   });
 
   return (
-    <TouchableOpacity style={styles.container}
+    <TouchableOpacity style={route.params.disabled ? styles.containerDisabled : styles.container}
+      disabled={route.params.disabled ? route.params.disabled : false}
       onPress={() => {
         navigation.goBack();
         route.params.onAgree(type);

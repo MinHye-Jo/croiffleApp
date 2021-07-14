@@ -44,8 +44,6 @@ const JoinForm = (props) => {
   const [modalTextSec, setModalTextSec] = useState('');
   const [modalTextThi, setModalTextThi] = useState('');
 
-  const [value, setValue] = useState('');
-
   // 유효성 검사 모델 바인드
   const [model, isValidate] = validateHook();
 
@@ -241,7 +239,6 @@ const JoinForm = (props) => {
               <Text style={styles.btnTxtWhite}>인증번호 발송</Text>
             </View>
           </TouchableOpacity>
-
         </View>
         <View style={{ ...styles.row, marginTop: 10 }}>
           <TextInput style={{ ...styles.greyInput, flex: 1.5 }}

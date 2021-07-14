@@ -16,8 +16,8 @@ export const join = (data) => {
 }
 
 // 인증번호 발송
-export const sendAuthCode = (phoneNumber, id) => {
-  return http.post('/auth/sendAuthCode', { phoneNumber, id });
+export const sendAuthCode = (phoneNumber) => {
+  return http.post('/auth/sendAuthCode', { phoneNumber });
 }
 
 // 인증번호 확인
@@ -33,6 +33,11 @@ export const checkID = (id) => {
 // 아이디 찾기
 export const findId = (name, phoneNumber) => {
   return http.post('/auth/findId', { name, phoneNumber });
+}
+
+// 비밀번호 찾기 인증번호 발송
+export const sendAuthCodePwd = (phoneNumber, id) => {
+  return http.post('/auth/sendAuthCode/password', { phoneNumber, id });
 }
 
 // 비밀번호 찾기 인증번호 확인
@@ -51,6 +56,11 @@ export const getUserInfo = () => {
 }
 
 // 사용자정보 수정
-export const modifyUserInfo = () => {
-  return http.post('/auth/user/modify', {});
+export const modifyUserInfo = (data) => {
+  return http.post('/auth/user/modify', data);
+}
+
+// 회원 탈퇴
+export const userWithdrawal = () => {
+  return http.post('/auth/user/withdrawal', {});
 }
