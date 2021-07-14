@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { View, ScrollView } from 'react-native';
 
-import OrderTabButton from '@components/button/OrderTabButton';
-import OrderMenuDetail from '@components/button/OrderMenuDetail';
+import OrderTabButton from 'components/button/OrderTabButton';
+import OrderMenuDetail from 'components/button/OrderMenuDetail';
 
-import { orderList } from '@service/order';
+import { orderList } from 'services/order';
 
 // 1:주문요청중, 2:준비중, 3:준비완료, 4:픽업완료, 5:주문거부
 const orderCntMap = {

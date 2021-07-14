@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle'
-import StoreManageSetButton from '@components/button/StoreManageSetButton'
-import OnOffSwitchGrey from '@components/switch/OnOffSwitchGrey'
-import DefaultModal from '@components/modal/DefaultModal';
+import styles from 'styles/commonStyle'
+import StoreManageSetButton from 'components/button/StoreManageSetButton'
+import OnOffSwitchGrey from 'components/switch/OnOffSwitchGrey'
+import DefaultModal from 'components/modal/DefaultModal';
 
-import { getUserInfo } from '@service/auth';
-import { suspension, notification } from '@service/shop';
+import { getUserInfo } from 'services/auth';
+import { suspension, notification } from 'services/shop';
 
 const StoreManagement = (props) => {
   const shopId = window.userInfo.shopId;

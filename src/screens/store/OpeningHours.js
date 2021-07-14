@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import HoursSelectList from '@components/selection/HoursSelectList';
-import MinuteSelectList from '@components/selection/MinuteSelectList';
-import DefaultModal from '@components/modal/DefaultModal';
+import styles from 'styles/commonStyle';
+import HoursSelectList from 'components/selection/HoursSelectList';
+import MinuteSelectList from 'components/selection/MinuteSelectList';
+import DefaultModal from 'components/modal/DefaultModal';
 
-import { shopEnv, shopEnvEdit } from '@service/shop';
+import { shopEnv, shopEnvEdit } from 'services/shop';
 
 const OpeningHours = ({ route }) => {
   // 영업시간 설정

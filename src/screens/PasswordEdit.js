@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 import { ScrollView, View, Text, TouchableOpacity, TextInput } from 'react-native';
 
-import styles from '@styles/commonStyle';
-import TextInputMask from '@components/TextInputMask';
-import DefaultModal from '@components/modal/DefaultModal';
-import validateHook from '@hook/validateHook'
+import styles from 'styles/commonStyle';
+import TextInputMask from 'components/TextInputMask';
+import DefaultModal from 'components/modal/DefaultModal';
+import validateHook from 'hook/validateHook'
 
-import { modifyPassword } from '@service/auth';
+import { modifyPassword } from 'services/auth';
 
 
 const PasswordEdit = (props) => {

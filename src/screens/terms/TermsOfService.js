@@ -1,8 +1,8 @@
 // 서비스 이용약관
 import React from 'react';
 import { View } from 'react-native';
-import JoinWebView from '@components/JoinWebView';
-import AgreeButton from '@components/button/AgreeButton';
+import JoinWebView from 'components/JoinWebView';
+import AgreeButton from 'components/button/AgreeButton';
 
 const TermsOfService = ({ navigation, route }) => {
   return (

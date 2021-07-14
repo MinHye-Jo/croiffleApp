@@ -1,4 +1,4 @@
-import defaultConfig from '@config/defaultConfig';
+import defaultConfig from 'config/defaultConfig';
 import axios from 'axios';
 import DeviceInfo from 'react-native-device-info';
 

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
 
-import CustomRadioButton from '@components/button/CustomRadioButton';
-import CustomCheckBox from '@components/button/CustomCheckBox';
+import CustomRadioButton from 'components/button/CustomRadioButton';
+import CustomCheckBox from 'components/button/CustomCheckBox';
 
 const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
   const styles = StyleSheet.create({

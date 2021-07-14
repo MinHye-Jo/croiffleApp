@@ -1,33 +1,33 @@
 import React from 'react';
 
-import Login from '@screens/Login';
-import FindIdPage from '@screens/FindIdPage';
-import FindPassword from '@screens/FindPassword';
+import Login from 'screens/Login';
+import FindIdPage from 'screens/FindIdPage';
+import FindPassword from 'screens/FindPassword';
 
-import Join from '@screens/join/Join';
-import JoinForm from '@screens/join/JoinForm';
-import JoinConfirm from '@screens/join/JoinConfirm';
+import Join from 'screens/join/Join';
+import JoinForm from 'screens/join/JoinForm';
+import JoinConfirm from 'screens/join/JoinConfirm';
 
-import Main from '@screens/main/MainPage';
+import Main from 'screens/main/MainPage';
 
-import PrivacyPolicy from '@screens/terms/PrivacyPolicy';
-import TermsOfService from '@screens/terms/TermsOfService';
+import PrivacyPolicy from 'screens/terms/PrivacyPolicy';
+import TermsOfService from 'screens/terms/TermsOfService';
 
-import PersonalInfo from '@screens/PersonalInfo';
-import PasswordEdit from '@screens/PasswordEdit';
-import CustomerSupport from '@screens/CustomerSupport';
+import PersonalInfo from 'screens/PersonalInfo';
+import PasswordEdit from 'screens/PasswordEdit';
+import CustomerSupport from 'screens/CustomerSupport';
 
-import OrderHistory from '@screens/order/OrderHistory';
-import OrderDetail from '@screens/order/OrderDetail';
+import OrderHistory from 'screens/order/OrderHistory';
+import OrderDetail from 'screens/order/OrderDetail';
 
-import StoreManagement from '@screens/store/StoreManagement';
-import StoreInfoEdit from '@screens/store/StoreInfoEdit';
-import OpeningHours from '@screens/store/OpeningHours';
-import HolidaySetting from '@screens/store/HolidaySetting';
-import MenuManagement from '@screens/store/MenuManagement';
+import StoreManagement from 'screens/store/StoreManagement';
+import StoreInfoEdit from 'screens/store/StoreInfoEdit';
+import OpeningHours from 'screens/store/OpeningHours';
+import HolidaySetting from 'screens/store/HolidaySetting';
+import MenuManagement from 'screens/store/MenuManagement';
 
-import HeaderModule from '@screens/header/HeaderModule';
-import PrevHeaderModule from '@screens/header/PrevHeaderModule';
+import HeaderModule from 'screens/header/HeaderModule';
+import PrevHeaderModule from 'screens/header/PrevHeaderModule';
 
 
 import { createStackNavigator } from '@react-navigation/stack';

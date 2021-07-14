@@ -7,12 +7,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import OrderHistoryButton from '@components/button/OrderHistoryButton'
-import StoreManageButton from '@components/button/StoreManageButton'
-import IconNextBlack from '@components/image/IconNextBlack'
+import OrderHistoryButton from 'components/button/OrderHistoryButton'
+import StoreManageButton from 'components/button/StoreManageButton'
+import IconNextBlack from 'components/image/IconNextBlack'
 
-import naviStyle from '@styles/naviStyle'
-import styles from '@styles/commonStyle'
+import naviStyle from 'styles/naviStyle'
+import styles from 'styles/commonStyle'
 import { ScrollView } from 'react-native-gesture-handler';
 
 const CustomSidebarMenu = (props) => {

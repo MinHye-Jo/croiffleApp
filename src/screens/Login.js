@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 
-import Logo from '@components/image/Logo';
-import styles from '@styles/commonStyle';
-import DefaultModal from '@components/modal/DefaultModal';
+import Logo from 'components/image/Logo';
+import styles from 'styles/commonStyle';
+import DefaultModal from 'components/modal/DefaultModal';
 
-import { login, getUserInfo } from '@service/auth';
-import { setToken } from '@common/http';
+import { login, getUserInfo } from 'services/auth';
+import { setToken } from 'common/http';
 
 const Login = (props) => {
   const [id, setId] = useState('');

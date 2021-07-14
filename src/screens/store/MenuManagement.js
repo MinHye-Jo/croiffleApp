@@ -1,7 +1,7 @@
-import DefaultActionModal from '@components/modal/DefaultActionModal';
-import SaleSoldoutSwitch from '@components/switch/SaleSoldoutSwitch';
-import { menuList, menuSale, menuSoldOut } from '@service/menu';
-import styles from '@styles/commonStyle';
+import DefaultActionModal from 'components/modal/DefaultActionModal';
+import SaleSoldoutSwitch from 'components/switch/SaleSoldoutSwitch';
+import { menuList, menuSale, menuSoldOut } from 'services/menu';
+import styles from 'styles/commonStyle';
 import React, { useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 

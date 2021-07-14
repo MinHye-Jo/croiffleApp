@@ -1,4 +1,4 @@
-import http from '@common/http';
+import http from 'common/http';
 
 // 메뉴 리스트
 export const menuList = (shopId) => {

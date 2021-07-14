@@ -1,4 +1,4 @@
-import http from '@common/http';
+import http from 'common/http';
 
 // 로그인
 export const login = (id, password, osType) => {
