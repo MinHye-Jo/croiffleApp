@@ -114,7 +114,7 @@ const PersonalInfo = (props) => {
       }
       setModalData("저장완료", "저장되었습니다.");
     } else {
-      setModalData("저장실패", re.data.return_message);
+      setModalData("저장실패", data.return_message);
     }
   }
 
@@ -127,7 +127,7 @@ const PersonalInfo = (props) => {
       console.log("???????????")
       setModalData("회원탈퇴 성공", "회원탈퇴 되었습니다.");
     } else {
-      setModalData("회원탈퇴 실패", re.data.return_message);
+      setModalData("회원탈퇴 실패", data.return_message);
     }
   }
 
