@@ -51,6 +51,11 @@ export const getUserInfo = () => {
 }
 
 // 사용자정보 수정
-export const modifyUserInfo = () => {
-  return http.post('/auth/user/modify', {});
+export const modifyUserInfo = (data) => {
+  return http.post('/auth/user/modify', data);
+}
+
+// 회원 탈퇴
+export const userWithdrawal = () => {
+  return http.post('/auth/user/withdrawal', {});
 }
