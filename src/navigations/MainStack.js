@@ -9,6 +9,7 @@ import JoinForm from 'screens/join/JoinForm';
 import JoinConfirm from 'screens/join/JoinConfirm';
 
 import Main from 'screens/main/MainPage';
+import NoticeList from 'screens/notice/NoticeList';
 
 import PrivacyPolicy from 'screens/terms/PrivacyPolicy';
 import TermsOfService from 'screens/terms/TermsOfService';
@@ -64,6 +65,16 @@ const MainStack = ({ navigation }) => {
         options={{
           header: () => (
             <NavigationDrawerStructure navigationProps={navigation} />
+          )
+        }}
+      />
+      {/* 알림내역 */}
+      <Stack.Screen
+        name="NoticeList"
+        component={NoticeList}
+        options={{
+          header: () => (
+            <PrevStackMove navigationProps={navigation} title="알림내역" />
           )
         }}
       />

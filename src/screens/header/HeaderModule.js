@@ -29,7 +29,7 @@ const renderCrfLogo = (props) => (
 // 알림
 const renderOrderNoti = (props) => (
   <View style={{ flexDirection: 'row' }}>
-    <TouchableOpacity onPress={() => props.auth == null ? props.navigation.navigate('LoginPage') : props.auth.accessToken == null ? props.navigation.navigate('LoginPage') : props.navigation.navigate('MyPage')}>
+    <TouchableOpacity onPress={() => props.navigation.navigate('NoticeList')}>
       <Image
         style={{ width: 25, height: 25, marginRight: 10, resizeMode: "contain" }}
         source={require('../../../assets/image/icon/icon_notice_b.png')}
