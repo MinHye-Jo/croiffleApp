@@ -26,6 +26,7 @@ const OrderTabButton = ({ onClick, orderCnt }) => {
       height: '100%'
     },
     txt: {
+      color: 'black',
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 15,
     },

@@ -12,7 +12,7 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
     },
     modalcontainer: {
       width: '100%',
-      height: '32%',
+      height: 260,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
@@ -20,7 +20,7 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
     },
     modalcontainer2: {
       width: '100%',
-      height: '35%',
+      height: 295,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
@@ -70,7 +70,7 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
   return (
     <Modal isVisible={modalOpen}>
       <View style={styles.container}>
-        <View style={modalTextThi == "" ? styles.modalcontainer : styles.modalcontainer2} >
+        <View style={modalTextThi ? styles.modalcontainer2 : styles.modalcontainer} >
           <View style={styles.container}>
             <View style={{ flexDirection: "row" }}>
               <View style={styles.titleContainer}>
@@ -82,8 +82,8 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
             </View>
             <Image source={require('../../../assets/image/icon/icon_popup_b.png')} style={styles.imgContainer} />
             <Text style={styles.txt}>{modalText}</Text>
-            {modalTextSec != "" && <Text style={styles.txt}>{modalTextSec}</Text>}
-            {modalTextThi != "" && <Text style={styles.txt}>{modalTextThi}</Text>}
+            {modalTextSec ? <Text style={styles.txt}>{modalTextSec}</Text> : null}
+            {modalTextThi ? <Text style={styles.txt}>{modalTextThi}</Text> : null}
 
             <TouchableOpacity style={styles.blueBtn} onPress={() => onAction()}>
               <Text style={styles.btnTxtWhite}>확인</Text>
