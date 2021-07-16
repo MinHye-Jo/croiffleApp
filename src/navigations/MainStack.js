@@ -34,6 +34,7 @@ import PrevHeaderModule from 'screens/header/PrevHeaderModule';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import messaging from '@react-native-firebase/messaging';
+import SoundPlayer from 'react-native-sound-player';
 
 import OrderNoticeModal from 'components/modal/OrderNoticeModal';
 import { View } from 'react-native';
@@ -60,6 +61,9 @@ const MainStack = ({ navigation }) => {
  
    useEffect(() => {
      const unsubscribe = messaging().onMessage(async remoteMessage => {
+      SoundPlayer.loadSoundFile('order_saved', 'mp3');
+      SoundPlayer.play();
+
        console.log('======= 알림', JSON.stringify(remoteMessage));
        const notiData = JSON.parse(remoteMessage.notification.body)
        

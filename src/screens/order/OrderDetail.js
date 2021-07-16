@@ -129,9 +129,7 @@ const OrderDetail = ({ route }) => {
   const orderCompleteApi = async (orderUniqueness) => {
     setCompleteModalOpen(false);
 
-    console.log(orderId, orderUniqueness, shopId)
     const { data } = await orderComplete(orderId, shopId, orderUniqueness);
-    console.log(data)
 
     if (data.return_code == 200) {
       setModalOpen(true);
