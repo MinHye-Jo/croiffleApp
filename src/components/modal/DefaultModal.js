@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import Modal from 'react-native-modal';
 
@@ -12,7 +12,7 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
     },
     modalcontainer: {
       width: '100%',
-      height: '32%',
+      height: 260,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
@@ -20,7 +20,7 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
     },
     modalcontainer2: {
       width: '100%',
-      height: '35%',
+      height: 295,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
@@ -66,30 +66,25 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
     },
   });
 
-
   return (
     <Modal isVisible={modalOpen}>
       <View style={styles.container}>
-        <View style={modalTextThi == "" ? styles.modalcontainer : styles.modalcontainer2} >
-          <View style={styles.container}>
-            <View style={{ flexDirection: "row" }}>
-              <View style={styles.titleContainer}>
-                <Text style={styles.title}>{!title ? "알림" : title}</Text>
-              </View>
-              <TouchableOpacity style={{ flex: 1 }} onPress={() => onClose()}>
-                <Image source={require('../../../assets/image/icon/icon_close_b.png')} style={styles.closeImg} />
-              </TouchableOpacity>
+        <View style={ modalTextThi ? styles.modalcontainer2 : styles.modalcontainer} >
+          <View style={{ flexDirection: "row" }}> 
+            <View style={styles.titleContainer}>
+              <Text style={styles.title}>{!title ? "알림" : title}</Text>
             </View>
-            <Image source={require('../../../assets/image/icon/icon_popup_b.png')} style={styles.imgContainer} />
-            <Text style={styles.txt}>{modalText}</Text>
-            {modalTextSec != "" && <Text style={styles.txt}>{modalTextSec}</Text>}
-            {modalTextThi != "" && <Text style={styles.txt}>{modalTextThi}</Text>}
-
-            <TouchableOpacity style={styles.blueBtn} onPress={() => onClose()}>
-              <Text style={styles.btnTxtWhite}>확인</Text>
+            <TouchableOpacity style={{ flex: 1 }} onPress={() => onClose()}>
+              <Image source={require('../../../assets/image/icon/icon_close_b.png')} style={styles.closeImg} />
             </TouchableOpacity>
-
           </View>
+          <Image source={require('../../../assets/image/icon/icon_popup_b.png')} style={styles.imgContainer} />
+          <Text style={styles.txt}>{modalText}</Text>
+          {modalTextSec ? <Text style={styles.txt}>{modalTextSec}</Text> : null}
+          {modalTextThi ? <Text style={styles.txt}>{modalTextThi}</Text> : null}
+          <TouchableOpacity style={styles.blueBtn} onPress={() => onClose()}>
+            <Text style={styles.btnTxtWhite}>확인</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </Modal >

@@ -160,7 +160,7 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
             <View>
               <Text style={{ ...styles.txt, marginBottom: 5 }}>품절처리 항목을 선택해주세요</Text>
               <View style={styles.greyBox}>
-                {menuData && menuData.length > 0 &&
+                {(menuData && menuData.length > 0) ?
                   menuData.map(o => {
                     return (
                       <View style={styles.selectCom}>
@@ -169,8 +169,7 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
                         <Text style={styles.txt2}>{o.menuName}</Text>
                       </View>
                     )
-                  }
-                  )}
+                  }) : null}
               </View>
             </View>
             <Text style={styles.redTxt}>선택하신 항목은 다음 날 오픈 전까지 품절처리됩니다.</Text>

@@ -90,24 +90,24 @@ const JoinForm = (props) => {
 
   // 인증번호 발송
   const sendAuthCodeApi = async () => {
-    const re = await sendAuthCode(signUpInfo.phoneNumber);
+    const {data} = await sendAuthCode(signUpInfo.phoneNumber);
 
-    if (re.data && re.data.return_code == 200) {
+    if (data && data.return_code == 200) {
       setModalData("인증번호 발송", "입력하신 번호로 인증번호가 발송되었습니다.", "인증번호가 오지 않을 경우", "입력하신 번호가 정확한지 확인하여 주세요.");
     } else {
-      setModalData("인증번호 발송 실패", re.data.return_message);
+      setModalData("인증번호 발송 실패", data.return_message);
     }
   }
 
   // 인증번호 확인
   const confirmAuthCodeApi = async () => {
-    const re = await confirmAuthCode(signUpInfo.phoneNumber, signUpInfo.authCode);
+    const {data} = await confirmAuthCode(signUpInfo.phoneNumber, signUpInfo.authCode);
 
-    if (re.data && re.data.return_code == 200) {
+    if (data && data.return_code == 200) {
       setPhoneChk(true);
       setModalData("휴대폰번호 인증 완료", "휴대폰번호 인증이 완료되었습니다.");
     } else {
-      setModalData("휴대폰번호 인증 실패", re.data.return_message);
+      setModalData("휴대폰번호 인증 실패", data.return_message);
     }
   }
 
@@ -179,7 +179,7 @@ const JoinForm = (props) => {
           placeholder="이메일 형식으로 입력해주세요"
         />
 
-        {idChkFailMsg != "" && <Text style={styles.errText}>{idChkFailMsg} </Text>}
+        {idChkFailMsg ? <Text style={styles.errText}>{idChkFailMsg} </Text> : null}
 
         <View style={{ ...styles.row, marginTop: 20, marginBottom: 10 }}>
           <Text style={styles.font5M15}>비밀번호</Text>
