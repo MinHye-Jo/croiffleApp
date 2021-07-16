@@ -39,12 +39,12 @@ const Login = (props) => {
         props.navigation.navigate('MainPage')
       } else {
         setModalOpen(true);
-        setModalText(userInfo.data.response.returnMessage);
+        setModalText(userInfo.data.return_message);
       }
     }
     else {
       setModalOpen(true);
-      setModalText(data.response.returnMessage);
+      setModalText(data.return_message);
     }
   }
 

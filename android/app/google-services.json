@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "716999226776",
+    "project_id": "croiffle-f9c01",
+    "storage_bucket": "croiffle-f9c01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716999226776:android:84c5c7a2522d557c8c67ed",
+        "android_client_info": {
+          "package_name": "com.croifflekitchen.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716999226776-q9mg6mc6or6tsgu0ha1sjrdlgetfoogj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwUp7gAfPkpKEgoxz5nrTthhi_qldfajQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716999226776-q9mg6mc6or6tsgu0ha1sjrdlgetfoogj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "716999226776-1fmlce8rcbe3sp6ghte30tcm5tdenj3n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.croifflekitchen.employee"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716999226776:android:b82010c4ad47a51c8c67ed",
+        "android_client_info": {
+          "package_name": "com.croifflekitchen.employee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716999226776-q9mg6mc6or6tsgu0ha1sjrdlgetfoogj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwUp7gAfPkpKEgoxz5nrTthhi_qldfajQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716999226776-q9mg6mc6or6tsgu0ha1sjrdlgetfoogj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "716999226776-1fmlce8rcbe3sp6ghte30tcm5tdenj3n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.croifflekitchen.employee"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
