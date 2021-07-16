@@ -107,9 +107,9 @@ const FindPassword = (props) => {
             <TextInput style={{ ...styles.greyInput, flex: 1.5 }}
               onChangeText={(e) => chkPhoneNumber(e)} />
             <TouchableOpacity style={{ flex: 1, marginLeft: 10 }}
-              disabled={phoneNumber && id ? false : true}
+              disabled={(phoneNumber && id) ? false : true}
               onPress={sendAuthCodePwdApi}>
-              <View style={phoneNumber && id ? styles.blueBtn : styles.greyBtn}>
+              <View style={(phoneNumber && id) ? styles.blueBtn : styles.greyBtn}>
                 <Text style={styles.btnTxtWhite}>인증번호 발송</Text>
               </View>
             </TouchableOpacity>
@@ -121,9 +121,9 @@ const FindPassword = (props) => {
               onChangeText={(e) => setAuthCode(e)}
             />
             <TouchableOpacity style={{ flex: 1, marginLeft: 10, marginTop: 10 }}
-              disabled={phoneChk && authCode ? false : true}
+              disabled={(phoneChk && authCode) ? false : true}
               onPress={confirmAuthCodeApi}>
-              <View style={phoneChk && authCode ? styles.blueBtn : styles.greyBtn}>
+              <View style={(phoneChk && authCode) ? styles.blueBtn : styles.greyBtn}>
                 <Text style={styles.btnTxtWhite}>인증번호 확인</Text>
               </View>
             </TouchableOpacity>

@@ -122,7 +122,7 @@ const PasswordEdit = (props) => {
           secureTextEntry={true}
           placeholder="한번 더 입력해주세요"
         />
-        {pwdChkFailMsg != "" && <Text style={styles.errText}>{pwdChkFailMsg} </Text>}
+        {pwdChkFailMsg ? <Text style={styles.errText}>{pwdChkFailMsg} </Text> : null}
 
         <TouchableOpacity
           style={{ marginTop: 40 }}

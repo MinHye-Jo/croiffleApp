@@ -86,7 +86,7 @@ const TextInputMask = (props) => {
         <Image style={{ ...styles.image25, marginRight: 10 }} source={image} />
       </View>
       <View style={{ marginTop: 10 }}>
-        {isError && failMsg[props.type] && <Text style={styles.errText}>{failMsg[props.type]}</Text>}
+        {(isError && failMsg[props.type]) ? <Text style={styles.errText}>{failMsg[props.type]}</Text> : null}
       </View >
     </View>
 

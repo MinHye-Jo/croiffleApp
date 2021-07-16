@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import Modal from 'react-native-modal';
 
-const OrderNoticeModal = ({ modalOpen, onClose, modalText, navigation }) => {
+const OrderNoticeModal = ({ modalOpen, onClose, modalText, navigation, data }) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -67,11 +67,6 @@ const OrderNoticeModal = ({ modalOpen, onClose, modalText, navigation }) => {
     },
   });
 
-  const btnAction = (type) => {
-    onClose();
-    navigation.navigate(type);
-  }
-
   return (
     <Modal isVisible={modalOpen}>
       <View style={styles.container}>
@@ -88,12 +83,20 @@ const OrderNoticeModal = ({ modalOpen, onClose, modalText, navigation }) => {
             <Image source={require('../../../assets/image/icon/icon_list_b.png')} style={styles.imgContainer} />
             <Text style={styles.txt}>새로운 주문이 들어왔습니다.</Text>
             <View style={{ flexDirection: "row", marginTop: 20 }}>
-              <TouchableOpacity style={styles.redBtn} onPress={() => btnAction('FindPassword')}>
+              <TouchableOpacity style={styles.redBtn} 
+              onPress={() =>{ 
+                onClose();
+                navigation.navigate('OrderDetail', { 'orderId': data.orderId })
+              }}>
                 <View>
                   <Text style={styles.btnTxtWhite}>상세보기</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.blueBtn} onPress={() => btnAction('LoginPage')}>
+              <TouchableOpacity style={styles.blueBtn} 
+              onPress={() => {
+                onClose();
+                navigation.navigate('OrderHistory')
+              }}>
                 <Text style={styles.btnTxtWhite}>주문내역</Text>
               </TouchableOpacity>
             </View>

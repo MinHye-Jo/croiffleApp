@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 import Login from 'screens/Login';
 import FindIdPage from 'screens/FindIdPage';
@@ -33,6 +33,11 @@ import PrevHeaderModule from 'screens/header/PrevHeaderModule';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
+import messaging from '@react-native-firebase/messaging';
+
+import OrderNoticeModal from 'components/modal/OrderNoticeModal';
+import { View } from 'react-native';
+
 const Stack = createStackNavigator();
 
 const NavigationDrawerStructure = (props) => {
@@ -48,7 +53,30 @@ const PrevStackMove = (props) => {
 };
 
 const MainStack = ({ navigation }) => {
+
+   // 모달 데이터
+   const [modalOpen, setModalOpen] = useState(false);
+   const [noticeData, setNoticeData] = useState(null);
+ 
+   useEffect(() => {
+     const unsubscribe = messaging().onMessage(async remoteMessage => {
+       console.log('======= 알림', JSON.stringify(remoteMessage));
+       const notiData = JSON.parse(remoteMessage.notification.body)
+       
+       window.noticeList = window.noticeList ? 
+       window.noticeList.concat(notiData) : [notiData];
+ 
+       setNoticeData(notiData);
+       setModalOpen(true);
+     });
+ 
+     return unsubscribe;
+   }, []);
+
   return (
+    <View style={{flex:1}}>
+
+      <OrderNoticeModal modalOpen={modalOpen} navigation={navigation} onClose={() => setModalOpen(false)} data={noticeData}/>
     <Stack.Navigator initialRouteName="Main">
       {/* 로그인 */}
       <Stack.Screen
@@ -250,6 +278,8 @@ const MainStack = ({ navigation }) => {
       />
 
     </Stack.Navigator>
+    </View>
+
   );
 
 }

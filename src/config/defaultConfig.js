@@ -1,3 +1,6 @@
+import DeviceInfo from 'react-native-device-info';
+
+const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
 
 const prod = {
   apiUrl: 'http://10.0.2.2:8090/api/v1/',
@@ -5,7 +8,7 @@ const prod = {
 }
 
 const dev = {
-  apiUrl: 'http://localhost:8090/api/v1/',
+  apiUrl: osType == "iOS" ? 'http://localhost:8090/api/v1/' : 'http://10.0.2.2:8090/api/v1/' ,
   isLocal: true
 }
 

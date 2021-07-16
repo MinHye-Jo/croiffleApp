@@ -192,7 +192,7 @@ const OrderDetail = ({ route }) => {
         <View style={{ ...styles.greyBox, padding: 10, paddingTop: 0 }}>
           {orderData.orderDetail.map(o => {
             return (
-              <View>
+              <View key={o.menuId}>
                 <View style={{ ...styles.row, paddingTop: 10, flex: 1 }}>
                   <Text style={{ ...styles.font4R15, flex: 3 }}>{o.menuName}</Text>
                   <Text style={{ ...styles.font4R15, flex: 1 }}>{o.unitCount}</Text>
@@ -202,7 +202,7 @@ const OrderDetail = ({ route }) => {
                 </View>
                 {o.optionList.map(e => {
                   return (
-                    <View style={{ ...styles.row, paddingTop: 10 }}>
+                    <View style={{ ...styles.row, paddingTop: 10 }} key={e.menuId}>
                       <Text style={{ ...styles.font4R15, flex: 3 }}>+ {e.menuName}</Text>
                       <Text style={{ ...styles.font4R15, flex: 1 }}>{e.unitCount} </Text>
                       <View style={{ ...styles.font4R15, flex: 1, alignItems: 'flex-end' }} >
@@ -277,7 +277,7 @@ const OrderDetail = ({ route }) => {
             <Text style={styles.btnTxtWhite}>완료처리</Text>
           </TouchableOpacity>
         </View>}
-        {orderData.status == "4" || orderData.status == "5" && <View style={{ marginTop: 20, marginBottom: 30 }}></View>}
+        {(orderData.status == "4" || orderData.status == "5") && <View style={{ marginTop: 20, marginBottom: 30 }}></View>}
       </ScrollView>
     </View >
   );
