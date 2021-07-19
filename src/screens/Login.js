@@ -9,7 +9,7 @@ import DefaultModal from 'components/modal/DefaultModal';
 import { login, getUserInfo } from 'services/auth';
 import { setToken } from 'common/http';
 
-const Login = (props) => {
+const Login = props => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [inputChk, setInputChk] = useState(false);
@@ -19,8 +19,11 @@ const Login = (props) => {
   const [modalText, setModalText] = useState('');
 
   useEffect(() => {
-    if (id && password) setInputChk(true);
-    else setInputChk(false);
+    if (id && password) {
+      setInputChk(true);
+    } else {
+      setInputChk(false);
+    }
   }, [id, password]);
 
   // 로그인 API 연동
@@ -32,21 +35,20 @@ const Login = (props) => {
     if (data && data.return_code == 200) {
       setToken(data.response.token);
 
-      // 토큰 정보 저장 후 유저 상세 정보 저장 
+      // 토큰 정보 저장 후 유저 상세 정보 저장
       const userInfo = await getUserInfo();
       if (userInfo.data && userInfo.data.return_code == 200) {
         window.userInfo = userInfo.data.response;
-        props.navigation.navigate('MainPage')
+        props.navigation.navigate('MainPage');
       } else {
         setModalOpen(true);
         setModalText(userInfo.data.return_message);
       }
-    }
-    else {
+    } else {
       setModalOpen(true);
       setModalText(data.return_message);
     }
-  }
+  };
 
   return (
     <View style={styles.topContainer}>
@@ -63,20 +65,28 @@ const Login = (props) => {
       </View>
 
       <View style={{ paddingTop: 30, paddingLeft: 20, paddingRight: 20 }}>
-        <TextInput style={styles.greyInput} placeholder="아이디" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none'
-          onChangeText={(e) => setId(e)} />
+        <TextInput
+          style={styles.greyInput}
+          placeholder="아이디"
+          placeholderTextColor="rgb(174, 174, 174)"
+          autoCapitalize="none"
+          onChangeText={e => setId(e)}
+        />
       </View>
       <View style={{ paddingTop: 10, paddingLeft: 20, paddingRight: 20 }}>
-        <TextInput style={styles.greyInput} placeholder="비밀번호" placeholderTextColor='rgb(174, 174, 174)' autoCapitalize='none'
+        <TextInput
+          style={styles.greyInput}
+          placeholder="비밀번호"
+          placeholderTextColor="rgb(174, 174, 174)"
+          autoCapitalize="none"
           secureTextEntry={true}
-          onChangeText={(e) => setPassword(e)} />
+          onChangeText={e => setPassword(e)}
+        />
       </View>
 
-      <TouchableOpacity style={{ padding: 10, margin: 10 }}
-        disabled={!inputChk}
-        onPress={() => serviceLogin()}>
+      <TouchableOpacity style={{ padding: 10, margin: 10 }} disabled={!inputChk} onPress={() => serviceLogin()}>
         <View style={inputChk ? styles.blueBtn : styles.greyBtn}>
-          <Text style={styles.btnTxtWhite} >로그인</Text>
+          <Text style={styles.btnTxtWhite}>로그인</Text>
         </View>
       </TouchableOpacity>
 
@@ -86,7 +96,7 @@ const Login = (props) => {
             <Text> 아이디 찾기 </Text>
           </TouchableOpacity>
           <Text> | </Text>
-          <TouchableOpacity onPress={() => props.navigation.navigate('FindPassword')} >
+          <TouchableOpacity onPress={() => props.navigation.navigate('FindPassword')}>
             <Text> 비밀번호 찾기 </Text>
           </TouchableOpacity>
           <Text> | </Text>
@@ -95,7 +105,7 @@ const Login = (props) => {
           </TouchableOpacity>
         </View>
       </View>
-    </View >
+    </View>
   );
 };
 

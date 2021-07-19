@@ -1,21 +1,27 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { SafeAreaView, View, Image, Text, TouchableOpacity } from 'react-native';
 
-import OrderHistoryButton from 'components/button/OrderHistoryButton'
-import StoreManageButton from 'components/button/StoreManageButton'
-import IconNextBlack from 'components/image/IconNextBlack'
+import OrderHistoryButton from 'components/button/OrderHistoryButton';
+import StoreManageButton from 'components/button/StoreManageButton';
+import IconNextBlack from 'components/image/IconNextBlack';
 
-import naviStyle from 'styles/naviStyle'
-import styles from 'styles/commonStyle'
+import naviStyle from 'styles/naviStyle';
+import styles from 'styles/commonStyle';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const CustomSidebarMenu = (props) => {
+import { useResetRecoilState } from 'recoil';
+import { noticeListState } from 'store/app';
+
+const CustomSidebarMenu = props => {
+  const resetData = useResetRecoilState(noticeListState);
+
+  // 로그아웃 버튼 클릭시 데이터 초기화
+  const logoutAction = () => {
+    resetData();
+    window.userInfo = null;
+    props.navigation.navigate('LoginPage');
+  };
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {/* 사이드메뉴 상단 */}
@@ -25,7 +31,10 @@ const CustomSidebarMenu = (props) => {
         </View>
         <View style={styles.rowFlex1Right}>
           <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
-            <Image source={require('../../assets/image/icon/icon_menu_close.png')} style={{ resizeMode: 'contain', width: 25, height: 25 }} />
+            <Image
+              source={require('../../assets/image/icon/icon_menu_close.png')}
+              style={{ resizeMode: 'contain', width: 25, height: 25 }}
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -37,7 +46,7 @@ const CustomSidebarMenu = (props) => {
         </View>
       </View>
       {/* 사이드메뉴 항목 */}
-      <ScrollView {...props} style={{ paddingLeft: 20, paddingTop: 20 }} >
+      <ScrollView style={{ paddingLeft: 20, paddingTop: 20 }}>
         {/* <DrawerItemList {...props} /> */}
         <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
           <View style={{ ...styles.row, paddingBottom: 10 }}>
@@ -89,17 +98,16 @@ const CustomSidebarMenu = (props) => {
             </View>
           </View>
         </TouchableOpacity>
-        <View style={styles.hr}></View>
+        <View style={styles.hr} />
       </ScrollView>
 
       {/* 로그인 로그아웃 */}
       <View style={{ backgroundColor: 'rgb(242, 243, 245)', height: '5%', paddingLeft: 20, justifyContent: 'center' }}>
-        <TouchableOpacity onPress={() => props.navigation.navigate('LoginPage')}>
+        <TouchableOpacity onPress={logoutAction}>
           <Text style={styles.font5M15}>로그아웃</Text>
         </TouchableOpacity>
       </View>
-
-    </SafeAreaView >
+    </SafeAreaView>
   );
 };
 
