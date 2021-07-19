@@ -63,7 +63,7 @@ const MainStack = ({ navigation }) => {
     // 메시지 이벤트 처리
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       // 알림 음성파일 실행
-      SoundPlayer.loadSoundFile('order_saved', 'mp3');
+      SoundPlayer.loadSoundFile('ring', 'mp3');
       SoundPlayer.play();
 
       // 데이터 저장

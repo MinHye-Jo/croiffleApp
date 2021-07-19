@@ -7,10 +7,12 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
+    "@react-native-community/netinfo": "^6.0.0",
     "@react-native-firebase/app": "^12.2.0",
     "@react-native-firebase/messaging": "^12.2.0",
     "@react-native-picker/picker": "^1.16.1",
