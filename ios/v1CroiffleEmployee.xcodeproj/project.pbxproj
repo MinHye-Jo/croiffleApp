@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* v1CroiffleEmployeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* v1CroiffleEmployeeTests.m */; };
-		04142C8226A180FE0024984C /* order-saved.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04142C8126A180FE0024984C /* order-saved.mp3 */; };
+		04142D1826A571CE0024984C /* ring.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04142D1726A571CE0024984C /* ring.mp3 */; };
+		04142D1C26A574140024984C /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 04142D1B26A574140024984C /* main.jsbundle */; };
+		04142D2626A576870024984C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04142D2526A576870024984C /* GoogleService-Info.plist */; };
 		048162B52671FA7100C5182A /* S-CoreDream-4Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 048162B32671FA7100C5182A /* S-CoreDream-4Regular.otf */; };
 		04C188A82671FC4500DB72AD /* S-CoreDream-5Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 04C188A72671FC4500DB72AD /* S-CoreDream-5Medium.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		21F4BFAABBB764A738219EBA /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD41869900C0EBE81CFB97BF /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a */; };
+		15DCE810BB262BFE62D22024 /* libPods-v1CroiffleEmployee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 727FFF05567821F609DBF036 /* libPods-v1CroiffleEmployee.a */; };
+		6E69CF87832BBABA54D849D5 /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 813609A7F0EAC66D62AA030B /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		A424BD93A968DE437F1BE9DF /* libPods-v1CroiffleEmployee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A0C5046EAD7A601C7BFB4F /* libPods-v1CroiffleEmployee.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +35,9 @@
 		00E356EE1AD99517003FC87E /* v1CroiffleEmployeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = v1CroiffleEmployeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* v1CroiffleEmployeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v1CroiffleEmployeeTests.m; sourceTree = "<group>"; };
-		04142C8126A180FE0024984C /* order-saved.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "order-saved.mp3"; path = "../android/app/src/main/res/raw/order-saved.mp3"; sourceTree = "<group>"; };
+		04142D1726A571CE0024984C /* ring.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ring.mp3; path = ../android/app/src/main/res/raw/ring.mp3; sourceTree = "<group>"; };
+		04142D1B26A574140024984C /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
+		04142D2526A576870024984C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		048162B32671FA7100C5182A /* S-CoreDream-4Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "S-CoreDream-4Regular.otf"; path = "../assets/fonts/S-CoreDream-4Regular.otf"; sourceTree = "<group>"; };
 		04C188A72671FC4500DB72AD /* S-CoreDream-5Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "S-CoreDream-5Medium.otf"; path = "../assets/fonts/S-CoreDream-5Medium.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* v1CroiffleEmployee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v1CroiffleEmployee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,13 +46,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = v1CroiffleEmployee/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = v1CroiffleEmployee/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = v1CroiffleEmployee/main.m; sourceTree = "<group>"; };
-		29FB4DE0B2A9288155297CBC /* Pods-v1CroiffleEmployee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee.release.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee.release.xcconfig"; sourceTree = "<group>"; };
-		6B58D0C2FB60A55367476DC8 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig"; sourceTree = "<group>"; };
+		2EDD693185FDCC889AB813A1 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		71DCA38B4BF0C353644DF3EF /* Pods-v1CroiffleEmployee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee.release.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee.release.xcconfig"; sourceTree = "<group>"; };
+		727FFF05567821F609DBF036 /* libPods-v1CroiffleEmployee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v1CroiffleEmployee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		73A8B2EF81331FC0B821A45B /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig"; sourceTree = "<group>"; };
+		813609A7F0EAC66D62AA030B /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = v1CroiffleEmployee/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		886B30769DE2645C94E123EC /* Pods-v1CroiffleEmployee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee.debug.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee.debug.xcconfig"; sourceTree = "<group>"; };
-		96A0C5046EAD7A601C7BFB4F /* libPods-v1CroiffleEmployee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v1CroiffleEmployee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD41869900C0EBE81CFB97BF /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8790B1F2B634CB5F57B7C88 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB91E66DEBE64A8D5323C000 /* Pods-v1CroiffleEmployee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee.debug.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -57,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21F4BFAABBB764A738219EBA /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a in Frameworks */,
+				6E69CF87832BBABA54D849D5 /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A424BD93A968DE437F1BE9DF /* libPods-v1CroiffleEmployee.a in Frameworks */,
+				15DCE810BB262BFE62D22024 /* libPods-v1CroiffleEmployee.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +96,7 @@
 		13B07FAE1A68108700A75B9A /* v1CroiffleEmployee */ = {
 			isa = PBXGroup;
 			children = (
+				04142D2526A576870024984C /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -106,8 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				96A0C5046EAD7A601C7BFB4F /* libPods-v1CroiffleEmployee.a */,
-				AD41869900C0EBE81CFB97BF /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a */,
+				727FFF05567821F609DBF036 /* libPods-v1CroiffleEmployee.a */,
+				813609A7F0EAC66D62AA030B /* libPods-v1CroiffleEmployee-v1CroiffleEmployeeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,7 +136,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				04142C8126A180FE0024984C /* order-saved.mp3 */,
+				04142D1B26A574140024984C /* main.jsbundle */,
+				04142D1726A571CE0024984C /* ring.mp3 */,
 				13B07FAE1A68108700A75B9A /* v1CroiffleEmployee */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* v1CroiffleEmployeeTests */,
@@ -157,10 +163,10 @@
 		84E964390AFE42BC7D6B50A8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				886B30769DE2645C94E123EC /* Pods-v1CroiffleEmployee.debug.xcconfig */,
-				29FB4DE0B2A9288155297CBC /* Pods-v1CroiffleEmployee.release.xcconfig */,
-				B8790B1F2B634CB5F57B7C88 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig */,
-				6B58D0C2FB60A55367476DC8 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig */,
+				CB91E66DEBE64A8D5323C000 /* Pods-v1CroiffleEmployee.debug.xcconfig */,
+				71DCA38B4BF0C353644DF3EF /* Pods-v1CroiffleEmployee.release.xcconfig */,
+				2EDD693185FDCC889AB813A1 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig */,
+				73A8B2EF81331FC0B821A45B /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -172,12 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "v1CroiffleEmployeeTests" */;
 			buildPhases = (
-				616418ED98D13F5F62105F72 /* [CP] Check Pods Manifest.lock */,
+				EA0797EFB685B890D259E84D /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				7716C1EE995FACB5DE26C071 /* [CP] Embed Pods Frameworks */,
-				56950BF622737F0A519C88A9 /* [CP] Copy Pods Resources */,
+				6A61D0EE7702A86885FBF209 /* [CP] Embed Pods Frameworks */,
+				C59AEA44F84347F1D2CFD3D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,15 +199,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "v1CroiffleEmployee" */;
 			buildPhases = (
-				2F11B81DEFB1D52FFE515F0B /* [CP] Check Pods Manifest.lock */,
+				D2147084F82F1A769669D52B /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				0E5E51936C707E36C2C8A68D /* [CP] Embed Pods Frameworks */,
-				064E4AF484A529E287E8FFA4 /* [CP] Copy Pods Resources */,
-				66B5F8C6BA7B7EB369C93F07 /* [CP-User] [RNFB] Core Configuration */,
+				1683E1EEFD2FCB0236AB751F /* [CP] Embed Pods Frameworks */,
+				C2DE0C1EB80FD4ECFDCCEED8 /* [CP] Copy Pods Resources */,
+				C272B0F96ABAF1BC3BACBE24 /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -260,11 +266,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04142D1C26A574140024984C /* main.jsbundle in Resources */,
 				048162B52671FA7100C5182A /* S-CoreDream-4Regular.otf in Resources */,
-				04142C8226A180FE0024984C /* order-saved.mp3 in Resources */,
+				04142D1826A571CE0024984C /* ring.mp3 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				04C188A82671FC4500DB72AD /* S-CoreDream-5Medium.otf in Resources */,
+				04142D2626A576870024984C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,24 +293,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		064E4AF484A529E287E8FFA4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0E5E51936C707E36C2C8A68D /* [CP] Embed Pods Frameworks */ = {
+		1683E1EEFD2FCB0236AB751F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,7 +310,71 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2F11B81DEFB1D52FFE515F0B /* [CP] Check Pods Manifest.lock */ = {
+		6A61D0EE7702A86885FBF209 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C272B0F96ABAF1BC3BACBE24 /* [CP-User] [RNFB] Core Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
+		};
+		C2DE0C1EB80FD4ECFDCCEED8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C59AEA44F84347F1D2CFD3D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2147084F82F1A769669D52B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,24 +396,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		56950BF622737F0A519C88A9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		616418ED98D13F5F62105F72 /* [CP] Check Pods Manifest.lock */ = {
+		EA0797EFB685B890D259E84D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,36 +416,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		66B5F8C6BA7B7EB369C93F07 /* [CP-User] [RNFB] Core Configuration */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "[CP-User] [RNFB] Core Configuration";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
-		};
-		7716C1EE995FACB5DE26C071 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -462,7 +470,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B8790B1F2B634CB5F57B7C88 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig */;
+			baseConfigurationReference = 2EDD693185FDCC889AB813A1 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -489,7 +497,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B58D0C2FB60A55367476DC8 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig */;
+			baseConfigurationReference = 73A8B2EF81331FC0B821A45B /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -513,7 +521,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 886B30769DE2645C94E123EC /* Pods-v1CroiffleEmployee.debug.xcconfig */;
+			baseConfigurationReference = CB91E66DEBE64A8D5323C000 /* Pods-v1CroiffleEmployee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -539,7 +547,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29FB4DE0B2A9288155297CBC /* Pods-v1CroiffleEmployee.release.xcconfig */;
+			baseConfigurationReference = 71DCA38B4BF0C353644DF3EF /* Pods-v1CroiffleEmployee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

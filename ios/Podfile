@@ -12,6 +12,7 @@ target 'v1CroiffleEmployee' do
     :hermes_enabled => false
   )
 
+  pod 'Firebase/Analytics' # Google Analytics
 
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
