@@ -12,11 +12,14 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { useResetRecoilState } from 'recoil';
 import { noticeListState } from 'store/app';
 
+import { logout } from 'services/auth';
+
 const CustomSidebarMenu = props => {
   const resetData = useResetRecoilState(noticeListState);
 
   // 로그아웃 버튼 클릭시 데이터 초기화
-  const logoutAction = () => {
+  const logoutAction = async () => {
+    await logout();
     resetData();
     window.userInfo = null;
     props.navigation.navigate('LoginPage');
