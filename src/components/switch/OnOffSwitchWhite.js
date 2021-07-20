@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
-const OnOffSwitchWhite = () => {
+const OnOffSwitchWhite = ({ onClick, flagVal }) => {
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
-      marginRight: 10
+      marginRight: 10,
     },
     onBtn: {
       alignItems: 'center',
@@ -13,12 +13,12 @@ const OnOffSwitchWhite = () => {
       backgroundColor: 'rgb(0, 191, 213)',
       borderRadius: 5,
       height: 30,
-      width: 40
+      width: 40,
     },
     onTxt: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 15,
-      color: '#ffff'
+      color: '#ffff',
     },
     offBtn: {
       alignItems: 'center',
@@ -26,25 +26,25 @@ const OnOffSwitchWhite = () => {
       backgroundColor: '#fff',
       borderRadius: 5,
       height: 30,
-      width: 40
+      width: 40,
     },
     offTxt: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 15,
-      color: 'rgb(174, 174, 174)'
+      color: 'rgb(174, 174, 174)',
     },
   });
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
-        <View style={styles.onBtn}>
-          <Text style={styles.onTxt}>켜짐</Text>
+      <TouchableOpacity onPress={() => onClick(1)}>
+        <View style={flagVal == 1 ? styles.onBtn : styles.offBtn}>
+          <Text style={flagVal == 1 ? styles.onTxt : styles.offTxt}>켜짐</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <View style={styles.offBtn}>
-          <Text style={styles.offTxt}>켜짐</Text>
+      <TouchableOpacity onPress={() => onClick(0)}>
+        <View style={flagVal == 0 ? styles.onBtn : styles.offBtn}>
+          <Text style={flagVal == 0 ? styles.onTxt : styles.offTxt}>꺼짐</Text>
         </View>
       </TouchableOpacity>
     </View>
