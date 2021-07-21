@@ -18,12 +18,12 @@ const tmpDate = moment(new Date()).format('YYYYMMDD');
 let regIndex = 5000;
 let tmpIndex = 4000;
 
-const shopId = window.userInfo.shopId;
-
-const basicRegData = { type: '1', regularType: '1', dayOfWeek: '1', shopId: shopId };
-const basicTmpData = { type: '2', startDate: tmpDate, endDate: tmpDate, shopId: shopId };
-
 const HolidaySetting = props => {
+  const shopId = window.userInfo.shopId;
+
+  const basicRegData = { type: '1', regularType: '1', dayOfWeek: '1', shopId: shopId };
+  const basicTmpData = { type: '2', startDate: tmpDate, endDate: tmpDate, shopId: shopId };
+
   // type ( 1: 정기휴무, 2: 임시휴무)
   const [holidayData, setHolidayData] = useState([
     { type: '1', regularType: '1', dayOfWeek: '1', shopId: shopId },
