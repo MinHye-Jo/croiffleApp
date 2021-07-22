@@ -36,17 +36,17 @@ const Login = props => {
       setToken(data.response.token);
 
       // 토큰 정보 저장 후 유저 상세 정보 저장
-      const userInfo = await getUserInfo();
-      if (userInfo.data && userInfo.data.return_code == 200) {
-        window.userInfo = userInfo.data.response;
+      const { data: userInfo } = await getUserInfo();
+      if (userInfo && userInfo.return_code == 200) {
+        window.userInfo = userInfo.response;
         props.navigation.navigate('MainPage');
       } else {
         setModalOpen(true);
-        setModalText(userInfo.data.return_message);
+        setModalText(userInfo.return_message);
       }
     } else {
       setModalOpen(true);
-      setModalText(data.return_message);
+      setModalText(data.response ? data.response.returnMessage : data.return_message);
     }
   };
 
