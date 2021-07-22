@@ -5,7 +5,6 @@ import NetInfo from '@react-native-community/netinfo';
 import { LogBox } from 'react-native';
 import { RecoilRoot } from 'recoil';
 import DefaultModal from 'components/modal/DefaultModal';
-import { View } from 'react-native';
 
 LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']);
 LogBox.ignoreLogs(['Setting a timer']);
@@ -13,11 +12,11 @@ LogBox.ignoreLogs(['Setting a timer']);
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
-  // SplashScreen 종료
   useEffect(() => {
+    // SplashScreen 종료
     SplashScreen.hide();
 
-    // Subscribe
+    // 인터넷 연결 확인
     const unsubscribe = NetInfo.addEventListener(state => {
       console.log('Connection type', state.type);
       console.log('Is connected?', state.isConnected);
