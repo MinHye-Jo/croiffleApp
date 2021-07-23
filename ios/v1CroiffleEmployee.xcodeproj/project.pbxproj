@@ -47,6 +47,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = v1CroiffleEmployee/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = v1CroiffleEmployee/main.m; sourceTree = "<group>"; };
 		2EDD693185FDCC889AB813A1 /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3030BD1D26AA563B005AF878 /* v1CroiffleEmployee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = v1CroiffleEmployee.entitlements; path = v1CroiffleEmployee/v1CroiffleEmployee.entitlements; sourceTree = "<group>"; };
 		71DCA38B4BF0C353644DF3EF /* Pods-v1CroiffleEmployee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee.release.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee/Pods-v1CroiffleEmployee.release.xcconfig"; sourceTree = "<group>"; };
 		727FFF05567821F609DBF036 /* libPods-v1CroiffleEmployee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v1CroiffleEmployee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A8B2EF81331FC0B821A45B /* Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig"; path = "Target Support Files/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests/Pods-v1CroiffleEmployee-v1CroiffleEmployeeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		13B07FAE1A68108700A75B9A /* v1CroiffleEmployee */ = {
 			isa = PBXGroup;
 			children = (
+				3030BD1D26AA563B005AF878 /* v1CroiffleEmployee.entitlements */,
 				04142D2526A576870024984C /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -525,13 +527,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_ENTITLEMENTS = v1CroiffleEmployee/v1CroiffleEmployee.entitlements;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 9CAUK7X2R9;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = v1CroiffleEmployee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.04;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -551,12 +556,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_ENTITLEMENTS = v1CroiffleEmployee/v1CroiffleEmployee.entitlements;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 9CAUK7X2R9;
 				INFOPLIST_FILE = v1CroiffleEmployee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.04;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
