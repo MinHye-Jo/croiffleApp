@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image, TextInput, Text, View, StyleSheet } from 'react-native';
+import { Image, TextInput, Text, View } from 'react-native';
 import styles from 'styles/commonStyle';
 
 // 타입별 정규 표현식
@@ -39,15 +39,27 @@ const TextInputMask = props => {
   const [initFlag, setInitFlag] = useState(false);
   const secu = props.secureTextEntry || false;
   const placeholder = props.placeholder || '';
+  const hideChkMsg = props.hideChkMsg || false;
+  const chkValImg = props.chkValImg || false;
 
   useEffect(() => {
-    if (initFlag) {
-      setImage(isError ? errImageSrc : noErrImageSrc);
+    if (chkValImg) {
+      setImage(errImageSrc);
+    } else if (initFlag) {
+      setImage(isError || isError === null ? errImageSrc : noErrImageSrc);
     }
-  }, [isError]);
+  }, [isError, chkValImg]);
 
   const onChange = value => {
     setInitFlag(true);
+
+    // 빈값은 changeText로만 넘김
+    if (!value) {
+      setIsError(null);
+      props.changeText(value);
+      return false;
+    }
+
     // 유효성 처리
     if (props.model && props.name) {
       props.model[props.name] = true;
@@ -94,7 +106,9 @@ const TextInputMask = props => {
         <Image style={{ ...styles.image25, marginRight: 10 }} source={image} />
       </View>
       <View style={{ marginTop: 10 }}>
-        {isError && failMsg[props.type] ? <Text style={styles.errText}>{failMsg[props.type]}</Text> : null}
+        {isError && failMsg[props.type] && !hideChkMsg ? (
+          <Text style={styles.errText}>{failMsg[props.type]}</Text>
+        ) : null}
       </View>
     </View>
   );

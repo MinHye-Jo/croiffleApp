@@ -21,6 +21,7 @@ const PasswordEdit = props => {
     pwdConf: '',
   });
   const [pwdChkFailMsg, setPwdChkFailMsg] = useState('');
+  const [hideChkMsg, setHideChkMsg] = useState(false);
   const [inputChk, setInputChk] = useState(false);
 
   // 유효성 검사 모델 바인드
@@ -62,10 +63,12 @@ const PasswordEdit = props => {
 
     // 신규 비밀번호와 비밀번호 확인 비교
     if (key == 'passwordNew' || key == 'pwdConf') {
-      if (pwdInfo[pwdMap[key]] !== value) {
+      if (pwdInfo.pwdConf && pwdInfo[pwdMap[key]] !== value) {
         setPwdChkFailMsg('비밀번호가 일치하지 않습니다.');
+        setHideChkMsg(true);
       } else {
         setPwdChkFailMsg('');
+        setHideChkMsg(false);
       }
     }
 
@@ -143,6 +146,7 @@ const PasswordEdit = props => {
           maxLength={50}
           changeText={e => updateInput('pwdConf', e)}
           secureTextEntry={true}
+          hideChkMsg={hideChkMsg}
           placeholder="한번 더 입력해주세요"
         />
         {pwdChkFailMsg ? <Text style={styles.errText}>{pwdChkFailMsg} </Text> : null}

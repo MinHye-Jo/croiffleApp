@@ -26,6 +26,7 @@ const JoinForm = props => {
 
   // 입력 데이터 유효성 검사용 데이터
   const [pwdChkFailMsg, setPwdChkFailMsg] = useState('');
+  const [hideChkMsg, setHideChkMsg] = useState(false);
   const [idChkFailMsg, setIdChkFailMsg] = useState('');
   const [phoneChk, setPhoneChk] = useState(false);
   const [inputChk, setInputChk] = useState(false);
@@ -67,10 +68,14 @@ const JoinForm = props => {
 
     // 신규 비밀번호와 비밀번호 확인 비교
     if (key == 'password' || key == 'pwdConf') {
-      if (signUpInfo[pwdMap[key]] !== value) {
+      const pwdConf = key == 'password' ? signUpInfo.pwdConf : value;
+
+      if (pwdConf && signUpInfo[pwdMap[key]] !== value) {
         setPwdChkFailMsg('비밀번호가 일치하지 않습니다.');
+        setHideChkMsg(true);
       } else {
         setPwdChkFailMsg('');
+        setHideChkMsg(false);
       }
     }
 
@@ -118,8 +123,8 @@ const JoinForm = props => {
   // 회원가입
   const joinEmployee = async () => {
     // 아이디 중복확인
-    const chkId = await checkID(signUpInfo.id);
-    if (!chkId.data && chkId.data.return_code != 200) {
+    const { data: chkId } = await checkID(signUpInfo.id);
+    if (chkId.return_code != 200) {
       setIdChkFailMsg('이미 사용중이거나 탈퇴한 아이디입니다.');
       setModalData('아이디 사용불가', '사용할 수 없는 아이디 입니다.', '다시 한번 확인해주십시오.');
       return;
@@ -191,6 +196,7 @@ const JoinForm = props => {
           value={signUpInfo.id}
           maxLength={50}
           changeText={e => updateInput('id', e)}
+          chkValImg={idChkFailMsg ? true : false}
           placeholder="이메일 형식으로 입력해주세요"
         />
 
@@ -225,6 +231,8 @@ const JoinForm = props => {
           maxLength={50}
           changeText={e => updateInput('pwdConf', e)}
           secureTextEntry={true}
+          hideChkMsg={hideChkMsg}
+          chkValImg={pwdChkFailMsg ? true : false}
           placeholder="한번 더 입력해주세요"
         />
         {pwdChkFailMsg != '' && <Text style={styles.errText}>{pwdChkFailMsg} </Text>}
