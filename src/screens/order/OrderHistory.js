@@ -29,7 +29,7 @@ const OrderHistory = props => {
 
   useEffect(async () => {
     // 상태별 주문 카운트 조회
-    const cntRe = await orderCntList(window.userInfo.shopId, '20210706');
+    const cntRe = await orderCntList(window.userInfo.shopId);
 
     if (cntRe.data && cntRe.data.return_code == 200) {
       let statusTmp = 0;
@@ -45,7 +45,7 @@ const OrderHistory = props => {
     }
 
     // 주문 데이터 목록 조회
-    const { data } = await orderList(window.userInfo.shopId, status, '20210706');
+    const { data } = await orderList(window.userInfo.shopId, status);
 
     if (data.return_code == 200) {
       setOrderData(data.response);

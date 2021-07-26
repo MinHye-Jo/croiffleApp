@@ -14,7 +14,9 @@ const Drawer = createDrawerNavigator();
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator drawerContent={props => <CustomSidebarMenu {...props} />}>
+      <Drawer.Navigator
+        screenOptions={{ swipeEnabled: false }}
+        drawerContent={props => <CustomSidebarMenu {...props} />}>
         <Stack.Screen name="MainStack" component={MainStack} />
       </Drawer.Navigator>
     </NavigationContainer>

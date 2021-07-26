@@ -95,7 +95,7 @@ const FindPassword = props => {
         onClose={() => setFindPwdModalOpen(false)}
       />
 
-      <View style={{ paddingLeft: 20, paddingRight: 20 }}>
+      <View style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 30 }}>
         <Logo />
         <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>
           <Text style={styles.loginFont}>비밀번호 찾기</Text>
@@ -106,12 +106,22 @@ const FindPassword = props => {
 
         <View style={{ paddingTop: 30 }}>
           <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 아이디 </Text>
-          <TextInput style={{ ...styles.greyInput }} onChangeText={e => setId(e)} />
+          <TextInput
+            style={{ ...styles.greyInput }}
+            placeholder="아이디를 입력해주세요"
+            placeholderTextColor="rgb(174, 174, 174)"
+            onChangeText={e => setId(e)}
+          />
         </View>
 
         <View style={{ paddingTop: 30 }}>
           <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 이름 </Text>
-          <TextInput style={{ ...styles.greyInput }} onChangeText={e => setName(e)} />
+          <TextInput
+            style={{ ...styles.greyInput }}
+            placeholder="이름을 입력해주세요"
+            placeholderTextColor="rgb(174, 174, 174)"
+            onChangeText={e => setName(e)}
+          />
         </View>
 
         <View style={{ marginTop: 20 }}>
@@ -119,7 +129,10 @@ const FindPassword = props => {
           <View style={styles.row}>
             <TextInput
               style={{ ...styles.greyInput, flex: 1.5 }}
+              placeholder="휴대폰번호를 입력해주세요"
+              placeholderTextColor="rgb(174, 174, 174)"
               value={phoneNumber}
+              maxLength={13}
               onChangeText={e => chkPhoneNumber(e)}
             />
             <TouchableOpacity

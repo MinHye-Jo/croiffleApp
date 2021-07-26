@@ -190,6 +190,7 @@ const PersonalInfo = props => {
             placeholder="휴대폰번호를 입력해주세요"
             placeholderTextColor="rgb(174, 174, 174)"
             value={userInfo.phoneNumber}
+            maxLength={13}
             onChangeText={e => updateInput('phoneNumber', e)}
           />
           <TouchableOpacity
