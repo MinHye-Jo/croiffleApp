@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 
-import {
-  ScrollView,
-  View,
-  TextInput,
-  Text,
-  TouchableOpacity
-} from 'react-native';
+import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
 
 import styles from 'styles/commonStyle';
 
@@ -17,8 +11,7 @@ import DefaultModal from 'components/modal/DefaultModal';
 
 import { supportSave } from 'services/support';
 
-const CustomerSupport = (props) => {
-
+const CustomerSupport = props => {
   // 개인정보 데이터
   const [userInfo, setUserInfo] = useState({
     shopId: window.userInfo.shopId || 0,
@@ -36,44 +29,61 @@ const CustomerSupport = (props) => {
   const sendAuthCodeApi = async () => {
     if (!userInfo.subject || !userInfo.message) {
       setModalOpen(true);
-      setModalTitle("제출실패");
-      setModalText("제목 또는 내용이 누락되었습니다.");
+      setModalTitle('제출실패');
+      setModalText('제목 또는 내용이 누락되었습니다.');
       return;
     }
     const { data } = await supportSave(userInfo);
 
     if (data && data.return_code == 200) {
       setModalOpen(true);
-      setModalTitle("제출완료");
-      setModalText("제출되었습니다.");
+      setModalTitle('제출완료');
+      setModalText('제출되었습니다.');
+      setUserInfo({ ...userInfo, subject: '', message: '' });
     } else {
       setModalOpen(true);
-      setModalTitle("제출실패");
+      setModalTitle('제출실패');
       setModalText(data.return_message);
     }
-  }
+  };
 
   return (
     <ScrollView style={styles.topContainer}>
-      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} title={modalTitle} modalText={modalText} />
+      <DefaultModal
+        modalOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title={modalTitle}
+        modalText={modalText}
+      />
 
       <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 제목 </Text>
-        <TextInput style={{ ...styles.greyInput }}
+        <TextInput
+          style={{ ...styles.greyInput }}
           placeholder="제목을 입력해주세요"
-          placeholderTextColor='rgb(174, 174, 174)'
-          onChangeText={e => setUserInfo({ ...userInfo, subject: e })} />
+          placeholderTextColor="rgb(174, 174, 174)"
+          value={userInfo.subject}
+          onChangeText={e => setUserInfo({ ...userInfo, subject: e })}
+        />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 내용 </Text>
-        <TextInput style={{ ...styles.greyInput, height: 120, paddingTop: 10 }}
+        <TextInput
+          style={{ ...styles.greyInput, height: 120, paddingTop: 10 }}
           multiline={true}
           placeholder="내용을 입력해주세요"
-          placeholderTextColor='rgb(174, 174, 174)'
-          onChangeText={e => setUserInfo({ ...userInfo, message: e })} />
+          placeholderTextColor="rgb(174, 174, 174)"
+          value={userInfo.message}
+          onChangeText={e => setUserInfo({ ...userInfo, message: e })}
+        />
 
         <Text style={{ ...styles.font5M15, marginTop: 40, marginBottom: 10 }}> 근무매장 </Text>
-        <StoreSelectList value={userInfo.shopId} disabled={true}
-          onChange={(shopId) => { setUserInfo({ ...userInfo, shopId }) }} />
+        <StoreSelectList
+          value={userInfo.shopId}
+          disabled={true}
+          onChange={shopId => {
+            setUserInfo({ ...userInfo, shopId });
+          }}
+        />
 
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 이름 </Text>
         <TextInput style={{ ...styles.greyInput }} editable={false} value={userInfo.name} />
@@ -104,7 +114,7 @@ const CustomerSupport = (props) => {
             <Text style={styles.btnTxtWhite}>저장</Text>
           </View>
         </TouchableOpacity>
-      </View >
+      </View>
     </ScrollView>
   );
 };

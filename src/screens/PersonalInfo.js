@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
 import styles from 'styles/commonStyle';
@@ -9,8 +9,10 @@ import StoreSelectList from 'components/selection/StoreSelectList';
 import DefaultModal from 'components/modal/DefaultModal';
 import DefaultActionModal from 'components/modal/DefaultActionModal';
 import FindPostCode from 'components/modal/FindPostCode';
+import { useResetRecoilState } from 'recoil';
+import { noticeListState } from 'store/app';
 
-import { modifyUserInfo, sendAuthCode, confirmAuthCode, userWithdrawal } from 'services/auth';
+import { modifyUserInfo, sendAuthCode, confirmAuthCode, userWithdrawal, logout } from 'services/auth';
 
 const PersonalInfo = props => {
   // 개인정보 데이터
@@ -27,12 +29,18 @@ const PersonalInfo = props => {
 
   const [phoneChk, setPhoneChk] = useState(true);
 
+  // 리코일 데이터 리셋
+  const resetData = useResetRecoilState(noticeListState);
+
   // 모달 데이터
   const [postModalOpen, setPostModalOpen] = useState(false);
+  const actType = useRef('');
   const [actModalOpen, setActModalOpen] = useState(false);
+  const [actModalTitle, setActModalTitle] = useState('');
+  const [actModalText, setActModalText] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalText, setModalText] = useState('');
   const [modalTitle, setModalTitle] = useState('');
+  const [modalText, setModalText] = useState('');
   const [modalTextSec, setModalTextSec] = useState('');
   const [modalTextThi, setModalTextThi] = useState('');
 
@@ -103,20 +111,32 @@ const PersonalInfo = props => {
       return;
     }
 
-    // 회원가입용 데이터만 사용
+    // 개인정보 데이터만 사용
     const params = { ...userInfo };
     params.phoneNumber = params.phoneNumber.replace(/-/g, '');
     delete params.authCode;
 
-    // 회원가입 API 호출
+    // 개인정보 수정 API 호출
     const { data } = await modifyUserInfo(params);
     if (data && data.return_code == 200) {
       for (const key in userInfo) {
         window.userInfo[key] = userInfo[key];
       }
-      setModalData('저장완료', '저장되었습니다.');
+      setActModalData('저장완료', '저장되었습니다.', 'logout');
     } else {
       setModalData('저장실패', data.return_message);
+    }
+  };
+
+  const typeAction = () => {
+    console.log('========??', actType.current);
+    switch (actType.current) {
+      case 'withdrawal':
+        withdrawalApi();
+        break;
+      case 'logout':
+        logoutAction();
+        break;
     }
   };
 
@@ -126,11 +146,18 @@ const PersonalInfo = props => {
 
     const { data } = await userWithdrawal();
     if (data && data.return_code == 200) {
-      console.log('???????????');
-      setModalData('회원탈퇴 성공', '회원탈퇴 되었습니다.');
+      setActModalData('회원탈퇴 성공', '회원탈퇴 되었습니다.', 'logout');
     } else {
       setModalData('회원탈퇴 실패', data.return_message);
     }
+  };
+
+  // 회원탈퇴, 개인정보 수정 후 로그아웃 및 데이터 초기화
+  const logoutAction = async () => {
+    await logout();
+    resetData();
+    window.userInfo = null;
+    props.navigation.navigate('LoginPage');
   };
 
   // 모달 데이터처리 공통함수
@@ -140,6 +167,14 @@ const PersonalInfo = props => {
     setModalText(txt1 || '');
     setModalTextSec(txt2 || '');
     setModalTextThi(txt3 || '');
+  };
+
+  // 모달 데이터처리 공통함수
+  const setActModalData = (title, txt1, type) => {
+    setActModalOpen(true);
+    setActModalTitle(title || '');
+    setActModalText(txt1 || '');
+    actType.current = type;
   };
 
   return (
@@ -156,9 +191,9 @@ const PersonalInfo = props => {
       <DefaultActionModal
         modalOpen={actModalOpen}
         onClose={() => setActModalOpen(false)}
-        onAction={() => withdrawalApi()}
-        title="회원탈퇴"
-        modalText="정말 회원탈퇴 하시겠습니까?"
+        onAction={() => typeAction()}
+        title={actModalTitle}
+        modalText={actModalText}
       />
 
       <FindPostCode
@@ -273,7 +308,7 @@ const PersonalInfo = props => {
             <Text style={styles.btnTxtWhite}>저장</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setActModalOpen(true)}>
+        <TouchableOpacity onPress={() => setActModalData('회원탈퇴', '정말 회원탈퇴 하시겠습니까?', 'withdrawal')}>
           <View style={{ ...styles.greyBtn, marginTop: 15, marginBottom: 40 }}>
             <Text style={styles.btnTxtWhite}>회원탈퇴</Text>
           </View>
