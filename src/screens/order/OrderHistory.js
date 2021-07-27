@@ -27,21 +27,22 @@ const OrderHistory = props => {
   const [orderData, setOrderData] = useState(null);
   const [orderCnt, setOrderCnt] = useState(cntData);
 
-  useEffect(async () => {
+  const reFreshData = async () => {
     // 상태별 주문 카운트 조회
     const cntRe = await orderCntList(window.userInfo.shopId);
 
     if (cntRe.data && cntRe.data.return_code == 200) {
       let statusTmp = 0;
+      const cntTempData = { ...cntData };
       cntRe.data.response.forEach(o => {
         if (o.status == 4 || o.status == 5) {
           statusTmp += o.count;
-          cntData[orderCntMap[o.status]] = statusTmp;
+          cntTempData[orderCntMap[o.status]] = statusTmp;
         } else {
-          cntData[orderCntMap[o.status]] = o.count;
+          cntTempData[orderCntMap[o.status]] = o.count;
         }
       });
-      setOrderCnt(cntData);
+      setOrderCnt(cntTempData);
     }
 
     // 주문 데이터 목록 조회
@@ -50,6 +51,10 @@ const OrderHistory = props => {
     if (data.return_code == 200) {
       setOrderData(data.response);
     }
+  };
+
+  useEffect(() => {
+    reFreshData();
   }, [status]);
 
   const orderTabClick = val => {
@@ -64,7 +69,9 @@ const OrderHistory = props => {
       <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }}>
         <View style={{ padding: 20 }}>
           {orderData
-            ? orderData.map(o => <OrderMenuDetail key={o.orderId} navigation={props.navigation} data={o} />)
+            ? orderData.map(o => (
+                <OrderMenuDetail key={o.orderId} navigation={props.navigation} data={o} reFreshData={reFreshData} />
+              ))
             : null}
         </View>
       </ScrollView>
