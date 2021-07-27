@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
 import moment from 'moment';
-import OrderRequest from 'components/image/OrderRequest'
-import OrderPreparing from 'components/image/OrderPreparing'
-import OrderComplete from 'components/image/OrderComplete'
-import OrderDenial from 'components/image/OrderDenial'
-import OrderPickupDone from 'components/image/OrderPickupDone'
+import OrderRequest from 'components/image/OrderRequest';
+import OrderPreparing from 'components/image/OrderPreparing';
+import OrderComplete from 'components/image/OrderComplete';
+import OrderDenial from 'components/image/OrderDenial';
+import OrderPickupDone from 'components/image/OrderPickupDone';
 
-const OrderMenuDetail = ({ navigation, data }) => {
-  const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  const orderDate = moment(data.createdAt).format("YYYY-MM-DD");
+const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
+  const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const orderDate = moment(data.createdAt).format('YYYY-MM-DD');
 
   const styles = StyleSheet.create({
     container: {
@@ -22,7 +22,7 @@ const OrderMenuDetail = ({ navigation, data }) => {
       elevation: 3,
       borderRadius: 5,
       padding: 15,
-      marginBottom: 15
+      marginBottom: 15,
     },
     imgContainer: {
       flex: 1,
@@ -38,37 +38,44 @@ const OrderMenuDetail = ({ navigation, data }) => {
     },
     fontBlack: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15
+      fontSize: 15,
     },
     fontBlue: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 15,
-      color: 'rgb(0, 191, 213)'
+      color: 'rgb(0, 191, 213)',
     },
     fontGrey: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 15,
-      color: 'rgb(174, 174, 174)'
-    }
+      color: 'rgb(174, 174, 174)',
+    },
   });
 
   const renderSwitch = () => {
     switch (data.status) {
-      case "1":
+      case '1':
         return <OrderRequest />;
-      case "2":
+      case '2':
         return <OrderPreparing />;
-      case "3":
+      case '3':
         return <OrderComplete />;
-      case "4":
+      case '4':
         return <OrderPickupDone />;
-      case "5":
+      case '5':
         return <OrderDenial />;
     }
-  }
+  };
+
+  // 자식 컴포넌트한테 받은 이벤트
+  const onEvent = message => {
+    if (message === 'refresh') {
+      reFreshData();
+    }
+  };
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('OrderDetail', { 'orderId': data.orderId })}>
+    <TouchableOpacity onPress={() => navigation.navigate('OrderDetail', { orderId: data.orderId, emit: onEvent })}>
       <View style={styles.container}>
         <View style={{ flex: 1, marginRight: 10 }}>
           <View style={styles.imgContainer}>
@@ -80,7 +87,7 @@ const OrderMenuDetail = ({ navigation, data }) => {
         <View style={{ flex: 2, marginTop: 10, position: 'relative' }}>
           <Text style={styles.fontBlack}>{data.orderName}</Text>
           <View style={{ flexDirection: 'row', marginTop: 10 }}>
-            <Text style={styles.fontBlack}>픽업시간  </Text>
+            <Text style={styles.fontBlack}>픽업시간 </Text>
             <View style={{ flexDirection: 'row' }}>
               <Text style={styles.fontBlue}>{data.pickupHour}</Text>
               <Text style={styles.fontBlue}>시 </Text>
@@ -89,10 +96,9 @@ const OrderMenuDetail = ({ navigation, data }) => {
             </View>
           </View>
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
-            <Text style={styles.fontGrey}>{price}원  </Text>
+            <Text style={styles.fontGrey}>{price}원 </Text>
             <Text style={styles.fontGrey}>{orderDate}</Text>
           </View>
-
         </View>
       </View>
     </TouchableOpacity>
