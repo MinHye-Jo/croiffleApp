@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View, Image, Text, TouchableOpacity } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import OrderHistoryButton from 'components/button/OrderHistoryButton';
 import StoreManageButton from 'components/button/StoreManageButton';
@@ -20,7 +21,9 @@ const CustomSidebarMenu = props => {
   // 로그아웃 버튼 클릭시 데이터 초기화
   const logoutAction = async () => {
     await logout();
+    await AsyncStorage.removeItem('token');
     resetData();
+
     window.userInfo = null;
     props.navigation.navigate('LoginPage');
   };

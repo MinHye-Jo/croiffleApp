@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import DeviceInfo from 'react-native-device-info';
 
 import Logo from 'components/image/Logo';
@@ -12,19 +13,19 @@ import { setToken } from 'common/http';
 const Login = props => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
-  const [inputChk, setInputChk] = useState(false);
 
   // 모달 데이터
   const [modalOpen, setModalOpen] = useState(false);
   const [modalText, setModalText] = useState('');
 
-  useEffect(() => {
-    if (id && password) {
-      setInputChk(true);
-    } else {
-      setInputChk(false);
+  useEffect(async () => {
+    //로그인정보 확인
+    const token = await AsyncStorage.getItem('token');
+    if (token) {
+      setToken(token);
+      getUserInfoApi();
     }
-  }, [id, password]);
+  }, []);
 
   // 로그인 API 연동
   const serviceLogin = async () => {
@@ -33,20 +34,27 @@ const Login = props => {
     const { data } = await login(id, password, osType);
 
     if (data && data.return_code == 200) {
+      // 토큰 정보 저장
       setToken(data.response.token);
+      AsyncStorage.setItem('token', data.response.token);
 
-      // 토큰 정보 저장 후 유저 상세 정보 저장
-      const { data: userInfo } = await getUserInfo();
-      if (userInfo && userInfo.return_code == 200) {
-        window.userInfo = userInfo.response;
-        props.navigation.navigate('MainPage');
-      } else {
-        setModalOpen(true);
-        setModalText(userInfo.return_message);
-      }
+      // 유저 상세 정보 조회
+      getUserInfoApi();
     } else {
       setModalOpen(true);
       setModalText(data.response ? data.response.returnMessage : data.return_message);
+    }
+  };
+
+  // 유저 상세 정보 조회 API
+  const getUserInfoApi = async () => {
+    const { data: userInfo } = await getUserInfo();
+    if (userInfo && userInfo.return_code == 200) {
+      window.userInfo = userInfo.response;
+      props.navigation.navigate('MainPage');
+    } else {
+      setModalOpen(true);
+      setModalText(userInfo.return_message);
     }
   };
 
@@ -84,8 +92,8 @@ const Login = props => {
         />
       </View>
 
-      <TouchableOpacity style={{ padding: 10, margin: 10 }} disabled={!inputChk} onPress={() => serviceLogin()}>
-        <View style={inputChk ? styles.blueBtn : styles.greyBtn}>
+      <TouchableOpacity style={{ padding: 10, margin: 10 }} disabled={!id || !password} onPress={() => serviceLogin()}>
+        <View style={id && password ? styles.blueBtn : styles.greyBtn}>
           <Text style={styles.btnTxtWhite}>로그인</Text>
         </View>
       </TouchableOpacity>

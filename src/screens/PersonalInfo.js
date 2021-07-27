@@ -1,6 +1,9 @@
 import React, { useState, useRef } from 'react';
 
 import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import styles from 'styles/commonStyle';
 
 import CustomCheckBox from 'components/button/CustomCheckBox';
@@ -129,7 +132,6 @@ const PersonalInfo = props => {
   };
 
   const typeAction = () => {
-    console.log('========??', actType.current);
     switch (actType.current) {
       case 'withdrawal':
         withdrawalApi();
@@ -155,6 +157,7 @@ const PersonalInfo = props => {
   // 회원탈퇴, 개인정보 수정 후 로그아웃 및 데이터 초기화
   const logoutAction = async () => {
     await logout();
+    await AsyncStorage.removeItem('token');
     resetData();
     window.userInfo = null;
     props.navigation.navigate('LoginPage');

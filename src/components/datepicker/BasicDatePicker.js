@@ -21,7 +21,6 @@ const BasicDatePicker = () => {
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setDate(currentDate);
-    console.log(currentDate);
   };
 
   return (

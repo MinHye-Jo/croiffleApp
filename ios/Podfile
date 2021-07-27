@@ -18,6 +18,8 @@ target 'v1CroiffleEmployee' do
 
   pod 'RNSoundPlayer', :path => '../node_modules/react-native-sound-player'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage'
+
   target 'v1CroiffleEmployeeTests' do
     inherit! :complete
     # Pods for testing

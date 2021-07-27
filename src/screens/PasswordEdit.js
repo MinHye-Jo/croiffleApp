@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { ScrollView, View, Text, TouchableOpacity, TextInput } from 'react-native';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import styles from 'styles/commonStyle';
 import TextInputMask from 'components/TextInputMask';
 import DefaultModal from 'components/modal/DefaultModal';
@@ -97,6 +99,7 @@ const PasswordEdit = props => {
   // 비밀번호 수정 후 로그아웃 및 데이터 초기화
   const logoutAction = async () => {
     await logout();
+    await AsyncStorage.removeItem('token');
     resetData();
     window.userInfo = null;
     props.navigation.navigate('LoginPage');
