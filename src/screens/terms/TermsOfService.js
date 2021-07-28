@@ -6,7 +6,7 @@ import AgreeButton from 'components/button/AgreeButton';
 
 const TermsOfService = ({ navigation, route }) => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <JoinWebView type={'terms'} />
       <AgreeButton navigation={navigation} route={route} type={'terms'} />
     </View>

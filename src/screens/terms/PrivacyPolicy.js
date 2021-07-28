@@ -6,7 +6,7 @@ import AgreeButton from 'components/button/AgreeButton';
 
 const PrivacyPolicy = ({ navigation, route }) => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: '#ffffff' }}>
       <JoinWebView type={'service'} />
       <AgreeButton navigation={navigation} route={route} type={'service'} />
     </View>

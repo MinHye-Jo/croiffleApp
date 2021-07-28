@@ -7,7 +7,7 @@ export default StyleSheet.create({
   sideTop: {
     backgroundColor: 'rgb(0,191,213)',
     height: 50,
-    marginTop: osType == 'ANDROID' ? 25 : 0,
+    marginTop: osType == 'ANDROID' ? 24 : 0,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

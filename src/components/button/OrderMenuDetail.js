@@ -79,7 +79,7 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
       <View style={styles.container}>
         <View style={{ flex: 1, marginRight: 10 }}>
           <View style={styles.imgContainer}>
-            <Image source={require('../../../assets/image/croiffle_basil.jpg')} style={styles.img} />
+            <Image source={require('../../../assets/image/croiffle_basil.jpg')} style={styles.img} resizeMode="cover" />
             {renderSwitch()}
           </View>
         </View>

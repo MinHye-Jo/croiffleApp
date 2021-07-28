@@ -95,15 +95,18 @@ const FindPassword = props => {
         onClose={() => setFindPwdModalOpen(false)}
       />
 
-      <View style={{ paddingLeft: 20, paddingRight: 20, paddingBottom: 30 }}>
+      <View style={{ paddingBottom: 30 }}>
         <Logo />
-        <View style={{ flexDirection: 'column', alignItems: 'center', paddingTop: 20 }}>
+        <View style={{ alignItems: 'center', paddingTop: 20 }}>
           <Text style={styles.loginFont}>비밀번호 찾기</Text>
-          <Text style={styles.loginFont2}>휴대폰 인증을 통해 초기화된 비밀번호를</Text>
-          <Text style={styles.loginFont2}>등록된 휴대폰 번호로 보내드립니다.</Text>
-          <Text style={styles.loginFont2}>로그인 후 [개인정보관리]에서 변경하실 수 있습니다.</Text>
+          <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>휴대폰 인증을 통해 초기화된 비밀번호를</Text>
+          <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>등록된 휴대폰 번호로 보내드립니다.</Text>
+          <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>
+            로그인 후 [개인정보관리]에서 변경하실 수 있습니다.
+          </Text>
         </View>
-
+      </View>
+      <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <View style={{ paddingTop: 30 }}>
           <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 아이디 </Text>
           <TextInput

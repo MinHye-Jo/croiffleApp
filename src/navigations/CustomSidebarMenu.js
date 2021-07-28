@@ -46,65 +46,67 @@ const CustomSidebarMenu = props => {
         </View>
       </View>
       {/* 주문내역, 매장관리 버튼 */}
-      <View style={{ height: 180, backgroundColor: 'rgb(242, 243, 245)' }}>
+      <View style={{ height: 170, backgroundColor: 'rgb(242, 243, 245)' }}>
         <View style={{ flexDirection: 'row' }}>
           <OrderHistoryButton navigation={props.navigation} />
           <StoreManageButton navigation={props.navigation} />
         </View>
       </View>
       {/* 사이드메뉴 항목 */}
-      <ScrollView style={{ paddingLeft: 20, paddingTop: 20 }}>
-        {/* <DrawerItemList {...props} /> */}
-        <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
-          <View style={{ ...styles.row, paddingBottom: 10 }}>
-            <View style={styles.rowFlex2Left}>
-              <Text style={styles.font5M15}>개인정보관리</Text>
+      <View style={{ ...styles.hr, marginBottom: 0 }} />
+      <ScrollView>
+        <View style={{ paddingLeft: 20, paddingTop: 20, paddingBottom: 10 }}>
+          <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
+            <View style={{ ...styles.row, paddingBottom: 10 }}>
+              <View style={styles.rowFlex2Left}>
+                <Text style={styles.font5M15}>개인정보관리</Text>
+              </View>
+              <View style={styles.rowFlex1Right}>
+                <IconNextBlack />
+              </View>
             </View>
-            <View style={styles.rowFlex1Right}>
-              <IconNextBlack />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate('PasswordEdit')}>
+            <View style={{ ...styles.row, paddingBottom: 10 }}>
+              <View style={styles.rowFlex2Left}>
+                <Text style={styles.font5M15}>비밀번호 수정</Text>
+              </View>
+              <View style={styles.rowFlex1Right}>
+                <IconNextBlack />
+              </View>
             </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.navigate('PasswordEdit')}>
-          <View style={{ ...styles.row, paddingBottom: 10 }}>
-            <View style={styles.rowFlex2Left}>
-              <Text style={styles.font5M15}>비밀번호 수정</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate('TermsOfService')}>
+            <View style={{ ...styles.row, paddingBottom: 10 }}>
+              <View style={styles.rowFlex2Left}>
+                <Text style={styles.font5M15}>서비스이용약관</Text>
+              </View>
+              <View style={styles.rowFlex1Right}>
+                <IconNextBlack />
+              </View>
             </View>
-            <View style={styles.rowFlex1Right}>
-              <IconNextBlack />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate('PrivacyPolicyPage')}>
+            <View style={{ ...styles.row, paddingBottom: 10 }}>
+              <View style={styles.rowFlex2Left}>
+                <Text style={styles.font5M15}>개인정보처리방침</Text>
+              </View>
+              <View style={styles.rowFlex1Right}>
+                <IconNextBlack />
+              </View>
             </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.navigate('TermsOfService')}>
-          <View style={{ ...styles.row, paddingBottom: 10 }}>
-            <View style={styles.rowFlex2Left}>
-              <Text style={styles.font5M15}>서비스이용약관</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate('CustomerSupport')}>
+            <View style={{ ...styles.row, paddingBottom: 10 }}>
+              <View style={styles.rowFlex2Left}>
+                <Text style={styles.font5M15}>고객지원</Text>
+              </View>
+              <View style={styles.rowFlex1Right}>
+                <IconNextBlack />
+              </View>
             </View>
-            <View style={styles.rowFlex1Right}>
-              <IconNextBlack />
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.navigate('PrivacyPolicyPage')}>
-          <View style={{ ...styles.row, paddingBottom: 10 }}>
-            <View style={styles.rowFlex2Left}>
-              <Text style={styles.font5M15}>개인정보처리방침</Text>
-            </View>
-            <View style={styles.rowFlex1Right}>
-              <IconNextBlack />
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => props.navigation.navigate('CustomerSupport')}>
-          <View style={{ ...styles.row, paddingBottom: 10 }}>
-            <View style={styles.rowFlex2Left}>
-              <Text style={styles.font5M15}>고객지원</Text>
-            </View>
-            <View style={styles.rowFlex1Right}>
-              <IconNextBlack />
-            </View>
-          </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
+        </View>
         <View style={styles.hr} />
       </ScrollView>
 

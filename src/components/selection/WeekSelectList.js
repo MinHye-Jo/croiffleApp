@@ -18,7 +18,7 @@ const WeekSelectList = ({ value, onChange }) => {
       fontFamily: 'S-CoreDream-4Regular',
       fontSize: 15,
       borderColor: 'rgb(242, 243, 245)',
-      width: 125,
+      width: '100%',
     },
     txt: {
       fontFamily: 'S-CoreDream-4Regular',
@@ -29,7 +29,7 @@ const WeekSelectList = ({ value, onChange }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <View style={{ marginRight: 10 }}>
+    <View style={{ flex: 1, marginRight: 10 }}>
       <DropDownPicker
         style={styles.container}
         textStyle={styles.txt}

@@ -9,18 +9,18 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
   const styles = StyleSheet.create({
     container: {
       justifyContent: 'flex-end',
-      margin: 0
+      margin: 0,
     },
     modalcontainer: {
       alignItems: 'center',
       backgroundColor: '#ffff',
       padding: 20,
-      height: '75%'
+      height: '75%',
     },
     titleContainer: {
       flex: 7,
       paddingLeft: 15,
-      alignItems: 'center'
+      alignItems: 'center',
     },
     title: {
       fontFamily: 'S-CoreDream-5Medium',
@@ -28,36 +28,38 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
     },
     closeImg: {
       resizeMode: 'contain',
-      height: 20
+      height: 20,
     },
     txt: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15
+      fontSize: 15,
     },
     txt2: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15
+      fontSize: 15,
     },
     greyBox: {
       borderRadius: 5,
       width: '100%',
       borderColor: 'rgb(242, 243, 245)',
       backgroundColor: 'rgb(242, 243, 245)',
-      paddingBottom: 10
+      paddingBottom: 10,
     },
     selectCom: {
       flexDirection: 'row',
       alignItems: 'center',
-      marginTop: 10
+      marginTop: 10,
     },
     inputBox: {
       borderColor: 'rgb(242, 243, 245)',
       backgroundColor: 'rgb(242, 243, 245)',
       fontFamily: 'S-CoreDream-4Regular',
+      borderRadius: 5,
       fontSize: 15,
       width: '100%',
       height: 120,
-      padding: 10
+      padding: 10,
+      paddingTop: 10,
     },
     blueBtn: {
       borderRadius: 5,
@@ -67,46 +69,46 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
       width: '100%',
       height: 50,
       fontSize: 20,
-      backgroundColor: 'rgb(0, 191, 213)'
+      backgroundColor: 'rgb(0, 191, 213)',
     },
     btnTxtWhite: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 18,
-      color: '#ffff'
+      color: '#ffff',
     },
     redTxt: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 12,
       color: 'rgb(255, 83, 83)',
       marginTop: 10,
-      marginBottom: 5
-    }
+      marginBottom: 5,
+    },
   });
 
   // 라디오 버튼용
   const [radio, setRadio] = useState({
     cancel: true,
     material: false,
-    request: false
+    request: false,
   });
   const [etcMemo, setEtcMemo] = useState('');
   // 체크박스용
   const [chkMenu, setChkMenu] = useState({});
 
   // 거부사유
-  const reasonChk = (type) => {
+  const reasonChk = type => {
     setRadio({
       cancel: false,
       material: false,
       request: false,
       [type]: true,
     });
-  }
+  };
 
   // 품절처리 항목
   const rejectChk = (id, checked) => {
     setChkMenu({ ...chkMenu, [id]: checked });
-  }
+  };
 
   return (
     <Modal
@@ -114,7 +116,7 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
       // swipeDirection="down"
       style={styles.container}>
       <View style={styles.modalcontainer}>
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: 'row' }}>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>주문 거부</Text>
           </View>
@@ -142,41 +144,51 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
 
           <View style={{ marginTop: 20, marginBottom: 10 }}>
             <Text style={{ ...styles.txt, marginBottom: 5 }}>특이사항 (선택)</Text>
-            <TextInput style={styles.inputBox}
+            <TextInput
+              style={styles.inputBox}
               placeholder="내용을 입력해주세요"
-              placeholderTextColor='rgb(174, 174, 174)'
+              textAlignVertical="top"
+              placeholderTextColor="rgb(174, 174, 174)"
               multiline={true}
-              onChangeText={e => setEtcMemo(e)} />
+              onChangeText={e => setEtcMemo(e)}
+            />
           </View>
 
           {/* 재료소진일 경우만 보이도록 */}
-          {radio.material && <View style={{ width: '100%', marginTop: 20 }}>
-            <View style={{
-              borderBottomColor: "rgb(225, 225, 225)",
-              borderBottomWidth: 1,
-              marginBottom: 30
-            }} />
+          {radio.material && (
+            <View style={{ width: '100%', marginTop: 20 }}>
+              <View
+                style={{
+                  borderBottomColor: 'rgb(225, 225, 225)',
+                  borderBottomWidth: 1,
+                  marginBottom: 30,
+                }}
+              />
 
-            <View>
-              <Text style={{ ...styles.txt, marginBottom: 5 }}>품절처리 항목을 선택해주세요</Text>
-              <View style={styles.greyBox}>
-                {(menuData && menuData.length > 0) ?
-                  menuData.map(o => {
-                    return (
-                      <View style={styles.selectCom}>
-                        <CustomCheckBox checked={chkMenu[o.menuId] || false}
-                          onChange={(checked) => rejectChk(o.menuId, checked)} />
-                        <Text style={styles.txt2}>{o.menuName}</Text>
-                      </View>
-                    )
-                  }) : null}
+              <View>
+                <Text style={{ ...styles.txt, marginBottom: 5 }}>품절처리 항목을 선택해주세요</Text>
+                <View style={styles.greyBox}>
+                  {menuData && menuData.length > 0
+                    ? menuData.map(o => {
+                        return (
+                          <View style={styles.selectCom}>
+                            <CustomCheckBox
+                              checked={chkMenu[o.menuId] || false}
+                              onChange={checked => rejectChk(o.menuId, checked)}
+                            />
+                            <Text style={styles.txt2}>{o.menuName}</Text>
+                          </View>
+                        );
+                      })
+                    : null}
+                </View>
               </View>
+              <Text style={styles.redTxt}>선택하신 항목은 다음 날 오픈 전까지 품절처리됩니다.</Text>
             </View>
-            <Text style={styles.redTxt}>선택하신 항목은 다음 날 오픈 전까지 품절처리됩니다.</Text>
-          </View>}
-
+          )}
         </ScrollView>
-        <TouchableOpacity style={styles.blueBtn}
+        <TouchableOpacity
+          style={styles.blueBtn}
           onPress={() => onAction({ rejectRadio: radio, rejectReason: etcMemo, rejectMenu: chkMenu })}>
           <Text style={styles.btnTxtWhite}>주문거부</Text>
         </TouchableOpacity>
