@@ -119,7 +119,7 @@ const HolidaySetting = props => {
           ? holidayData.map((o, idx) => {
               if (o.type == '1') {
                 return (
-                  <View style={{ ...styles.row, flex: 1, marginTop: 10, zIndex: regIndex-- }}>
+                  <View key={idx} style={{ ...styles.row, flex: 1, marginTop: 10, zIndex: regIndex-- }}>
                     <WeekSelectList value={o.regularType} onChange={e => setTypeAndDate('regularType', e, idx)} />
                     <DaySelectList value={o.dayOfWeek} onChange={e => setTypeAndDate('dayOfWeek', e, idx)} />
                     <View
@@ -149,7 +149,7 @@ const HolidaySetting = props => {
           ? holidayData.map((o, idx) => {
               if (o.type == '2') {
                 return (
-                  <View style={{ ...styles.row, flex: 1, marginTop: 10, zIndex: tmpIndex-- }}>
+                  <View key={idx} style={{ ...styles.row, flex: 1, marginTop: 10, zIndex: tmpIndex-- }}>
                     <DatePickerModal dateVal={o.startDate} onChange={e => setTypeAndDate('startDate', e, idx)} />
                     <DatePickerModal dateVal={o.endDate} onChange={e => setTypeAndDate('endDate', e, idx)} />
                     <View
