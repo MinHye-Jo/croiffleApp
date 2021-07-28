@@ -8,38 +8,46 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      width: '100%'
+      width: '100%',
     },
     modalcontainer: {
       width: '100%',
-      height: 260,
+      height: 265,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
-      padding: 20
+      padding: 20,
     },
     modalcontainer2: {
       width: '100%',
-      height: 295,
+      height: 285,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
-      padding: 20
+      padding: 20,
+    },
+    modalcontainer3: {
+      width: '100%',
+      height: 305,
+      borderRadius: 10,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      padding: 20,
     },
     titleContainer: {
       flex: 7,
       paddingLeft: 15,
-      alignItems: 'center'
+      alignItems: 'center',
     },
     closeImg: {
       resizeMode: 'contain',
-      height: 20
+      height: 20,
     },
     imgContainer: {
       resizeMode: 'contain',
       height: 75,
       marginTop: 20,
-      marginBottom: 20
+      marginBottom: 20,
     },
     title: {
       fontFamily: 'S-CoreDream-5Medium',
@@ -47,7 +55,7 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
     },
     txt: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15
+      fontSize: 15,
     },
     blueBtn: {
       borderRadius: 5,
@@ -57,24 +65,24 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
       width: '100%',
       height: 50,
       fontSize: 20,
-      backgroundColor: 'rgb(0, 191, 213)'
+      backgroundColor: 'rgb(0, 191, 213)',
     },
     btnTxtWhite: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 18,
-      color: '#ffff'
+      color: '#ffff',
     },
   });
-
 
   return (
     <Modal isVisible={modalOpen}>
       <View style={styles.container}>
-        <View style={modalTextThi ? styles.modalcontainer2 : styles.modalcontainer} >
+        <View
+          style={modalTextThi ? styles.modalcontainer3 : modalTextSec ? styles.modalcontainer2 : styles.modalcontainer}>
           <View style={styles.container}>
-            <View style={{ flexDirection: "row" }}>
+            <View style={{ flexDirection: 'row' }}>
               <View style={styles.titleContainer}>
-                <Text style={styles.title}>{!title ? "알림" : title}</Text>
+                <Text style={styles.title}>{!title ? '알림' : title}</Text>
               </View>
               <TouchableOpacity style={{ flex: 1 }} onPress={() => onClose()}>
                 <Image source={require('../../../assets/image/icon/icon_close_b.png')} style={styles.closeImg} />
@@ -88,11 +96,10 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
             <TouchableOpacity style={styles.blueBtn} onPress={() => onAction()}>
               <Text style={styles.btnTxtWhite}>확인</Text>
             </TouchableOpacity>
-
           </View>
         </View>
       </View>
-    </Modal >
+    </Modal>
   );
 };
 

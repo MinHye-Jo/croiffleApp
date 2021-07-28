@@ -49,6 +49,7 @@ const Login = props => {
   // 유저 상세 정보 조회 API
   const getUserInfoApi = async () => {
     const { data: userInfo } = await getUserInfo();
+
     if (userInfo && userInfo.return_code == 200) {
       window.userInfo = userInfo.response;
       props.navigation.navigate('MainPage');

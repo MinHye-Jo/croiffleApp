@@ -63,9 +63,9 @@ const StoreManagement = props => {
           style={{
             ...styles.greyBox,
             marginRight: 10,
-            width: 80,
-            alignItems: 'center',
             height: 30,
+            minWidth: 80,
+            alignItems: 'center',
             justifyContent: 'center',
           }}>
           <Text style={styles.font5M15}> {shopName} </Text>

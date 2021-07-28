@@ -10,25 +10,23 @@ const axiosConfig = {
   timeout: 60 * 3 * 1000,
   headers: {
     key: 'EMPLOYEE-50aa4nwaA408nQp5QJjuLM',
-    uuid: DeviceInfo.getUniqueId()
-  }
+    uuid: DeviceInfo.getUniqueId(),
+  },
 };
 
 const http = axios.create(axiosConfig);
 
-http.interceptors.request.use((config) => {
+http.interceptors.request.use(config => {
   config.headers.token = initToken;
 
-
-  console.log("토큰 : ", initToken);
+  console.log('토큰 : ', initToken);
 
   return config;
 });
 
-export const setToken = (token) => {
+export const setToken = token => {
   initToken = token;
 };
-
 
 http.postFile = (url, params) => {
   const frm = new FormData();
@@ -39,10 +37,9 @@ http.postFile = (url, params) => {
 
   return http.post(url, frm, {
     headers: {
-      'Content-Type': 'multipart/form-data'
-    }
+      'Content-Type': 'multipart/form-data',
+    },
   });
 };
-
 
 export default http;

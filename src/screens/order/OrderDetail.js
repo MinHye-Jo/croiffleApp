@@ -246,7 +246,7 @@ const OrderDetail = ({ navigation, route }) => {
         </View>
 
         <Text style={{ ...styles.font5M15, marginBottom: 10, marginTop: 20 }}>주문 시 요청사항</Text>
-        <View style={{ ...styles.greyTxtBox, height: 'auto' }}>
+        <View style={{ ...styles.greyTxtBox, minHeight: 40, height: 'auto' }}>
           <Text style={styles.font4R15}>{orderData.orderRequest}</Text>
         </View>
 

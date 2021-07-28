@@ -17,6 +17,7 @@ import { logout } from 'services/auth';
 
 const CustomSidebarMenu = props => {
   const resetData = useResetRecoilState(noticeListState);
+  const userName = window.userInfo ? window.userInfo.name : '고객';
 
   // 로그아웃 버튼 클릭시 데이터 초기화
   const logoutAction = async () => {
@@ -32,8 +33,8 @@ const CustomSidebarMenu = props => {
     <SafeAreaView style={{ flex: 1 }}>
       {/* 사이드메뉴 상단 */}
       <View style={naviStyle.sideTop}>
-        <View style={styles.rowFlex2Left}>
-          <Text style={naviStyle.sideTopFont}>고객님, 안녕하세요!</Text>
+        <View>
+          <Text style={naviStyle.sideTopFont}>{userName}님, 안녕하세요!</Text>
         </View>
         <View style={styles.rowFlex1Right}>
           <TouchableOpacity onPress={() => props.navigation.closeDrawer()}>
@@ -45,7 +46,7 @@ const CustomSidebarMenu = props => {
         </View>
       </View>
       {/* 주문내역, 매장관리 버튼 */}
-      <View style={{ height: 150, backgroundColor: 'rgb(242, 243, 245)' }}>
+      <View style={{ height: 180, backgroundColor: 'rgb(242, 243, 245)' }}>
         <View style={{ flexDirection: 'row' }}>
           <OrderHistoryButton navigation={props.navigation} />
           <StoreManageButton navigation={props.navigation} />

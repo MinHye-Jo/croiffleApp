@@ -20,7 +20,15 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
     },
     modalcontainer2: {
       width: '100%',
-      height: 295,
+      height: 285,
+      borderRadius: 10,
+      backgroundColor: 'white',
+      alignItems: 'center',
+      padding: 20,
+    },
+    modalcontainer3: {
+      width: '100%',
+      height: 305,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
@@ -69,7 +77,8 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
   return (
     <Modal isVisible={modalOpen}>
       <View style={styles.container}>
-        <View style={modalTextThi ? styles.modalcontainer2 : styles.modalcontainer}>
+        <View
+          style={modalTextThi ? styles.modalcontainer3 : modalTextSec ? styles.modalcontainer2 : styles.modalcontainer}>
           <View style={{ flexDirection: 'row' }}>
             <View style={styles.titleContainer}>
               <Text style={styles.title}>{!title ? '알림' : title}</Text>

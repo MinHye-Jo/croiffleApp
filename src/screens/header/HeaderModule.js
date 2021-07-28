@@ -1,13 +1,16 @@
 import React from 'react';
 import { Image, View, TouchableOpacity } from 'react-native';
 import { Header } from 'react-native-elements';
+import DeviceInfo from 'react-native-device-info';
+
+const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
 
 // 네비게이션
-const renderHeaderMenu = (props) => (
+const renderHeaderMenu = props => (
   <View style={{ flexDirection: 'row' }}>
     <TouchableOpacity onPress={() => props.navigation.toggleDrawer()}>
       <Image
-        style={{ width: 25, height: 25, marginLeft: 10, resizeMode: "contain" }}
+        style={{ width: 25, height: 25, marginLeft: 10, resizeMode: 'contain' }}
         source={require('../../../assets/image/icon/icon_menu_b.png')}
       />
     </TouchableOpacity>
@@ -15,11 +18,11 @@ const renderHeaderMenu = (props) => (
 );
 
 // 로고
-const renderCrfLogo = (props) => (
+const renderCrfLogo = props => (
   <View style={{ flex: 1, flexDirection: 'row' }}>
     <TouchableOpacity onPress={() => props.navigation.navigate('MainPage')}>
       <Image
-        style={{ flex: 1, width: 180, height: 180, resizeMode: "contain" }}
+        style={{ flex: 1, width: 180, height: 180, resizeMode: 'contain' }}
         source={require('../../../assets/image/logo_title_b.png')}
       />
     </TouchableOpacity>
@@ -27,30 +30,28 @@ const renderCrfLogo = (props) => (
 );
 
 // 알림
-const renderOrderNoti = (props) => (
+const renderOrderNoti = props => (
   <View style={{ flexDirection: 'row' }}>
     <TouchableOpacity onPress={() => props.navigation.navigate('NoticeList')}>
       <Image
-        style={{ width: 25, height: 25, marginRight: 10, resizeMode: "contain" }}
+        style={{ width: 25, height: 25, marginRight: 10, resizeMode: 'contain' }}
         source={require('../../../assets/image/icon/icon_notice_b.png')}
       />
     </TouchableOpacity>
   </View>
 );
 
-
-const HeaderModule = (props) => {
+const HeaderModule = props => {
   return (
     <Header
-      containerStyle={{ height: 100 }}
-      backgroundColor='#ffffff'
-      placement='center'
+      containerStyle={{ height: osType == 'iOS' ? 100 : 80 }}
+      backgroundColor="#ffffff"
+      placement="center"
       leftComponent={renderHeaderMenu(props)}
       centerComponent={renderCrfLogo(props)}
       rightComponent={renderOrderNoti(props)}
     />
-  )
+  );
 };
-
 
 export default HeaderModule;
