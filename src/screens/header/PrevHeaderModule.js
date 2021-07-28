@@ -25,7 +25,7 @@ const renderCenterTitle = props => (
 const PrevHeaderModule = props => {
   return (
     <Header
-      containerStyle={{ height: 90 }}
+      containerStyle={{ height: 100 }}
       backgroundColor="rgb(0, 191, 213)"
       placement="center"
       leftComponent={renderPrevBtn(props)}
