@@ -19,7 +19,7 @@ const renderPrevBtn = props => (
 // 타이틀
 const renderCenterTitle = props => (
   <TouchableOpacity onPress={() => props.navigation.goBack()}>
-    <View style={{ flexDirection: 'row', marginTop: 3 }}>
+    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
       <Text style={styles.prevHeaderFont}>{props.title}</Text>
     </View>
   </TouchableOpacity>
