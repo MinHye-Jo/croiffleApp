@@ -10,12 +10,13 @@ import OrderPickupDone from 'components/image/OrderPickupDone';
 const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const orderDate = moment(data.createdAt).format('YYYY-MM-DD');
+  const blockStatus = data.status == '4' || data.status == '5' ? true : false;
 
   const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'row',
-      backgroundColor: '#ffffff',
+      backgroundColor: blockStatus ? '#f8f8f9' : '#ffffff',
       shadowColor: 'grey',
       shadowOpacity: 0.5,
       shadowOffset: { width: 0.5, height: 0.5 },
@@ -85,14 +86,14 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
         </View>
 
         <View style={{ flex: 2, marginTop: 10, position: 'relative' }}>
-          <Text style={styles.fontBlack}>{data.orderName}</Text>
+          <Text style={!blockStatus ? styles.fontBlack : styles.fontGrey}>{data.orderName}</Text>
           <View style={{ flexDirection: 'row', marginTop: 10 }}>
-            <Text style={styles.fontBlack}>픽업시간 </Text>
+            <Text style={!blockStatus ? styles.fontBlack : styles.fontGrey}>픽업시간 </Text>
             <View style={{ flexDirection: 'row' }}>
-              <Text style={styles.fontBlue}>{data.pickupHour}</Text>
-              <Text style={styles.fontBlue}>시 </Text>
-              <Text style={styles.fontBlue}>{data.pickupMinute}</Text>
-              <Text style={styles.fontBlue}>분</Text>
+              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey}>{data.pickupHour}</Text>
+              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey}>시 </Text>
+              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey}>{data.pickupMinute}</Text>
+              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey}>분</Text>
             </View>
           </View>
           <View style={{ flexDirection: 'row', marginTop: 20 }}>
