@@ -169,9 +169,9 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
                 <Text style={{ ...styles.txt, marginBottom: 5 }}>품절처리 항목을 선택해주세요</Text>
                 <View style={styles.greyBox}>
                   {menuData && menuData.length > 0
-                    ? menuData.map(o => {
+                    ? menuData.map((o, idx) => {
                         return (
-                          <View style={styles.selectCom}>
+                          <View key={idx} style={styles.selectCom}>
                             <CustomCheckBox
                               checked={chkMenu[o.menuId] || false}
                               onChange={checked => rejectChk(o.menuId, checked)}

@@ -86,7 +86,7 @@ const OrderDetail = ({ navigation, route }) => {
     let rejectMenu = [];
     for (let key in rejectData.rejectMenu) {
       if (rejectData.rejectMenu[key] == true) {
-        rejectMenu.push({ menuId: Number(key), shopId: shopId });
+        rejectMenu.push(Number(key));
       }
     }
 
