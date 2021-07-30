@@ -6,8 +6,9 @@ const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
 export default StyleSheet.create({
   sideTop: {
     backgroundColor: 'rgb(0,191,213)',
-    height: 50,
+    height: osType == 'ANDROID' ? 50 : 100,
     marginTop: osType == 'ANDROID' ? 24 : 0,
+    paddingTop: osType == 'ANDROID' ? 0 : 35,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
@@ -27,5 +28,11 @@ export default StyleSheet.create({
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  logoutBtn: {
+    backgroundColor: 'rgb(242, 243, 245)',
+    height: osType == 'ANDROID' ? 50 : 70,
+    paddingLeft: 20,
+    justifyContent: 'center',
   },
 });
