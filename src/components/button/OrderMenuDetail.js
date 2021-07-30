@@ -11,7 +11,7 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const orderDate = moment(data.createdAt).format('YYYY-MM-DD');
   const blockStatus = data.status == '4' || data.status == '5' ? true : false;
-  const img = data.menu_img_url ? data.menu_img_url : require('../../../assets/image/croiffle_basil.jpg');
+  const img = data.menuImgUrl ? { uri: data.menuImgUrl } : require('../../../assets/image/croiffle_basil.jpg');
 
   const styles = StyleSheet.create({
     container: {
