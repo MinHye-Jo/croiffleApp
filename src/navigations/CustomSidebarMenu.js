@@ -30,7 +30,7 @@ const CustomSidebarMenu = props => {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       {/* 사이드메뉴 상단 */}
       <View style={naviStyle.sideTop}>
         <View>
@@ -111,12 +111,10 @@ const CustomSidebarMenu = props => {
       </ScrollView>
 
       {/* 로그인 로그아웃 */}
-      <View style={{ backgroundColor: 'rgb(242, 243, 245)', height: '5%', paddingLeft: 20, justifyContent: 'center' }}>
-        <TouchableOpacity onPress={logoutAction}>
-          <Text style={styles.font5M15}>로그아웃</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+      <TouchableOpacity style={naviStyle.logoutBtn} onPress={logoutAction}>
+        <Text style={styles.font5M15}>로그아웃</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
