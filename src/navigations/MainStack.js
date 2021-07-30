@@ -39,8 +39,8 @@ import PrevHeaderModule from 'screens/header/PrevHeaderModule';
 
 import OrderNoticeModal from 'components/modal/OrderNoticeModal';
 
-import { useSetRecoilState, useRecoilValue } from 'recoil';
-import { noticeListState, noticeDataAppend } from 'store/app';
+import { noticeListState, noticeDataAppend, noticeIconControl } from 'store/app';
+import { useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
 
 const Stack = createStackNavigator();
 
@@ -57,18 +57,24 @@ const MainStack = ({ navigation }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const noticeData = useRecoilValue(noticeListState);
   const setNoticeDataAppend = useSetRecoilState(noticeDataAppend);
+  const [noticeIconFlag, setNoticeIconFlag] = useRecoilState(noticeIconControl);
 
   // 주문 알림 팝업
   useEffect(() => {
     // 메시지 이벤트 처리
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       // 알림 음성파일 실행
-      SoundPlayer.loadSoundFile('ring', 'mp3');
-      SoundPlayer.play();
+      try {
+        SoundPlayer.loadSoundFile('ring', 'mp3');
+        SoundPlayer.play();
+      } catch (e) {
+        console.log('cannot play the sound file', e);
+      }
 
       // 데이터 저장
-      const re = JSON.parse(remoteMessage.notification.body);
+      const re = remoteMessage.data;
       if (re && re.new === 'true') {
+        setNoticeIconFlag(true);
         setNoticeDataAppend(re);
       }
 
@@ -81,7 +87,7 @@ const MainStack = ({ navigation }) => {
   // 앱이 백그라운드에 있을경우 알림데이터 처리
   messaging().setBackgroundMessageHandler(async remoteMessage => {
     // 데이터 저장
-    const re = JSON.parse(remoteMessage.notification.body);
+    const re = remoteMessage.data;
     if (re && re.new === 'true') {
       setNoticeDataAppend(re);
     }

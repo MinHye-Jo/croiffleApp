@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DeviceInfo from 'react-native-device-info';
+import messaging from '@react-native-firebase/messaging';
 
 import Logo from 'components/image/Logo';
 import styles from 'styles/commonStyle';
@@ -51,6 +52,10 @@ const Login = props => {
     const { data: userInfo } = await getUserInfo();
 
     if (userInfo && userInfo.return_code == 200) {
+      // 메시지 이벤트 TOPIC 연결
+      const topic = `croiffle-order-employee-${userInfo.response.shopId}`;
+      messaging().subscribeToTopic(topic);
+
       window.userInfo = userInfo.response;
       props.navigation.navigate('MainPage');
     } else {

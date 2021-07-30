@@ -10,3 +10,9 @@ export const noticeDataAppend = selector({
   key: 'noticeDataAppend',
   set: ({ get, set }, newValue) => set(noticeListState, get(noticeListState).concat(newValue)),
 });
+
+// 신규 주무알림 후 아이콘 제어용 변수
+export const noticeIconControl = atom({
+  key: 'noticeIconControl',
+  default: false,
+});
