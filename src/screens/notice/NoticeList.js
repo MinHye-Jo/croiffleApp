@@ -11,7 +11,10 @@ const NoticeList = ({ navigation }) => {
     <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }}>
       <View>
         {noticeData.length
-          ? noticeData.map(o => <NoticeListDetail key={o.orderId} navigation={navigation} data={o} />)
+          ? noticeData
+              .slice(0)
+              .reverse()
+              .map(o => <NoticeListDetail key={o.orderId} navigation={navigation} data={o} />)
           : null}
       </View>
     </ScrollView>

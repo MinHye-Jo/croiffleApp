@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
-
-const today = new Date();
+import moment from 'moment';
 
 const NoticeListDetail = ({ navigation, data }) => {
-  const timeValue = data ? new Date(data.createdAt.replace(/-/g, '/')) : today;
-
-  const betweenTime = Math.floor((today.getTime() - timeValue.getTime()) / 1000 / 60);
+  // DB UTC시 -> PDT 변환 (+9시)
+  const today = moment();
+  const timeValue = moment(data.createdAt).add(9, 'h').format('YYYY-MM-DD HH:mm:ss');
+  const betweenTime = moment.duration(today.diff(timeValue)).asMinutes();
 
   const styles = StyleSheet.create({
     container: {
@@ -55,7 +55,7 @@ const NoticeListDetail = ({ navigation, data }) => {
             <Text style={styles.fontBlack}>{window.userInfo.shopName}</Text>
           </View>
           <View style={{ marginLeft: 10 }}>
-            <Text style={styles.font4Grey}>{betweenTime}분전</Text>
+            <Text style={styles.font4Grey}>{Math.floor(betweenTime)}분전</Text>
           </View>
         </View>
         <View style={{ flex: 1, marginTop: 10 }}>
