@@ -6,6 +6,8 @@ const OnOffSwitchWhite = ({ onClick, flagVal }) => {
     container: {
       flexDirection: 'row',
       marginRight: 10,
+      backgroundColor: '#fff',
+      borderRadius: 5,
     },
     onBtn: {
       alignItems: 'center',

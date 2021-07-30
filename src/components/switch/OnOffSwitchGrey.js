@@ -5,7 +5,9 @@ const OnOffSwitchGrey = ({ onClick, flagVal }) => {
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
-      marginRight: 10
+      marginRight: 10,
+      backgroundColor: 'rgb(242, 243, 245)',
+      borderRadius: 5,
     },
     onBtn: {
       alignItems: 'center',
@@ -13,25 +15,23 @@ const OnOffSwitchGrey = ({ onClick, flagVal }) => {
       backgroundColor: 'rgb(0, 191, 213)',
       borderRadius: 5,
       height: 30,
-      width: 40
+      width: 40,
     },
     onTxt: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 15,
-      color: '#ffff'
+      color: '#ffff',
     },
     offBtn: {
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: 'rgb(242, 243, 245)',
-      borderRadius: 5,
       height: 30,
-      width: 40
+      width: 40,
     },
     offTxt: {
       fontFamily: 'S-CoreDream-5Medium',
       fontSize: 15,
-      color: 'rgb(174, 174, 174)'
+      color: 'rgb(174, 174, 174)',
     },
   });
 
