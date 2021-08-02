@@ -3,8 +3,8 @@ import DeviceInfo from 'react-native-device-info';
 const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
 
 const prod = {
-  apiUrl: 'http://dev.croifflekitchen.co.kr/api/v1/',
-  baseUrl: 'http://dev.croifflekitchen.co.kr/',
+  apiUrl: 'https://croifflekitchen.co.kr/api/v1/',
+  baseUrl: 'https://croifflekitchen.co.kr/',
   isLocal: false,
 };
 

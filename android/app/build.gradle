@@ -132,10 +132,10 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.croifflekitchen.employee"
+        applicationId "com.croifflekitchen.v1employee"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 3
         versionName "1.0"
     }
     splits {
