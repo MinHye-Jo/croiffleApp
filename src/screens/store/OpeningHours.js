@@ -25,19 +25,19 @@ const OpeningHours = ({ route }) => {
       setEnvData(data.response);
     } else {
       setModalOpen(true);
-      setModalText(data.return_message)
+      setModalText(data.return_message);
     }
   }, []);
 
   // 영업시간 수정 api
   const shopEnvEditApi = async () => {
-    const open = ["openingHourSat", "openingHourSun", "openingHourWeekday"];
-    const close = ["closingHourSat", "closingHourSun", "closingHourWeekday"];
+    const open = ['openingHourSat', 'openingHourSun', 'openingHourWeekday'];
+    const close = ['closingHourSat', 'closingHourSun', 'closingHourWeekday'];
 
     for (let i = 0; i < 3; i++) {
       if (Number(envData[open[i]]) > envData[close[i]]) {
         setModalOpen(true);
-        setModalText("영업시간을 확인해 주시기 바랍니다.");
+        setModalText('영업시간을 확인해 주시기 바랍니다.');
         return;
       }
     }
@@ -45,41 +45,54 @@ const OpeningHours = ({ route }) => {
     const { data } = await shopEnvEdit(envData);
     if (data.return_code == 200) {
       setModalOpen(true);
-      setModalTitle("영업시간 설정");
-      setModalText("저장 되었습니다.");
+      setModalTitle('영업시간 설정');
+      setModalText('저장 되었습니다.');
     } else {
       setModalOpen(true);
-      setModalTitle("영업시간 설정실패");
-      setModalText(data.return_message)
+      setModalTitle('영업시간 설정실패');
+      setModalText(data.return_message);
     }
-  }
+  };
 
   return (
     <ScrollView style={styles.topContainer}>
-
-      <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} title={modalTitle} modalText={modalText} />
+      <DefaultModal
+        modalOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title={modalTitle}
+        modalText={modalText}
+      />
 
       <View style={{ paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 월~금 </Text>
 
         <View style={{ ...styles.row, zIndex: 2000 }}>
           <HoursSelectList
-            value={envData ? envData.openingHourWeekday : "00"}
-            onChange={(openingHourWeekday) => { setEnvData({ ...envData, openingHourWeekday }) }} />
+            value={envData ? envData.openingHourWeekday : '00'}
+            onChange={openingHourWeekday => {
+              setEnvData({ ...envData, openingHourWeekday });
+            }}
+          />
           <MinuteSelectList
-            value={envData ? envData.openingMinuteWeekday : "00"}
-            onChange={(openingMinuteWeekday) => { setEnvData({ ...envData, openingMinuteWeekday }) }}
+            value={envData ? envData.openingMinuteWeekday : '00'}
+            onChange={openingMinuteWeekday => {
+              setEnvData({ ...envData, openingMinuteWeekday });
+            }}
           />
           <Text style={styles.font5M15}>부터</Text>
         </View>
         <View style={{ ...styles.row, marginTop: 10, zIndex: 1900 }}>
           <HoursSelectList
-            value={envData ? envData.closingHourWeekday : "00"}
-            onChange={(closingHourWeekday) => { setEnvData({ ...envData, closingHourWeekday }) }}
+            value={envData ? envData.closingHourWeekday : '00'}
+            onChange={closingHourWeekday => {
+              setEnvData({ ...envData, closingHourWeekday });
+            }}
           />
           <MinuteSelectList
-            value={envData ? envData.closingMinuteWeekday : "00"}
-            onChange={(closingMinuteWeekday) => { setEnvData({ ...envData, closingMinuteWeekday }) }}
+            value={envData ? envData.closingMinuteWeekday : '00'}
+            onChange={closingMinuteWeekday => {
+              setEnvData({ ...envData, closingMinuteWeekday });
+            }}
           />
           <Text style={styles.font5M15}>까지</Text>
         </View>
@@ -88,23 +101,32 @@ const OpeningHours = ({ route }) => {
 
         <View style={{ ...styles.row, zIndex: 1800 }}>
           <HoursSelectList
-            value={envData ? envData.openingHourSat : "00"}
-            onChange={(openingHourSat) => { setEnvData({ ...envData, openingHourSat }) }}
+            value={envData ? envData.openingHourSat : '00'}
+            onChange={openingHourSat => {
+              setEnvData({ ...envData, openingHourSat });
+            }}
           />
           <MinuteSelectList
-            value={envData ? envData.openingMinuteSat : "00"}
-            onChange={(openingMinuteSat) => { setEnvData({ ...envData, openingMinuteSat }) }}
+            value={envData ? envData.openingMinuteSat : '00'}
+            onChange={openingMinuteSat => {
+              setEnvData({ ...envData, openingMinuteSat });
+            }}
           />
           <Text style={styles.font5M15}>부터</Text>
         </View>
         <View style={{ ...styles.row, marginTop: 10, zIndex: 1700 }}>
           <HoursSelectList
-            value={envData ? envData.closingHourSat : "00"}
-            onChange={(closingHourSat) => { setEnvData({ ...envData, closingHourSat }) }}
+            value={envData ? envData.closingHourSat : '00'}
+            onChange={closingHourSat => {
+              setEnvData({ ...envData, closingHourSat });
+            }}
           />
           <MinuteSelectList
-            value={envData ? envData.closingMinuteSat : "00"}
-            onChange={(closingMinuteSat) => { setEnvData({ ...envData, closingMinuteSat }) }} />
+            value={envData ? envData.closingMinuteSat : '00'}
+            onChange={closingMinuteSat => {
+              setEnvData({ ...envData, closingMinuteSat });
+            }}
+          />
           <Text style={styles.font5M15}>까지</Text>
         </View>
 
@@ -112,34 +134,42 @@ const OpeningHours = ({ route }) => {
 
         <View style={{ ...styles.row, zIndex: 1600 }}>
           <HoursSelectList
-            value={envData ? envData.openingHourSun : "00"}
-            onChange={(openingHourSun) => { setEnvData({ ...envData, openingHourSun }) }}
+            value={envData ? envData.openingHourSun : '00'}
+            onChange={openingHourSun => {
+              setEnvData({ ...envData, openingHourSun });
+            }}
           />
           <MinuteSelectList
-            value={envData ? envData.openingMinuteSun : "00"}
-            onChange={(openingMinuteSun) => { setEnvData({ ...envData, openingMinuteSun }) }}
+            value={envData ? envData.openingMinuteSun : '00'}
+            onChange={openingMinuteSun => {
+              setEnvData({ ...envData, openingMinuteSun });
+            }}
           />
           <Text style={styles.font5M15}>부터</Text>
         </View>
         <View style={{ ...styles.row, marginTop: 10, zIndex: 1500 }}>
           <HoursSelectList
-            value={envData ? envData.closingHourSun : "00"}
-            onChange={(closingHourSun) => { setEnvData({ ...envData, closingHourSun }) }}
+            value={envData ? envData.closingHourSun : '00'}
+            onChange={closingHourSun => {
+              setEnvData({ ...envData, closingHourSun });
+            }}
           />
           <MinuteSelectList
-            value={envData ? envData.closingMinuteSun : "00"}
-            onChange={(closingMinuteSun) => { setEnvData({ ...envData, closingMinuteSun }) }}
+            value={envData ? envData.closingMinuteSun : '00'}
+            onChange={closingMinuteSun => {
+              setEnvData({ ...envData, closingMinuteSun });
+            }}
           />
           <Text style={styles.font5M15}>까지</Text>
         </View>
 
         <TouchableOpacity onPress={shopEnvEditApi}>
-          <View style={{ ...styles.blueBtn, marginTop: 30, marginBottom: 40 }}>
+          <View style={{ ...styles.blueBtn, marginTop: 40, marginBottom: 60 }}>
             <Text style={styles.btnTxtWhite}>저장</Text>
           </View>
         </TouchableOpacity>
-      </View >
-    </ScrollView >
+      </View>
+    </ScrollView>
   );
 };
 
