@@ -122,6 +122,7 @@ const StoreManagement = props => {
         <OnOffSwitchGrey onClick={data => setNotiApi()} flagVal={noti} />
       </View>
 
+      {/* 추후 오픈 예정
       <View style={{ ...styles.storeWhiteBox, marginTop: 10 }}>
         <View style={styles.rowFlex2Left}>
           <Text style={styles.font5M15}> 버전정보 </Text>
@@ -144,7 +145,7 @@ const StoreManagement = props => {
           <Text style={styles.font5M15}> 도움말 </Text>
           <Text style={styles.font5M15}> 다운로드 </Text>
         </View>
-      </View>
+      </View> */}
     </ScrollView>
   );
 };
