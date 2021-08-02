@@ -12,7 +12,7 @@ const OrderNoticeModal = ({ modalOpen, onClose, navigation, data }) => {
     },
     modalcontainer: {
       width: '100%',
-      height: '40%',
+      height: 280,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',

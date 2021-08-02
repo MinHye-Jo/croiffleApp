@@ -3,9 +3,8 @@ import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import moment from 'moment';
 
 const NoticeListDetail = ({ navigation, data }) => {
-  // DB UTC시 -> PDT 변환 (+9시)
   const today = moment();
-  const timeValue = moment(data.createdAt).add(9, 'h').format('YYYY-MM-DD HH:mm:ss');
+  const timeValue = moment(data.createdAt).format('YYYY-MM-DD HH:mm:ss');
   const betweenTime = moment.duration(today.diff(timeValue)).asMinutes();
 
   const styles = StyleSheet.create({

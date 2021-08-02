@@ -8,6 +8,9 @@ import DefaultModal from 'components/modal/DefaultModal';
 
 LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']);
 LogBox.ignoreLogs(['Setting a timer']);
+LogBox.ignoreLogs(['Sending `FinishedLoadingFile` with no listeners registered.']);
+LogBox.ignoreLogs(['Sending `FinishedPlaying` with no listeners registered.']);
+LogBox.ignoreLogs(['Sending `FinishedLoading` with no listeners registered.']);
 
 const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
