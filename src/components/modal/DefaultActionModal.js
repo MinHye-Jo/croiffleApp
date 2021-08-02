@@ -61,7 +61,7 @@ const DefaultActionModal = ({ modalOpen, onClose, onAction, title, modalText, mo
       borderRadius: 5,
       alignItems: 'center',
       justifyContent: 'center',
-      marginTop: 10,
+      marginTop: 20,
       width: '100%',
       height: 50,
       fontSize: 20,
