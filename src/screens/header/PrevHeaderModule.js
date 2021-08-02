@@ -9,10 +9,12 @@ const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
 // 이전페이지
 const renderPrevBtn = props => (
   <TouchableOpacity onPress={() => props.navigation.goBack()}>
-    <Image
-      style={{ width: 25, height: 25, marginLeft: 5, resizeMode: 'contain' }}
-      source={require('../../../assets/image/icon/icon_prev_w.png')}
-    />
+    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+      <Image
+        style={{ width: 25, height: 25, marginLeft: 5, resizeMode: 'contain' }}
+        source={require('../../../assets/image/icon/icon_prev_w.png')}
+      />
+    </View>
   </TouchableOpacity>
 );
 
