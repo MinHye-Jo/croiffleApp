@@ -31,6 +31,14 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
       alignContent: 'center',
       justifyContent: 'center',
     },
+    imgBlockContainer: {
+      flex: 1,
+      backgroundColor: 'rgba(0, 0, 0, .3)',
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      borderRadius: 5,
+    },
     img: {
       width: '100%',
       height: '100%',
@@ -84,9 +92,10 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
             <Image source={img} style={styles.img} resizeMode="cover" />
             {renderSwitch()}
           </View>
+          {blockStatus && <View style={styles.imgBlockContainer} />}
         </View>
 
-        <View style={{ flex: 2, marginTop: 10, position: 'relative' }}>
+        <View style={{ flex: 2, marginTop: 5, position: 'relative', marginBottom: 5 }}>
           <Text style={!blockStatus ? styles.fontBlack : styles.fontGrey}>{data.orderName}</Text>
           <View style={{ flexDirection: 'row', marginTop: 10 }}>
             <Text style={!blockStatus ? styles.fontBlack : styles.fontGrey}>픽업시간 </Text>

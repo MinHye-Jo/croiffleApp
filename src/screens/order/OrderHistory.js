@@ -63,7 +63,7 @@ const OrderHistory = props => {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ backgroundColor: '#fff', padding: 20 }}>
+      <View style={{ backgroundColor: '#fff', padding: 10 }}>
         <OrderTabButton onClick={v => orderTabClick(v)} orderCnt={orderCnt} />
       </View>
       <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }}>
