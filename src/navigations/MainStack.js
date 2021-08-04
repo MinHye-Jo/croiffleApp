@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { View, Dimensions } from 'react-native';
+
+console.log(Dimensions.get('window').width);
+console.log(Dimensions.get('window').height);
 
 import { createStackNavigator } from '@react-navigation/stack';
 

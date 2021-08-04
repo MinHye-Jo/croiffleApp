@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import moment from 'moment';
+import { pt12, pt15 } from 'styles/fontSizePack';
 
 const NoticeListDetail = ({ navigation, data }) => {
   const today = moment();
@@ -25,20 +26,20 @@ const NoticeListDetail = ({ navigation, data }) => {
     },
     fontWhite: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 12,
+      fontSize: pt12,
       color: '#fff',
     },
     fontBlack: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
     },
     font4Black: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
+      fontSize: pt15,
     },
     font4Grey: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 12,
+      fontSize: pt12,
       color: 'rgb(174, 174, 174)',
     },
   });

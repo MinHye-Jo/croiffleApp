@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
+import { pt17 } from 'styles/fontSizePack';
 
 const OrderHistoryButton = ({ navigation }) => {
   const styles = StyleSheet.create({
@@ -20,6 +21,12 @@ const OrderHistoryButton = ({ navigation }) => {
       elevation: 5,
       margin: 20,
     },
+    btnTxt: {
+      textAlign: 'center',
+      paddingTop: 10,
+      fontFamily: 'S-CoreDream-5Medium',
+      fontSize: pt17,
+    },
   });
 
   return (
@@ -29,9 +36,7 @@ const OrderHistoryButton = ({ navigation }) => {
           source={require('../../../assets/image/icon/icon_list_b.png')}
           style={{ height: '65%', resizeMode: 'contain' }}
         />
-        <Text style={{ textAlign: 'center', paddingTop: 10, fontFamily: 'S-CoreDream-5Medium', fontSize: 17 }}>
-          주문내역
-        </Text>
+        <Text style={styles.btnTxt}>주문내역</Text>
       </TouchableOpacity>
     </View>
   );

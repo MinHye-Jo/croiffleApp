@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { pt15 } from 'styles/fontSizePack';
 
 const OnOffSwitchGrey = ({ onClick, flagVal }) => {
   const styles = StyleSheet.create({
@@ -19,7 +20,7 @@ const OnOffSwitchGrey = ({ onClick, flagVal }) => {
     },
     onTxt: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
       color: '#ffff',
     },
     offBtn: {
@@ -30,7 +31,7 @@ const OnOffSwitchGrey = ({ onClick, flagVal }) => {
     },
     offTxt: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
       color: 'rgb(174, 174, 174)',
     },
   });

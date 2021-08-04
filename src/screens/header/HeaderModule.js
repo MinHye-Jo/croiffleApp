@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, View, TouchableOpacity } from 'react-native';
+import { Image, View, TouchableOpacity, Dimensions } from 'react-native';
 import { Header } from 'react-native-elements';
 import DeviceInfo from 'react-native-device-info';
 import { noticeIconControl } from 'store/app';
@@ -52,7 +52,7 @@ const HeaderModule = props => {
 
   return (
     <Header
-      containerStyle={{ height: osType == 'iOS' ? 100 : 80 }}
+      containerStyle={{ height: osType == 'iOS' && Dimensions.get('window').height > 800 ? 100 : 80 }}
       backgroundColor="#ffffff"
       placement="center"
       leftComponent={renderHeaderMenu(props)}

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
+import { pt12 } from 'styles/fontSizePack';
 
 const OrderFlow = ({ orderStatus }) => {
   const styles = StyleSheet.create({
@@ -17,13 +18,13 @@ const OrderFlow = ({ orderStatus }) => {
     txt: {
       color: 'rgb(174, 174, 174)',
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 13,
+      fontSize: pt12,
       marginTop: 10,
     },
     activeTxt: {
       color: 'rgb(0, 191, 213)',
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 13,
+      fontSize: pt12,
       marginTop: 10,
     },
   });

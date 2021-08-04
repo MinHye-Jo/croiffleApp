@@ -6,6 +6,7 @@ import OrderPreparing from 'components/image/OrderPreparing';
 import OrderComplete from 'components/image/OrderComplete';
 import OrderDenial from 'components/image/OrderDenial';
 import OrderPickupDone from 'components/image/OrderPickupDone';
+import { pt15 } from 'styles/fontSizePack';
 
 const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -48,16 +49,16 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
     },
     fontBlack: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
     },
     fontBlue: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
       color: 'rgb(0, 191, 213)',
     },
     fontGrey: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
       color: 'rgb(174, 174, 174)',
     },
   });

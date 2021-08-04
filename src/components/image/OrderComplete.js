@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { pt15 } from 'styles/fontSizePack';
 
 const OrderComplete = () => {
-
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgb(41, 57, 150)',
@@ -16,8 +16,8 @@ const OrderComplete = () => {
     txt: {
       color: '#fff',
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
-    }
+      fontSize: pt15,
+    },
   });
 
   return (

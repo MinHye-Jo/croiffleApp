@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DeviceInfo from 'react-native-device-info';
 import messaging from '@react-native-firebase/messaging';
@@ -65,10 +65,10 @@ const Login = props => {
   };
 
   return (
-    <View style={styles.topContainer}>
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} modalText={modalText} />
 
-      <View style={{ marginTop: '25%' }}>
+      <View style={{ marginTop: '23%' }}>
         <Logo />
       </View>
 
@@ -104,7 +104,7 @@ const Login = props => {
         </View>
       </TouchableOpacity>
 
-      <View style={{ ...styles.font4R10, alignItems: 'center', paddingTop: 15 }}>
+      <View style={{ ...styles.font4R10, alignItems: 'center', paddingTop: 15, marginBottom: 40 }}>
         <View style={{ flexDirection: 'row' }}>
           <TouchableOpacity onPress={() => props.navigation.navigate('FindIdPage')}>
             <Text> 아이디 찾기 </Text>
@@ -119,7 +119,7 @@ const Login = props => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

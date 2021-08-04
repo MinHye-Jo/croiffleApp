@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { pt15 } from 'styles/fontSizePack';
 
 const initItems = [
   { label: '월요일', value: '1' },
@@ -17,13 +18,13 @@ const DaySelectList = ({ value, onChange }) => {
     container: {
       backgroundColor: 'rgb(242, 243, 245)',
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
+      fontSize: pt15,
       borderColor: 'rgb(242, 243, 245)',
       width: '100%',
     },
     txt: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
+      fontSize: pt15,
     },
   });
 

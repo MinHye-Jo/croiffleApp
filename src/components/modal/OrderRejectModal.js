@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 import Modal from 'react-native-modal';
+import { pt20, pt18, pt15, pt12 } from 'styles/fontSizePack';
 
 import CustomRadioButton from 'components/button/CustomRadioButton';
 import CustomCheckBox from 'components/button/CustomCheckBox';
@@ -24,7 +25,7 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
     },
     title: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 20,
+      fontSize: pt20,
     },
     closeImg: {
       resizeMode: 'contain',
@@ -32,11 +33,11 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
     },
     txt: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
     },
     txt2: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
+      fontSize: pt15,
     },
     greyBox: {
       borderRadius: 5,
@@ -55,7 +56,7 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
       backgroundColor: 'rgb(242, 243, 245)',
       fontFamily: 'S-CoreDream-4Regular',
       borderRadius: 5,
-      fontSize: 15,
+      fontSize: pt15,
       width: '100%',
       height: 120,
       padding: 10,
@@ -68,17 +69,17 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
       marginTop: 10,
       width: '100%',
       height: 50,
-      fontSize: 20,
+      fontSize: pt20,
       backgroundColor: 'rgb(0, 191, 213)',
     },
     btnTxtWhite: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 18,
+      fontSize: pt18,
       color: '#ffff',
     },
     redTxt: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 12,
+      fontSize: pt12,
       color: 'rgb(255, 83, 83)',
       marginTop: 10,
       marginBottom: 5,

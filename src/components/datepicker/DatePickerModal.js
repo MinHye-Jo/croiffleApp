@@ -9,7 +9,6 @@ const DatePickerModal = ({ dateVal, onChange }) => {
       flex: 1,
       backgroundColor: 'rgb(242, 243, 245)',
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
       borderColor: 'rgb(242, 243, 245)',
       borderRadius: 5,
       width: 125,

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { pt15 } from 'styles/fontSizePack';
 
-const initItems = [{ label: '오전00시', value: "00" }];
+const initItems = [{ label: '오전00시', value: '00' }];
 for (let i = 1; i < 24; i++) {
   if (i < 12) {
     initItems.push({ label: i < 10 ? `오전0${i}시` : `오전${i}시`, value: i < 10 ? `0${i}` : `${i}` });
@@ -17,14 +18,14 @@ const HoursSelectList = ({ value, onChange }) => {
     container: {
       backgroundColor: 'rgb(242, 243, 245)',
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
+      fontSize: pt15,
       borderColor: 'rgb(242, 243, 245)',
-      width: 150
+      width: 150,
     },
     txt: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
-    }
+      fontSize: pt15,
+    },
   });
 
   const [open, setOpen] = useState(false);
@@ -39,7 +40,7 @@ const HoursSelectList = ({ value, onChange }) => {
         value={value}
         items={initItems}
         setOpen={setOpen}
-        setValue={(getValue) => {
+        setValue={getValue => {
           onChange(getValue());
         }}
         listMode="SCROLLVIEW"
