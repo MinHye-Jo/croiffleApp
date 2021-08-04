@@ -39,9 +39,9 @@ const FindPassword = props => {
       setPhoneChk(true);
       setModalData(
         '인증번호 발송',
-        '입력하신 번호로 인증번호가 발송되었습니다.',
+        '인증번호가 발송되었습니다.',
         '인증번호가 오지 않을 경우',
-        '입력하신 번호가 정확한지 확인하여 주세요.',
+        '입력하신 번호를 확인하여 주세요.',
       );
     } else {
       setPhoneChk(false);
