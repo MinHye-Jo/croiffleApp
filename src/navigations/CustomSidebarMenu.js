@@ -54,7 +54,7 @@ const CustomSidebarMenu = props => {
       </View>
       {/* 사이드메뉴 항목 */}
       <View style={{ ...styles.hr, marginBottom: 0 }} />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ paddingLeft: 20, paddingTop: 20, paddingBottom: 10 }}>
           <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
             <View style={{ ...styles.row, paddingBottom: 10 }}>

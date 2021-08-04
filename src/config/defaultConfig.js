@@ -8,6 +8,8 @@ const prod = {
   isLocal: false,
 };
 
+// 집 : 172.30.1.4
+// 회사 : 10.30.201.129
 const dev = {
   apiUrl: osType == 'iOS' ? 'http://localhost:8090/api/v1/' : 'http://10.0.2.2:8090/api/v1/',
   baseUrl: osType == 'iOS' ? 'http://localhost:8090/' : 'http://10.0.2.2:8090/',

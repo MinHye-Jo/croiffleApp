@@ -181,7 +181,7 @@ const PersonalInfo = props => {
   };
 
   return (
-    <ScrollView style={styles.topContainer}>
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <DefaultModal
         modalOpen={modalOpen}
         onClose={() => setModalOpen(false)}

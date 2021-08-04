@@ -41,7 +41,7 @@ const FindIdPage = props => {
   };
 
   return (
-    <ScrollView style={styles.topContainer}>
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <View style={{ paddingTop: 20, paddingLeft: 20, paddingRight: 20, paddingBottom: 30 }}>
         <FindIdModal
           modalOpen={findIdModalOpen}

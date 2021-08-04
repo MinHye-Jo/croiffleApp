@@ -168,7 +168,9 @@ const OrderDetail = ({ navigation, route }) => {
         {orderData.status != '5' ? <OrderFlow orderStatus={orderData.status} /> : <OrderFlowReject />}
       </View>
       <View style={styles.hr} />
-      <ScrollView style={{ backgroundColor: '#fff', paddingLeft: 20, paddingRight: 20 }}>
+      <ScrollView
+        style={{ backgroundColor: '#fff', paddingLeft: 20, paddingRight: 20 }}
+        showsVerticalScrollIndicator={false}>
         {orderData.status == '5' && (
           <View>
             <Text style={{ ...styles.font5M15, marginBottom: 10 }}>거부일시</Text>

@@ -66,7 +66,7 @@ const OrderHistory = props => {
       <View style={{ backgroundColor: '#fff', padding: 10 }}>
         <OrderTabButton onClick={v => orderTabClick(v)} orderCnt={orderCnt} />
       </View>
-      <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }}>
+      <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }} showsVerticalScrollIndicator={false}>
         <View style={{ padding: 20 }}>
           {orderData
             ? orderData.map(o => (

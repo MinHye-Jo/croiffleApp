@@ -125,7 +125,7 @@ const OrderRejectModal = ({ menuData, modalOpen, onClose, onAction }) => {
           </TouchableOpacity>
         </View>
 
-        <ScrollView style={{ flex: 1, width: '100%' }}>
+        <ScrollView style={{ flex: 1, width: '100%' }} showsVerticalScrollIndicator={false}>
           <Text style={{ ...styles.txt, marginBottom: 5 }}>거부사유</Text>
           <View style={styles.greyBox}>
             <View style={styles.selectCom}>

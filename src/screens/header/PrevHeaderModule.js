@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View, TouchableOpacity, Text } from 'react-native';
 import { Header } from 'react-native-elements';
-import styles from 'styles/commonStyle';
+import styles from 'styles/naviStyle';
 import DeviceInfo from 'react-native-device-info';
 
 const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';

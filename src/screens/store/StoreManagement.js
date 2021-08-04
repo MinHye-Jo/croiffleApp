@@ -52,7 +52,7 @@ const StoreManagement = props => {
   };
 
   return (
-    <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)', padding: 20 }}>
+    <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)', padding: 20 }} showsVerticalScrollIndicator={false}>
       <DefaultModal modalOpen={modalOpen} onClose={() => setModalOpen(false)} modalText={modalText} />
 
       <View style={styles.storeWhiteBox}>

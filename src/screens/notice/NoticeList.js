@@ -8,7 +8,7 @@ const NoticeList = ({ navigation }) => {
   const noticeData = useRecoilValue(noticeListState);
 
   return (
-    <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }}>
+    <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }} showsVerticalScrollIndicator={false}>
       <View>
         {noticeData.length
           ? noticeData

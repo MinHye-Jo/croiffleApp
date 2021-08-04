@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Image, Dimensions } from 'react-native';
 import Modal from 'react-native-modal';
 
 const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, modalTextThi }) => {
@@ -55,7 +55,7 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
     },
     txt: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
+      fontSize: title == '인증번호 발송' ? 13 : 15,
     },
     blueBtn: {
       borderRadius: 5,

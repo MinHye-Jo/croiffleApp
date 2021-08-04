@@ -80,89 +80,91 @@ const FindPassword = props => {
   };
 
   return (
-    <ScrollView style={styles.topContainer}>
-      <DefaultModal
-        modalOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        title={modalTitle}
-        modalText={modalText}
-        modalTextSec={modalTextSec}
-        modalTextThi={modalTextThi}
-      />
-      <FindPwdModal
-        modalOpen={findPwdModalOpen}
-        navigation={props.navigation}
-        onClose={() => setFindPwdModalOpen(false)}
-      />
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
+      <View style={{ marginBottom: 40 }}>
+        <DefaultModal
+          modalOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          title={modalTitle}
+          modalText={modalText}
+          modalTextSec={modalTextSec}
+          modalTextThi={modalTextThi}
+        />
+        <FindPwdModal
+          modalOpen={findPwdModalOpen}
+          navigation={props.navigation}
+          onClose={() => setFindPwdModalOpen(false)}
+        />
 
-      <View style={{ paddingBottom: 30 }}>
-        <Logo />
-        <View style={{ alignItems: 'center', paddingTop: 20 }}>
-          <Text style={styles.loginFont}>비밀번호 찾기</Text>
-          <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>휴대폰 인증을 통해 초기화된 비밀번호를</Text>
-          <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>등록된 휴대폰 번호로 보내드립니다.</Text>
-          <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>
-            로그인 후 [개인정보관리]에서 변경하실 수 있습니다.
-          </Text>
+        <View style={{ paddingBottom: 30 }}>
+          <Logo />
+          <View style={{ alignItems: 'center', paddingTop: 20 }}>
+            <Text style={styles.loginFont}>비밀번호 찾기</Text>
+            <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>휴대폰 인증을 통해 초기화된 비밀번호를</Text>
+            <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>등록된 휴대폰 번호로 보내드립니다.</Text>
+            <Text style={{ ...styles.loginFont2, lineHeight: 12 }}>
+              로그인 후 [개인정보관리]에서 변경하실 수 있습니다.
+            </Text>
+          </View>
         </View>
-      </View>
-      <View style={{ paddingLeft: 20, paddingRight: 20 }}>
-        <View style={{ paddingTop: 30 }}>
-          <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 아이디 </Text>
-          <TextInput
-            style={{ ...styles.greyInput }}
-            placeholder="아이디를 입력해주세요"
-            placeholderTextColor="rgb(174, 174, 174)"
-            onChangeText={e => setId(e)}
-          />
-        </View>
-
-        <View style={{ paddingTop: 30 }}>
-          <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 이름 </Text>
-          <TextInput
-            style={{ ...styles.greyInput }}
-            placeholder="이름을 입력해주세요"
-            placeholderTextColor="rgb(174, 174, 174)"
-            onChangeText={e => setName(e)}
-          />
-        </View>
-
-        <View style={{ marginTop: 20 }}>
-          <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 휴대폰번호 </Text>
-          <View style={styles.row}>
+        <View style={{ paddingLeft: 20, paddingRight: 20 }}>
+          <View style={{ paddingTop: 30 }}>
+            <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 아이디 </Text>
             <TextInput
-              style={{ ...styles.greyInput, flex: 1.5 }}
-              placeholder="휴대폰번호를 입력해주세요"
+              style={{ ...styles.greyInput }}
+              placeholder="아이디를 입력해주세요"
               placeholderTextColor="rgb(174, 174, 174)"
-              value={phoneNumber}
-              maxLength={13}
-              onChangeText={e => chkPhoneNumber(e)}
+              onChangeText={e => setId(e)}
             />
-            <TouchableOpacity
-              style={{ flex: 1, marginLeft: 10 }}
-              disabled={phoneNumber && id ? false : true}
-              onPress={sendAuthCodePwdApi}>
-              <View style={phoneNumber && id ? styles.blueBtn : styles.greyBtn}>
-                <Text style={styles.btnTxtWhite}>인증번호 발송</Text>
-              </View>
-            </TouchableOpacity>
           </View>
 
-          <View style={styles.row}>
+          <View style={{ paddingTop: 30 }}>
+            <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 이름 </Text>
             <TextInput
-              style={{ ...styles.greyInput, flex: 1.5, marginTop: 10 }}
-              placeholder="인증번호를 입력해주세요"
+              style={{ ...styles.greyInput }}
+              placeholder="이름을 입력해주세요"
               placeholderTextColor="rgb(174, 174, 174)"
-              onChangeText={e => setAuthCode(e)}
+              onChangeText={e => setName(e)}
             />
-            <TouchableOpacity
-              style={{ flex: 1, marginLeft: 10, marginTop: 10 }}
-              disabled={phoneChk && authCode ? false : true}
-              onPress={confirmAuthCodeApi}>
-              <View style={phoneChk && authCode ? styles.blueBtn : styles.greyBtn}>
-                <Text style={styles.btnTxtWhite}>인증번호 확인</Text>
-              </View>
-            </TouchableOpacity>
+          </View>
+
+          <View style={{ marginTop: 20 }}>
+            <Text style={{ ...styles.font5M15, marginBottom: 10 }}> 휴대폰번호 </Text>
+            <View style={styles.row}>
+              <TextInput
+                style={{ ...styles.greyInput, flex: 1.5 }}
+                placeholder="휴대폰번호를 입력해주세요"
+                placeholderTextColor="rgb(174, 174, 174)"
+                value={phoneNumber}
+                maxLength={13}
+                onChangeText={e => chkPhoneNumber(e)}
+              />
+              <TouchableOpacity
+                style={{ flex: 1, marginLeft: 10 }}
+                disabled={phoneNumber && id ? false : true}
+                onPress={sendAuthCodePwdApi}>
+                <View style={phoneNumber && id ? styles.blueBtn : styles.greyBtn}>
+                  <Text style={styles.btnTxtWhite}>인증번호 발송</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.row}>
+              <TextInput
+                style={{ ...styles.greyInput, flex: 1.5, marginTop: 10 }}
+                placeholder="인증번호를 입력해주세요"
+                placeholderTextColor="rgb(174, 174, 174)"
+                onChangeText={e => setAuthCode(e)}
+              />
+              <TouchableOpacity
+                style={{ flex: 1, marginLeft: 10, marginTop: 10 }}
+                disabled={phoneChk && authCode ? false : true}
+                onPress={confirmAuthCodeApi}>
+                <View style={phoneChk && authCode ? styles.blueBtn : styles.greyBtn}>
+                  <Text style={styles.btnTxtWhite}>인증번호 확인</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>

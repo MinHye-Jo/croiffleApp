@@ -1,4 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+const pt25 = Dimensions.get('window').width / 15;
+const pt20 = Dimensions.get('window').width / 20;
+const pt18 = Dimensions.get('window').width / 22;
+const pt15 = Dimensions.get('window').width / 25;
+const pt10 = Dimensions.get('window').width / 30;
 
 const styles = StyleSheet.create({
   topContainer: {
@@ -27,10 +32,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: 'rgb(0, 191, 213)',
   },
-  font5M20: {
-    fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 20,
-  },
   font4R10: {
     fontFamily: 'S-CoreDream-4Regular',
     fontSize: 10,
@@ -39,11 +40,7 @@ const styles = StyleSheet.create({
     fontFamily: 'S-CoreDream-4Regular',
     fontSize: 15,
   },
-  prevHeaderFont: {
-    fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 20,
-    color: '#fff',
-  },
+
   hr: {
     borderBottomColor: 'rgb(225, 225, 225)',
     borderBottomWidth: 1,
@@ -51,12 +48,12 @@ const styles = StyleSheet.create({
   },
   loginFont: {
     fontFamily: 'S-CoreDream-4Regular',
-    fontSize: 25,
+    fontSize: pt25,
     color: 'rgb(0, 191,213)',
   },
   loginFont2: {
     fontFamily: 'S-CoreDream-4Regular',
-    fontSize: 15,
+    fontSize: pt15,
     paddingTop: 10,
   },
   greyInput: {
@@ -93,7 +90,7 @@ const styles = StyleSheet.create({
   },
   btnTxtWhite: {
     fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 15,
+    fontSize: pt15,
     color: '#ffff',
   },
   greyBox: {

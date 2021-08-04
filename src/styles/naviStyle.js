@@ -35,4 +35,9 @@ export default StyleSheet.create({
     paddingLeft: 20,
     justifyContent: 'center',
   },
+  prevHeaderFont: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: 20,
+    color: '#fff',
+  },
 });
