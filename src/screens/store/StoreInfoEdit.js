@@ -83,7 +83,7 @@ const StoreInfoEdit = ({ route }) => {
       if (response.error) {
         setModalOpen(true);
         setModalText('이미지 업로드에 실패하였습니다.');
-      } else {
+      } else if (!response.didCancel) {
         const resData = response.assets[0];
         setFileName(resData.fileName);
         updateInput('file', {
@@ -110,7 +110,7 @@ const StoreInfoEdit = ({ route }) => {
   };
 
   return (
-    <ScrollView style={styles.topContainer}>
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <DefaultModal
         modalOpen={modalOpen}
         onClose={() => setModalOpen(false)}
