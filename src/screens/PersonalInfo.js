@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import messaging from '@react-native-firebase/messaging';
 
 import styles from 'styles/commonStyle';
 
@@ -157,6 +158,11 @@ const PersonalInfo = props => {
   // 회원탈퇴, 개인정보 수정 후 로그아웃 및 데이터 초기화
   const logoutAction = async () => {
     await logout();
+    // 토픽 해제
+    const topic = `croiffle-order-employee-${userInfo.response.shopId}`;
+    messaging().unsubscribeFromTopic(topic);
+
+    // 데이터 리셋
     await AsyncStorage.removeItem('token');
     resetData();
     window.userInfo = null;
