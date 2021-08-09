@@ -24,7 +24,7 @@ const CustomSidebarMenu = props => {
   const logoutAction = async () => {
     await logout();
     // 토픽 해제
-    const topic = `croiffle-order-employee-${userInfo.response.shopId}`;
+    const topic = `croiffle-order-employee-${userInfo.shopId}`;
     messaging().unsubscribeFromTopic(topic);
 
     // 데이터 리셋
