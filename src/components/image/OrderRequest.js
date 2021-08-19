@@ -22,7 +22,7 @@ const OrderRequest = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.txt}>주문요청중</Text>
+      <Text style={styles.txt}>요청중</Text>
     </View>
   );
 };

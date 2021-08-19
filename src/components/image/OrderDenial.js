@@ -5,7 +5,7 @@ import { pt15 } from 'styles/fontSizePack';
 const OrderDenial = () => {
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'rgb(255, 83, 83)',
+      backgroundColor: 'rgb(215, 135, 130)',
       alignItems: 'center',
       borderRadius: 50,
       height: 30,

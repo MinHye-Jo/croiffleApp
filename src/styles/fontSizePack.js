@@ -11,5 +11,6 @@ export const pt20 = width / (20 + height);
 export const pt18 = width / (22 + height);
 export const pt17 = width / (23 + height);
 export const pt15 = width / (27 + height);
+export const pt13 = width / (30 + height);
 export const pt12 = width / (32 + height);
 export const pt10 = width / (39 + height);

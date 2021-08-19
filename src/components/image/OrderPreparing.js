@@ -5,7 +5,7 @@ import { pt15 } from 'styles/fontSizePack';
 const OrderPreparing = () => {
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'rgb(0, 191, 213)',
+      backgroundColor: 'rgb(100, 164, 145)',
       alignItems: 'center',
       borderRadius: 50,
       height: 30,
