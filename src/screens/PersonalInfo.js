@@ -10,6 +10,7 @@ import styles from 'styles/commonStyle';
 import CustomCheckBox from 'components/button/CustomCheckBox';
 import IconNextBlack from 'components/image/IconNextBlack';
 import StoreSelectList from 'components/selection/StoreSelectList';
+import PositionSelectList from 'components/selection/PositionSelectList';
 import DefaultModal from 'components/modal/DefaultModal';
 import DefaultActionModal from 'components/modal/DefaultActionModal';
 import FindPostCode from 'components/modal/FindPostCode';
@@ -22,6 +23,7 @@ const PersonalInfo = props => {
   // 개인정보 데이터
   const [userInfo, setUserInfo] = useState({
     shopId: window.userInfo.shopId || 0,
+    role: window.userInfo.role || 0,
     id: window.userInfo.id,
     name: window.userInfo.name,
     phoneNumber: window.userInfo.phoneNumber.replace(/(\d{3})(-*)(\d{4})(-*)(\d{4})/, '$1-$3-$5'),
@@ -218,6 +220,15 @@ const PersonalInfo = props => {
           disabled={true}
           onChange={shopId => {
             setUserInfo({ ...userInfo, shopId });
+          }}
+        />
+
+        <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 직책 </Text>
+        <PositionSelectList
+          value={userInfo.role}
+          disabled={true}
+          onChange={role => {
+            setUserInfo({ ...userInfo, role });
           }}
         />
 

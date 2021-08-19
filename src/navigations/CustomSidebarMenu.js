@@ -61,6 +61,18 @@ const CustomSidebarMenu = props => {
       <View style={{ ...styles.hr, marginBottom: 0 }} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ paddingLeft: 20, paddingTop: 20, paddingBottom: 10 }}>
+          {window.userInfo && window.userInfo.role == 'ROLE_SHOP_ADMIN' ? (
+            <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
+              <View style={{ ...styles.row, paddingBottom: 10 }}>
+                <View style={styles.rowFlex2Left}>
+                  <Text style={styles.font5M15}>직원관리</Text>
+                </View>
+                <View style={styles.rowFlex1Right}>
+                  <IconNextBlack />
+                </View>
+              </View>
+            </TouchableOpacity>
+          ) : null}
           <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
             <View style={{ ...styles.row, paddingBottom: 10 }}>
               <View style={styles.rowFlex2Left}>

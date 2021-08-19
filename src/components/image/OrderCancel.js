@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { pt15 } from 'styles/fontSizePack';
 
-const OrderPickupDone = () => {
+const OrderCancel = () => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgb(174, 174, 174)',
@@ -27,4 +27,4 @@ const OrderPickupDone = () => {
   );
 };
 
-export default OrderPickupDone;
+export default OrderCancel;

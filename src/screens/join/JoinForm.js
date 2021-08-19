@@ -5,6 +5,7 @@ import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-nativ
 import styles from 'styles/commonStyle';
 import TextInputMask from 'components/TextInputMask';
 import StoreSelectList from 'components/selection/StoreSelectList';
+import PositionSelectList from 'components/selection/PositionSelectList';
 import DefaultModal from 'components/modal/DefaultModal';
 import validateHook from 'hook/validateHook';
 
@@ -14,6 +15,7 @@ const JoinForm = props => {
   // 회원가입 데이터
   const [signUpInfo, setSignUpInfo] = useState({
     shopId: 0,
+    role: 0,
     id: '',
     name: '',
     password: '',
@@ -45,7 +47,7 @@ const JoinForm = props => {
   useEffect(() => {
     let emptyChk = true;
     for (const key in signUpInfo) {
-      if (signUpInfo[key] == '') {
+      if (!signUpInfo[key]) {
         emptyChk = false;
         break;
       }
@@ -177,10 +179,24 @@ const JoinForm = props => {
           <Text style={styles.font5M15blue}> (필수)</Text>
         </View>
 
-        <StoreSelectList
-          value={signUpInfo.shopId}
-          onChange={shopId => {
-            setSignUpInfo({ ...signUpInfo, shopId });
+        <View style={{ zIndex: 9999 }}>
+          <StoreSelectList
+            value={signUpInfo.shopId}
+            onChange={shopId => {
+              setSignUpInfo({ ...signUpInfo, shopId });
+            }}
+          />
+        </View>
+
+        <View style={{ ...styles.row, marginTop: 20, marginBottom: 10 }}>
+          <Text style={styles.font5M15}>직책</Text>
+          <Text style={styles.font5M15blue}> (필수)</Text>
+        </View>
+
+        <PositionSelectList
+          value={signUpInfo.role}
+          onChange={role => {
+            setSignUpInfo({ ...signUpInfo, role });
           }}
         />
 
