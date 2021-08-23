@@ -12,7 +12,8 @@ import { pt15, pt13 } from 'styles/fontSizePack';
 const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   const orderDate = moment(data.createdAt).format('YYYY-MM-DD hh:mm');
-  const blockStatus = data.status == '4' || data.status == '5' ? true : false;
+  const blockStatus =
+    data.status == '4' || data.status == '5' || data.status == '6' || data.status == '7' ? true : false;
   const img = data.menuImgUrl ? { uri: data.menuImgUrl } : require('../../../assets/image/croiffle_basil.jpg');
 
   const styles = StyleSheet.create({
@@ -121,7 +122,7 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
               <Text style={!blockStatus ? styles.fontBlack14 : styles.fontGrey14}>{price}원 </Text>
             </View>
             <View style={{ flex: 1 }}>
-              <Text style={data.paymentType == 1 ? styles.fontOrange : styles.fontGrey14}>
+              <Text style={data.paymentType == 1 && !blockStatus ? styles.fontOrange : styles.fontGrey14}>
                 {data.paymentType == 1 ? '현장결제' : '결제완료'}
               </Text>
             </View>

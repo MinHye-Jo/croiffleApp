@@ -97,6 +97,16 @@ const styles = StyleSheet.create({
     fontSize: pt15,
     color: '#ffff',
   },
+  btnTxtBlue: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: pt15,
+    color: 'rgb(0, 191, 213)',
+  },
+  btnTxtGrey: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: pt15,
+    color: 'rgb(174, 174, 174)',
+  },
   btnTxtRed: {
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: pt15,

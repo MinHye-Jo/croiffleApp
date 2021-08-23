@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 
+import moment from 'moment';
 import styles from 'styles/commonStyle';
 import OrderFlow from 'components/image/OrderFlow';
 import OrderFlowReject from 'components/image/OrderFlowReject';
+import OrderFlowCancel from 'components/image/OrderFlowCancel';
 import DefaultModal from 'components/modal/DefaultModal';
 import DefaultActionModal from 'components/modal/DefaultActionModal';
 import OrderRejectModal from 'components/modal/OrderRejectModal';
 import OrderCompleteModal from 'components/modal/OrderCompleteModal';
 
-import { orderDetail, orderReceipt, orderReject, orderReady, orderComplete } from 'services/order';
+import { orderDetail, orderReceipt, orderReject, orderReady, orderComplete, orderCancel } from 'services/order';
 
 // 1.업소사정으로 취소 / 2.재료소진 / 3.요청사항 불가
 const rejectType = {
@@ -33,6 +35,7 @@ const OrderDetail = ({ navigation, route }) => {
   });
 
   // 모달 데이터
+  const [rejectDate, setRejectDate] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [modalText, setModalText] = useState('');
   const [rejectModalOpen, setRejectModalOpen] = useState(false);
@@ -46,6 +49,7 @@ const OrderDetail = ({ navigation, route }) => {
     if (data.return_code == 200) {
       const re = data.response;
       re.price = priceCn(re.price);
+      re.rejectedAt ? setRejectDate(moment(re.rejectedAt).format('YYYY-MM-DD hh:mm')) : setRejectDate('');
       re.orderDate = re.orderDate.replace(/([0-9]{4})([0-9]{2})([0-9]{2})/g, '$1.$2.$3');
       setOrderData({ ...orderData, ...re });
     }
@@ -63,6 +67,19 @@ const OrderDetail = ({ navigation, route }) => {
     if (data.return_code == 200) {
       setActModalOpen(true);
       setActModalText('주문이 접수되었습니다.');
+    } else {
+      setModalOpen(true);
+      setModalText(data.return_message);
+    }
+  };
+
+  // 주문 취소 API
+  const orderCancelApi = async () => {
+    const { data } = await orderCancel(orderId, shopId);
+
+    if (data.return_code == 200) {
+      setActModalOpen(true);
+      setActModalText('주문이 취소되었습니다.');
     } else {
       setModalOpen(true);
       setModalText(data.return_message);
@@ -164,9 +181,20 @@ const OrderDetail = ({ navigation, route }) => {
         modalText={actModalText}
       />
 
-      <View style={{ backgroundColor: '#fff', padding: 20, height: 100 }}>
-        {orderData.status != '5' ? <OrderFlow orderStatus={orderData.status} /> : <OrderFlowReject />}
-      </View>
+      {orderData.status == '5' ? (
+        <View style={{ backgroundColor: '#fff', padding: 20, height: 130 }}>
+          <OrderFlowReject />
+        </View>
+      ) : orderData.status == '6' || orderData.status == '7' ? (
+        <View style={{ backgroundColor: '#fff', padding: 20, height: 130 }}>
+          <OrderFlowCancel />
+        </View>
+      ) : (
+        <View style={{ backgroundColor: '#fff', padding: 20, height: 100 }}>
+          <OrderFlow orderStatus={orderData.status} />
+        </View>
+      )}
+
       <View style={styles.hr} />
       <ScrollView
         style={{ backgroundColor: '#fff', paddingLeft: 20, paddingRight: 20 }}
@@ -175,12 +203,21 @@ const OrderDetail = ({ navigation, route }) => {
           <View>
             <Text style={{ ...styles.font5M15, marginBottom: 10 }}>거부일시</Text>
             <View style={styles.greyTxtBox}>
-              <Text style={styles.font4R15}>{orderData.rejectedAt}</Text>
+              <Text style={styles.font4R15}>{rejectDate}</Text>
             </View>
             <Text style={{ ...styles.font5M15, marginBottom: 10, marginTop: 20 }}>거부사유</Text>
             <View style={{ ...styles.greyTxtBox, marginBottom: 20 }}>
               <Text style={styles.font4R15}>{orderData.rejectedReason}</Text>
             </View>
+          </View>
+        )}
+        {(orderData.status == '6' || orderData.status == '7') && (
+          <View>
+            <Text style={{ ...styles.font5M15, marginBottom: 10 }}>취소일시</Text>
+            <View style={styles.greyTxtBox}>
+              <Text style={styles.font4R15}>{rejectDate}</Text>
+            </View>
+            <View style={{ ...styles.hr, marginTop: 20 }} />
           </View>
         )}
         {(orderData.status == '4' || orderData.status == '5') && (
@@ -264,40 +301,61 @@ const OrderDetail = ({ navigation, route }) => {
           </View>
         </View>
         {orderData.status == '1' && (
-          <View style={{ ...styles.row, marginTop: 20, marginBottom: 30 }}>
-            <TouchableOpacity
-              style={{ ...styles.redBtn, flex: 1, marginRight: 5 }}
-              onPress={() => setRejectModalOpen(true)}>
-              <View>
-                <Text style={styles.btnTxtWhite}>주문 거부</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={{ ...styles.blueBtn, flex: 1, marginLeft: 5 }} onPress={orderReceiptApi}>
-              <Text style={styles.btnTxtWhite}>주문 접수</Text>
-            </TouchableOpacity>
+          <View>
+            <View style={{ ...styles.row, marginTop: 20 }}>
+              <TouchableOpacity
+                style={{ ...styles.redBtn, flex: 1, marginRight: 5 }}
+                onPress={() => setRejectModalOpen(true)}>
+                <View>
+                  <Text style={styles.btnTxtWhite}>주문 거부</Text>
+                </View>
+              </TouchableOpacity>
+              <TouchableOpacity style={{ ...styles.blueBtn, flex: 1, marginLeft: 5 }} onPress={orderReceiptApi}>
+                <Text style={styles.btnTxtWhite}>주문 접수</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{ ...styles.row, marginTop: 5, marginBottom: 30 }}>
+              <TouchableOpacity style={{ ...styles.whiteBtn, flex: 1 }} onPress={() => setCompleteModalOpen(true)}>
+                <Text style={styles.btnTxtBlue}>완료처리</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
         {orderData.status == '2' && (
-          <View style={{ ...styles.row, marginTop: 20, marginBottom: 30 }}>
-            <TouchableOpacity style={{ ...styles.redBtn, flex: 1, marginRight: 5 }} onPress={orderReadyApi}>
-              <View>
-                <Text style={styles.btnTxtWhite}>준비완료 알림전송</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{ ...styles.blueBtn, flex: 1, marginLeft: 5 }}
-              onPress={() => setCompleteModalOpen(true)}>
-              <Text style={styles.btnTxtWhite}>완료처리</Text>
-            </TouchableOpacity>
+          <View>
+            <View style={{ ...styles.row, marginTop: 20 }}>
+              <TouchableOpacity style={{ ...styles.redBtn, flex: 1, marginRight: 5 }} onPress={orderReadyApi}>
+                <View>
+                  <Text style={styles.btnTxtWhite}>준비완료 알림전송</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={{ ...styles.row, marginTop: 5, marginBottom: 30 }}>
+              <TouchableOpacity
+                style={{ ...styles.whiteBtn, flex: 1, alignItems: 'flex-end', marginRight: 10 }}
+                onPress={() => setCompleteModalOpen(true)}>
+                <Text style={styles.btnTxtBlue}>완료처리</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{ ...styles.whiteBtn, flex: 1, alignItems: 'flex-start', marginLeft: 10 }}
+                onPress={orderCancelApi}>
+                <Text style={styles.btnTxtGrey}>주문취소</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
         {orderData.status == '3' && (
-          <View style={{ marginTop: 20, marginBottom: 30 }}>
+          <View style={{ marginTop: 20 }}>
             <TouchableOpacity
               style={{ ...styles.blueBtn, flex: 1, marginLeft: 5 }}
               onPress={() => setCompleteModalOpen(true)}>
               <Text style={styles.btnTxtWhite}>완료처리</Text>
             </TouchableOpacity>
+            <View style={{ ...styles.row, marginTop: 5, marginBottom: 30 }}>
+              <TouchableOpacity style={{ ...styles.whiteBtn, flex: 1 }} onPress={orderCancelApi}>
+                <Text style={styles.btnTxtGrey}>주문취소</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
         {(orderData.status == '4' || orderData.status == '5') && <View style={{ marginTop: 20, marginBottom: 30 }} />}
