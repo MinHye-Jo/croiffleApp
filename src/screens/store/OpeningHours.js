@@ -5,6 +5,7 @@ import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import styles from 'styles/commonStyle';
 import HoursSelectList from 'components/selection/HoursSelectList';
 import MinuteSelectList from 'components/selection/MinuteSelectList';
+import PickupMinuteSelectList from 'components/selection/PickupMinuteSelectList';
 import DefaultModal from 'components/modal/DefaultModal';
 
 import { shopEnv, shopEnvEdit } from 'services/shop';
@@ -63,7 +64,7 @@ const OpeningHours = ({ route }) => {
         modalText={modalText}
       />
 
-      <View style={{ paddingLeft: 20, paddingRight: 20 }}>
+      <View style={{ flex: 1, paddingLeft: 20, paddingRight: 20 }}>
         <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 월~금 </Text>
 
         <View style={{ ...styles.row, zIndex: 2000 }}>
@@ -161,6 +162,17 @@ const OpeningHours = ({ route }) => {
             }}
           />
           <Text style={styles.font5M15}>까지</Text>
+        </View>
+
+        <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 픽업 최소 주문시간 </Text>
+
+        <View style={{ zIndex: 1500 }}>
+          <PickupMinuteSelectList
+            value={envData ? envData.minPickupTime : '10'}
+            onChange={minPickupTime => {
+              setEnvData({ ...envData, minPickupTime });
+            }}
+          />
         </View>
 
         <TouchableOpacity onPress={shopEnvEditApi}>
