@@ -24,6 +24,7 @@ import NoticeList from 'screens/notice/NoticeList';
 import PrivacyPolicy from 'screens/terms/PrivacyPolicy';
 import TermsOfService from 'screens/terms/TermsOfService';
 
+import StaffManagement from 'screens/StaffManagement';
 import PersonalInfo from 'screens/PersonalInfo';
 import PasswordEdit from 'screens/PasswordEdit';
 import CustomerSupport from 'screens/CustomerSupport';
@@ -153,6 +154,14 @@ const MainStack = ({ navigation }) => {
           component={StoreManagement}
           options={{
             header: () => <PrevStackMove navigationProps={navigation} title="매장관리" />,
+          }}
+        />
+        {/* 직원목록 */}
+        <Stack.Screen
+          name="StaffManagement"
+          component={StaffManagement}
+          options={{
+            header: () => <PrevStackMove navigationProps={navigation} title="직원목록" />,
           }}
         />
         {/* 매장정보 수정 */}

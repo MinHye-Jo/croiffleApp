@@ -76,6 +76,14 @@ const styles = StyleSheet.create({
     fontSize: pt20,
     backgroundColor: 'rgb(174, 174, 174)',
   },
+  whiteBtn: {
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    fontSize: pt20,
+    backgroundColor: '#ffffff',
+  },
   redBtn: {
     borderRadius: 5,
     alignItems: 'center',
@@ -88,6 +96,11 @@ const styles = StyleSheet.create({
     fontFamily: 'S-CoreDream-5Medium',
     fontSize: pt15,
     color: '#ffff',
+  },
+  btnTxtRed: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: pt15,
+    color: 'rgb(255, 83, 83)',
   },
   greyBox: {
     borderRadius: 5,
