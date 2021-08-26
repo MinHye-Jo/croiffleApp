@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Dimensions } from 'react-native';
-
-console.log(Dimensions.get('window').width);
-console.log(Dimensions.get('window').height);
+import { View } from 'react-native';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -42,6 +39,8 @@ import HeaderModule from 'screens/header/HeaderModule';
 import PrevHeaderModule from 'screens/header/PrevHeaderModule';
 
 import OrderNoticeModal from 'components/modal/OrderNoticeModal';
+import OrderCancelNoticeModal from 'components/modal/OrderCancelNoticeModal';
+import StaffRequestModal from 'components/modal/StaffRequestModal';
 
 import { noticeListState, noticeDataAppend, noticeIconControl } from 'store/app';
 import { useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
@@ -59,6 +58,8 @@ const PrevStackMove = props => {
 const MainStack = ({ navigation }) => {
   // 모달 데이터
   const [modalOpen, setModalOpen] = useState(false);
+  const [orderCancelModalOpen, setOrderCancelModalOpen] = useState(false);
+  const [staffModalOpen, setStaffModalOpen] = useState(false);
   const noticeData = useRecoilValue(noticeListState);
   const setNoticeDataAppend = useSetRecoilState(noticeDataAppend);
   const [noticeIconFlag, setNoticeIconFlag] = useRecoilState(noticeIconControl);
@@ -92,11 +93,22 @@ const MainStack = ({ navigation }) => {
   messaging().setBackgroundMessageHandler(async remoteMessage => {
     // 데이터 저장
     const re = remoteMessage.data;
-    if (re && re.new === 'true') {
-      setNoticeDataAppend(re);
-    }
+    if (re) {
+      switch (re.notiType) {
+        case 'order-cancel':
+          setOrderCancelModalOpen(true);
+          break;
+        case 'employee-signup':
+          window.userInfo && window.userInfo.role == 'ROLE_SHOP_ADMIN' ? setStaffModalOpen(true) : null;
+          break;
+        default:
+          if (re && re.new === 'true') {
+            setNoticeDataAppend(re);
+          }
 
-    setModalOpen(true);
+          setModalOpen(true);
+      }
+    }
   });
 
   return (
@@ -105,6 +117,18 @@ const MainStack = ({ navigation }) => {
         modalOpen={modalOpen}
         navigation={navigation}
         onClose={() => setModalOpen(false)}
+        data={noticeData}
+      />
+      <OrderCancelNoticeModal
+        modalOpen={orderCancelModalOpen}
+        navigation={navigation}
+        onClose={() => setOrderCancelModalOpen(false)}
+        data={noticeData}
+      />
+      <StaffRequestModal
+        modalOpen={staffModalOpen}
+        navigation={navigation}
+        onClose={() => setStaffModalOpen(false)}
         data={noticeData}
       />
       <Stack.Navigator initialRouteName="Main">
