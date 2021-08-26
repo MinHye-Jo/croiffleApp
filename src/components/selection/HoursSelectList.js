@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { pt15 } from 'styles/fontSizePack';
@@ -13,7 +13,7 @@ for (let i = 1; i < 24; i++) {
   }
 }
 
-const HoursSelectList = ({ value, onChange }) => {
+const HoursSelectList = ({ value, onChange, openFlag, openCtrl }) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgb(242, 243, 245)',
@@ -30,6 +30,10 @@ const HoursSelectList = ({ value, onChange }) => {
 
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    setOpen(openFlag);
+  }, [openFlag]);
+
   return (
     <View style={{ marginRight: 10 }}>
       <DropDownPicker
@@ -39,6 +43,7 @@ const HoursSelectList = ({ value, onChange }) => {
         open={open}
         value={value}
         items={initItems}
+        onOpen={() => openCtrl()}
         setOpen={setOpen}
         setValue={getValue => {
           onChange(getValue());

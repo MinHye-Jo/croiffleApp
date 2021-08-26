@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
+import { ScrollView, View, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 
 import styles from 'styles/commonStyle';
 import HoursSelectList from 'components/selection/HoursSelectList';
@@ -18,6 +18,23 @@ const OpeningHours = ({ route }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState('');
   const [modalText, setModalText] = useState('');
+
+  // 셀렉트 리스트 제어
+  const [selectListCtrl, setSelectListCtrl] = useState({
+    opHW: false,
+    opMW: false,
+    clHW: false,
+    clMW: false,
+    opHSat: false,
+    opMSat: false,
+    clHSat: false,
+    clMSat: false,
+    opHSun: false,
+    opMSun: false,
+    clHSun: false,
+    clMSun: false,
+    minPick: false,
+  });
 
   useEffect(async () => {
     const { data } = await shopEnv(route.params.shopId);
@@ -55,6 +72,48 @@ const OpeningHours = ({ route }) => {
     }
   };
 
+  // 셀렉트 리스트 클릭건 제외 모두 닫기
+  const ctrlDropList = key => {
+    const list = { ...selectListCtrl };
+
+    Object.keys(selectListCtrl).forEach(o => {
+      if (key == 'all') {
+        list[o] = false;
+      } else {
+        list[o] = key == o ? true : false;
+      }
+    });
+    setSelectListCtrl(list);
+  };
+
+  // 리스트 z-Index 제어용 함수
+  const getViewZIndex = keys => {
+    const data = Object.entries(selectListCtrl).find(([k, v]) => v === true && keys.includes(k));
+    return data ? 2000 : 1000;
+  };
+
+  const hoursComponent = (listKey, valueKey) => (
+    <HoursSelectList
+      value={envData ? envData[valueKey] : '00'}
+      onChange={val => {
+        setEnvData({ ...envData, [valueKey]: val });
+      }}
+      openFlag={selectListCtrl[listKey]}
+      openCtrl={() => ctrlDropList(listKey)}
+    />
+  );
+
+  const MinuteComponent = (listKey, valueKey) => (
+    <MinuteSelectList
+      value={envData ? envData[valueKey] : '00'}
+      onChange={val => {
+        setEnvData({ ...envData, [valueKey]: val });
+      }}
+      openFlag={selectListCtrl[listKey]}
+      openCtrl={() => ctrlDropList(listKey)}
+    />
+  );
+
   return (
     <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <DefaultModal
@@ -63,124 +122,67 @@ const OpeningHours = ({ route }) => {
         title={modalTitle}
         modalText={modalText}
       />
+      <TouchableWithoutFeedback onPress={() => ctrlDropList('all')}>
+        <View style={{ flex: 1, paddingLeft: 20, paddingRight: 20 }}>
+          <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 월~금 </Text>
 
-      <View style={{ flex: 1, paddingLeft: 20, paddingRight: 20 }}>
-        <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 월~금 </Text>
-
-        <View style={{ ...styles.row, zIndex: 2000 }}>
-          <HoursSelectList
-            value={envData ? envData.openingHourWeekday : '00'}
-            onChange={openingHourWeekday => {
-              setEnvData({ ...envData, openingHourWeekday });
-            }}
-          />
-          <MinuteSelectList
-            value={envData ? envData.openingMinuteWeekday : '00'}
-            onChange={openingMinuteWeekday => {
-              setEnvData({ ...envData, openingMinuteWeekday });
-            }}
-          />
-          <Text style={styles.font5M15}>부터</Text>
-        </View>
-        <View style={{ ...styles.row, marginTop: 10, zIndex: 1900 }}>
-          <HoursSelectList
-            value={envData ? envData.closingHourWeekday : '00'}
-            onChange={closingHourWeekday => {
-              setEnvData({ ...envData, closingHourWeekday });
-            }}
-          />
-          <MinuteSelectList
-            value={envData ? envData.closingMinuteWeekday : '00'}
-            onChange={closingMinuteWeekday => {
-              setEnvData({ ...envData, closingMinuteWeekday });
-            }}
-          />
-          <Text style={styles.font5M15}>까지</Text>
-        </View>
-
-        <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 토요일 </Text>
-
-        <View style={{ ...styles.row, zIndex: 1800 }}>
-          <HoursSelectList
-            value={envData ? envData.openingHourSat : '00'}
-            onChange={openingHourSat => {
-              setEnvData({ ...envData, openingHourSat });
-            }}
-          />
-          <MinuteSelectList
-            value={envData ? envData.openingMinuteSat : '00'}
-            onChange={openingMinuteSat => {
-              setEnvData({ ...envData, openingMinuteSat });
-            }}
-          />
-          <Text style={styles.font5M15}>부터</Text>
-        </View>
-        <View style={{ ...styles.row, marginTop: 10, zIndex: 1700 }}>
-          <HoursSelectList
-            value={envData ? envData.closingHourSat : '00'}
-            onChange={closingHourSat => {
-              setEnvData({ ...envData, closingHourSat });
-            }}
-          />
-          <MinuteSelectList
-            value={envData ? envData.closingMinuteSat : '00'}
-            onChange={closingMinuteSat => {
-              setEnvData({ ...envData, closingMinuteSat });
-            }}
-          />
-          <Text style={styles.font5M15}>까지</Text>
-        </View>
-
-        <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 일요일 </Text>
-
-        <View style={{ ...styles.row, zIndex: 1600 }}>
-          <HoursSelectList
-            value={envData ? envData.openingHourSun : '00'}
-            onChange={openingHourSun => {
-              setEnvData({ ...envData, openingHourSun });
-            }}
-          />
-          <MinuteSelectList
-            value={envData ? envData.openingMinuteSun : '00'}
-            onChange={openingMinuteSun => {
-              setEnvData({ ...envData, openingMinuteSun });
-            }}
-          />
-          <Text style={styles.font5M15}>부터</Text>
-        </View>
-        <View style={{ ...styles.row, marginTop: 10, zIndex: 1500 }}>
-          <HoursSelectList
-            value={envData ? envData.closingHourSun : '00'}
-            onChange={closingHourSun => {
-              setEnvData({ ...envData, closingHourSun });
-            }}
-          />
-          <MinuteSelectList
-            value={envData ? envData.closingMinuteSun : '00'}
-            onChange={closingMinuteSun => {
-              setEnvData({ ...envData, closingMinuteSun });
-            }}
-          />
-          <Text style={styles.font5M15}>까지</Text>
-        </View>
-
-        <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 픽업 최소 주문시간 </Text>
-
-        <View style={{ zIndex: 1500 }}>
-          <PickupMinuteSelectList
-            value={envData ? envData.minPickupTime : '10'}
-            onChange={minPickupTime => {
-              setEnvData({ ...envData, minPickupTime });
-            }}
-          />
-        </View>
-
-        <TouchableOpacity onPress={shopEnvEditApi}>
-          <View style={{ ...styles.blueBtn, marginTop: 40, marginBottom: 60 }}>
-            <Text style={styles.btnTxtWhite}>저장</Text>
+          <View style={{ ...styles.row, zIndex: getViewZIndex(['opHW', 'opMW']) }}>
+            {hoursComponent('opHW', 'openingHourWeekday')}
+            {MinuteComponent('opMW', 'openingMinuteWeekday')}
+            <Text style={styles.font5M15}>부터</Text>
           </View>
-        </TouchableOpacity>
-      </View>
+          <View style={{ ...styles.row, marginTop: 10, zIndex: getViewZIndex(['clHW', 'clMW']) }}>
+            {hoursComponent('clHW', 'closingHourWeekday')}
+            {MinuteComponent('clMW', 'closingMinuteWeekday')}
+            <Text style={styles.font5M15}>까지</Text>
+          </View>
+
+          <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 토요일 </Text>
+
+          <View style={{ ...styles.row, zIndex: getViewZIndex(['opHSat', 'opMSat']) }}>
+            {hoursComponent('opHSat', 'openingHourSat')}
+            {MinuteComponent('opMSat', 'openingMinuteSat')}
+            <Text style={styles.font5M15}>부터</Text>
+          </View>
+          <View style={{ ...styles.row, marginTop: 10, zIndex: getViewZIndex(['clHSat', 'clMSat']) }}>
+            {hoursComponent('clHSat', 'closingHourSat')}
+            {MinuteComponent('clMSat', 'closingMinuteSat')}
+            <Text style={styles.font5M15}>까지</Text>
+          </View>
+
+          <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 일요일 </Text>
+
+          <View style={{ ...styles.row, zIndex: getViewZIndex(['opHSun', 'opMSun']) }}>
+            {hoursComponent('opHSun', 'openingHourSun')}
+            {MinuteComponent('opMSun', 'openingMinuteSun')}
+            <Text style={styles.font5M15}>부터</Text>
+          </View>
+          <View style={{ ...styles.row, marginTop: 10, zIndex: getViewZIndex(['clHSun', 'clMSun']) }}>
+            {hoursComponent('clHSun', 'closingHourSun')}
+            {MinuteComponent('clMSun', 'closingMinuteSun')}
+            <Text style={styles.font5M15}>까지</Text>
+          </View>
+
+          <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 픽업 최소 주문시간 </Text>
+
+          <View style={{ zIndex: getViewZIndex(['minPick']) }}>
+            <PickupMinuteSelectList
+              value={envData ? envData.minPickupTime : '10'}
+              onChange={minPickupTime => {
+                setEnvData({ ...envData, minPickupTime });
+              }}
+              openFlag={selectListCtrl.minPick}
+              openCtrl={() => ctrlDropList('minPick')}
+            />
+          </View>
+
+          <TouchableOpacity onPress={shopEnvEditApi}>
+            <View style={{ ...styles.blueBtn, marginTop: 40, marginBottom: 60 }}>
+              <Text style={styles.btnTxtWhite}>저장</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </TouchableWithoutFeedback>
     </ScrollView>
   );
 };
