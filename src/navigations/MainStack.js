@@ -68,22 +68,33 @@ const MainStack = ({ navigation }) => {
   useEffect(() => {
     // 메시지 이벤트 처리
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      // 알림 음성파일 실행
-      try {
-        SoundPlayer.loadSoundFile('ring', 'mp3');
-        SoundPlayer.play();
-      } catch (e) {
-        console.log('cannot play the sound file', e);
-      }
-
       // 데이터 저장
       const re = remoteMessage.data;
-      if (re && re.new === 'true') {
-        setNoticeIconFlag(true);
-        setNoticeDataAppend(re);
-      }
+      if (re) {
+        switch (re.notiType) {
+          case 'order-cancel':
+            setOrderCancelModalOpen(true);
+            break;
+          case 'employee-signup':
+            window.userInfo && window.userInfo.role == 'ROLE_SHOP_ADMIN' ? setStaffModalOpen(true) : null;
+            break;
+          default:
+            // 알림 음성파일 실행
+            try {
+              SoundPlayer.loadSoundFile('ring', 'mp3');
+              SoundPlayer.play();
+            } catch (e) {
+              console.log('cannot play the sound file', e);
+            }
 
-      setModalOpen(true);
+            if (re && re.new === 'true') {
+              setNoticeIconFlag(true);
+              setNoticeDataAppend(re);
+            }
+
+            setModalOpen(true);
+        }
+      }
     });
 
     return unsubscribe;
@@ -103,6 +114,7 @@ const MainStack = ({ navigation }) => {
           break;
         default:
           if (re && re.new === 'true') {
+            setNoticeIconFlag(true);
             setNoticeDataAppend(re);
           }
 
