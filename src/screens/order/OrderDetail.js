@@ -358,7 +358,9 @@ const OrderDetail = ({ navigation, route }) => {
             </View>
           </View>
         )}
-        {(orderData.status == '4' || orderData.status == '5') && <View style={{ marginTop: 20, marginBottom: 30 }} />}
+        {(orderData.status == '4' || orderData.status == '5' || orderData.status == '6' || orderData.status == '7') && (
+          <View style={{ marginTop: 20, marginBottom: 30 }} />
+        )}
       </ScrollView>
     </View>
   );
