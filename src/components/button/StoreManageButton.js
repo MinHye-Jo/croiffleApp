@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native';
+import { pt17 } from 'styles/fontSizePack';
 
 const StoreManageButton = ({ navigation }) => {
   const styles = StyleSheet.create({
@@ -22,6 +23,12 @@ const StoreManageButton = ({ navigation }) => {
       marginRight: 20,
       marginBottom: 20,
     },
+    btnTxt: {
+      textAlign: 'center',
+      paddingTop: 10,
+      fontFamily: 'S-CoreDream-5Medium',
+      fontSize: pt17,
+    },
   });
 
   return (
@@ -31,9 +38,7 @@ const StoreManageButton = ({ navigation }) => {
           source={require('../../../assets/image/icon/icon_management.png')}
           style={{ height: '65%', resizeMode: 'contain' }}
         />
-        <Text style={{ textAlign: 'center', paddingTop: 10, fontFamily: 'S-CoreDream-5Medium', fontSize: 17 }}>
-          매장관리
-        </Text>
+        <Text style={styles.btnTxt}>매장관리</Text>
       </TouchableOpacity>
     </View>
   );

@@ -3,12 +3,14 @@ import React, { useState, useRef } from 'react';
 import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import messaging from '@react-native-firebase/messaging';
 
 import styles from 'styles/commonStyle';
 
 import CustomCheckBox from 'components/button/CustomCheckBox';
 import IconNextBlack from 'components/image/IconNextBlack';
 import StoreSelectList from 'components/selection/StoreSelectList';
+import PositionSelectList from 'components/selection/PositionSelectList';
 import DefaultModal from 'components/modal/DefaultModal';
 import DefaultActionModal from 'components/modal/DefaultActionModal';
 import FindPostCode from 'components/modal/FindPostCode';
@@ -21,6 +23,7 @@ const PersonalInfo = props => {
   // 개인정보 데이터
   const [userInfo, setUserInfo] = useState({
     shopId: window.userInfo.shopId || 0,
+    role: window.userInfo.role || 0,
     id: window.userInfo.id,
     name: window.userInfo.name,
     phoneNumber: window.userInfo.phoneNumber.replace(/(\d{3})(-*)(\d{4})(-*)(\d{4})/, '$1-$3-$5'),
@@ -79,9 +82,9 @@ const PersonalInfo = props => {
     if (re.data && re.data.return_code == 200) {
       setModalData(
         '인증번호 발송',
-        '입력하신 번호로 인증번호가 발송되었습니다.',
+        '인증번호가 발송되었습니다.',
         '인증번호가 오지 않을 경우',
-        '입력하신 번호가 정확한지 확인하여 주세요.',
+        '입력하신 번호를 확인하여 주세요.',
       );
     } else {
       setModalData('인증번호 발송 실패', re.data.return_message);
@@ -157,6 +160,11 @@ const PersonalInfo = props => {
   // 회원탈퇴, 개인정보 수정 후 로그아웃 및 데이터 초기화
   const logoutAction = async () => {
     await logout();
+    // 토픽 해제
+    const topic = `croiffle-order-employee-${userInfo.shopId}`;
+    messaging().unsubscribeFromTopic(topic);
+
+    // 데이터 리셋
     await AsyncStorage.removeItem('token');
     resetData();
     window.userInfo = null;
@@ -181,7 +189,7 @@ const PersonalInfo = props => {
   };
 
   return (
-    <ScrollView style={styles.topContainer}>
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <DefaultModal
         modalOpen={modalOpen}
         onClose={() => setModalOpen(false)}
@@ -212,6 +220,15 @@ const PersonalInfo = props => {
           disabled={true}
           onChange={shopId => {
             setUserInfo({ ...userInfo, shopId });
+          }}
+        />
+
+        <Text style={{ ...styles.font5M15, marginTop: 30, marginBottom: 10 }}> 직책 </Text>
+        <PositionSelectList
+          value={userInfo.role}
+          disabled={true}
+          onChange={role => {
+            setUserInfo({ ...userInfo, role });
           }}
         />
 

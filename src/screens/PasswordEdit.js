@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView, View, Text, TouchableOpacity, TextInput } from 'react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import messaging from '@react-native-firebase/messaging';
 
 import styles from 'styles/commonStyle';
 import TextInputMask from 'components/TextInputMask';
@@ -99,6 +100,11 @@ const PasswordEdit = props => {
   // 비밀번호 수정 후 로그아웃 및 데이터 초기화
   const logoutAction = async () => {
     await logout();
+    // 토픽 해제
+    const topic = `croiffle-order-employee-${userInfo.shopId}`;
+    messaging().unsubscribeFromTopic(topic);
+
+    // 데이터 리셋
     await AsyncStorage.removeItem('token');
     resetData();
     window.userInfo = null;
@@ -106,7 +112,7 @@ const PasswordEdit = props => {
   };
 
   return (
-    <ScrollView style={styles.topContainer}>
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <DefaultModal
         modalOpen={modalOpen}
         onClose={() => setModalOpen(false)}

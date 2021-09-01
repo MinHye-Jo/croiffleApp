@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { pt15 } from 'styles/fontSizePack';
 
 const OrderDenial = () => {
-
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'rgb(255, 83, 83)',
+      backgroundColor: 'rgb(215, 135, 130)',
       alignItems: 'center',
       borderRadius: 50,
       height: 30,
@@ -16,8 +16,8 @@ const OrderDenial = () => {
     txt: {
       color: '#fff',
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
-    }
+      fontSize: pt15,
+    },
   });
 
   return (

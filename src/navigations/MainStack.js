@@ -21,6 +21,7 @@ import NoticeList from 'screens/notice/NoticeList';
 import PrivacyPolicy from 'screens/terms/PrivacyPolicy';
 import TermsOfService from 'screens/terms/TermsOfService';
 
+import StaffManagement from 'screens/StaffManagement';
 import PersonalInfo from 'screens/PersonalInfo';
 import PasswordEdit from 'screens/PasswordEdit';
 import CustomerSupport from 'screens/CustomerSupport';
@@ -38,6 +39,8 @@ import HeaderModule from 'screens/header/HeaderModule';
 import PrevHeaderModule from 'screens/header/PrevHeaderModule';
 
 import OrderNoticeModal from 'components/modal/OrderNoticeModal';
+import OrderCancelNoticeModal from 'components/modal/OrderCancelNoticeModal';
+import StaffRequestModal from 'components/modal/StaffRequestModal';
 
 import { noticeListState, noticeDataAppend, noticeIconControl } from 'store/app';
 import { useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
@@ -55,6 +58,8 @@ const PrevStackMove = props => {
 const MainStack = ({ navigation }) => {
   // 모달 데이터
   const [modalOpen, setModalOpen] = useState(false);
+  const [orderCancelModalOpen, setOrderCancelModalOpen] = useState(false);
+  const [staffModalOpen, setStaffModalOpen] = useState(false);
   const noticeData = useRecoilValue(noticeListState);
   const setNoticeDataAppend = useSetRecoilState(noticeDataAppend);
   const [noticeIconFlag, setNoticeIconFlag] = useRecoilState(noticeIconControl);
@@ -63,22 +68,33 @@ const MainStack = ({ navigation }) => {
   useEffect(() => {
     // 메시지 이벤트 처리
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      // 알림 음성파일 실행
-      try {
-        SoundPlayer.loadSoundFile('ring', 'mp3');
-        SoundPlayer.play();
-      } catch (e) {
-        console.log('cannot play the sound file', e);
-      }
-
       // 데이터 저장
       const re = remoteMessage.data;
-      if (re && re.new === 'true') {
-        setNoticeIconFlag(true);
-        setNoticeDataAppend(re);
-      }
+      if (re) {
+        switch (re.notiType) {
+          case 'order-cancel':
+            setOrderCancelModalOpen(true);
+            break;
+          case 'employee-signup':
+            window.userInfo && window.userInfo.role == 'ROLE_SHOP_ADMIN' ? setStaffModalOpen(true) : null;
+            break;
+          default:
+            // 알림 음성파일 실행
+            try {
+              SoundPlayer.loadSoundFile('ring', 'mp3');
+              SoundPlayer.play();
+            } catch (e) {
+              console.log('cannot play the sound file', e);
+            }
 
-      setModalOpen(true);
+            if (re && re.new === 'true') {
+              setNoticeIconFlag(true);
+              setNoticeDataAppend(re);
+            }
+
+            setModalOpen(true);
+        }
+      }
     });
 
     return unsubscribe;
@@ -88,11 +104,23 @@ const MainStack = ({ navigation }) => {
   messaging().setBackgroundMessageHandler(async remoteMessage => {
     // 데이터 저장
     const re = remoteMessage.data;
-    if (re && re.new === 'true') {
-      setNoticeDataAppend(re);
-    }
+    if (re) {
+      switch (re.notiType) {
+        case 'order-cancel':
+          setOrderCancelModalOpen(true);
+          break;
+        case 'employee-signup':
+          window.userInfo && window.userInfo.role == 'ROLE_SHOP_ADMIN' ? setStaffModalOpen(true) : null;
+          break;
+        default:
+          if (re && re.new === 'true') {
+            setNoticeIconFlag(true);
+            setNoticeDataAppend(re);
+          }
 
-    setModalOpen(true);
+          setModalOpen(true);
+      }
+    }
   });
 
   return (
@@ -101,6 +129,18 @@ const MainStack = ({ navigation }) => {
         modalOpen={modalOpen}
         navigation={navigation}
         onClose={() => setModalOpen(false)}
+        data={noticeData}
+      />
+      <OrderCancelNoticeModal
+        modalOpen={orderCancelModalOpen}
+        navigation={navigation}
+        onClose={() => setOrderCancelModalOpen(false)}
+        data={noticeData}
+      />
+      <StaffRequestModal
+        modalOpen={staffModalOpen}
+        navigation={navigation}
+        onClose={() => setStaffModalOpen(false)}
         data={noticeData}
       />
       <Stack.Navigator initialRouteName="Main">
@@ -150,6 +190,14 @@ const MainStack = ({ navigation }) => {
           component={StoreManagement}
           options={{
             header: () => <PrevStackMove navigationProps={navigation} title="매장관리" />,
+          }}
+        />
+        {/* 직원목록 */}
+        <Stack.Screen
+          name="StaffManagement"
+          component={StaffManagement}
+          options={{
+            header: () => <PrevStackMove navigationProps={navigation} title="직원목록" />,
           }}
         />
         {/* 매장정보 수정 */}

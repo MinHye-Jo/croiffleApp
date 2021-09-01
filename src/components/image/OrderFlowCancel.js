@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import { pt20 } from 'styles/fontSizePack';
 
-const OrderFlowReject = () => {
+const OrderFlowCancel = () => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -29,10 +29,10 @@ const OrderFlowReject = () => {
           source={require('../../../assets/image/icon/icon_cancle_b.png')}
           style={{ height: 60, resizeMode: 'contain' }}
         />
-        <Text style={styles.activeTxt}>주문거부 된 주문건입니다.</Text>
+        <Text style={styles.activeTxt}>주문취소 된 주문건입니다.</Text>
       </View>
     </View>
   );
 };
 
-export default OrderFlowReject;
+export default OrderFlowCancel;

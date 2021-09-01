@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { pt18 } from 'styles/fontSizePack';
 
 const AgreeButton = ({ navigation, route, type }) => {
   const styles = StyleSheet.create({
@@ -11,24 +12,12 @@ const AgreeButton = ({ navigation, route, type }) => {
       alignItems: 'center',
       justifyContent: 'center',
       height: 50,
-      fontSize: 20,
-      backgroundColor: 'rgb(0, 191, 213)',
-      borderRadius: 5,
-    },
-    containerDisabled: {
-      marginBottom: 20,
-      marginLeft: 20,
-      marginRight: 20,
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: 50,
-      fontSize: 20,
-      backgroundColor: 'rgb(174, 174, 174)',
+      backgroundColor: route.params && route.params.disabled ? 'rgb(174, 174, 174)' : 'rgb(0, 191, 213)',
       borderRadius: 5,
     },
     text: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 18,
+      fontSize: pt18,
       color: '#fff',
     },
   });
@@ -37,7 +26,7 @@ const AgreeButton = ({ navigation, route, type }) => {
     <View>
       {route.params && (
         <TouchableOpacity
-          style={route.params.disabled ? styles.containerDisabled : styles.container}
+          style={styles.container}
           disabled={route.params.disabled ? route.params.disabled : false}
           onPress={() => {
             navigation.goBack();

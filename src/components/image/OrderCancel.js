@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { pt15 } from 'styles/fontSizePack';
 
-const OrderComplete = () => {
+const OrderCancel = () => {
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'rgb(0, 191, 213)',
+      backgroundColor: 'rgb(174, 174, 174)',
       alignItems: 'center',
       borderRadius: 50,
       height: 30,
@@ -22,9 +22,9 @@ const OrderComplete = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.txt}>준비완료</Text>
+      <Text style={styles.txt}>주문취소</Text>
     </View>
   );
 };
 
-export default OrderComplete;
+export default OrderCancel;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import Modal from 'react-native-modal';
-import { pt20, pt18, pt15 } from 'styles/fontSizePack';
+import { pt20, pt18 } from 'styles/fontSizePack';
 
-const FindPwdModal = ({ modalOpen, onClose, navigation }) => {
+const StaffRequestModal = ({ modalOpen, onClose, navigation, data }) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -13,7 +13,7 @@ const FindPwdModal = ({ modalOpen, onClose, navigation }) => {
     },
     modalcontainer: {
       width: '100%',
-      height: '37%',
+      height: 280,
       borderRadius: 10,
       backgroundColor: 'white',
       alignItems: 'center',
@@ -39,22 +39,14 @@ const FindPwdModal = ({ modalOpen, onClose, navigation }) => {
       fontSize: pt20,
     },
     txt: {
-      fontFamily: 'S-CoreDream-4Regular',
-      fontSize: pt15,
-    },
-    redTxt: {
-      fontFamily: 'S-CoreDream-4Regular',
-      fontSize: pt15,
-      color: 'rgb(255, 83, 83)',
-      marginTop: 10,
-      marginBottom: 5,
+      fontFamily: 'S-CoreDream-5Medium',
+      fontSize: pt18,
     },
     blueBtn: {
+      flex: 1,
       borderRadius: 5,
       alignItems: 'center',
       justifyContent: 'center',
-      marginTop: 10,
-      width: '100%',
       height: 50,
       fontSize: pt20,
       backgroundColor: 'rgb(0, 191, 213)',
@@ -66,11 +58,6 @@ const FindPwdModal = ({ modalOpen, onClose, navigation }) => {
     },
   });
 
-  const btnAction = () => {
-    onClose();
-    navigation.navigate('LoginPage');
-  };
-
   return (
     <Modal isVisible={modalOpen}>
       <View style={styles.container}>
@@ -78,20 +65,24 @@ const FindPwdModal = ({ modalOpen, onClose, navigation }) => {
           <View style={styles.container}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.titleContainer}>
-                <Text style={styles.title}>비밀번호 찾기</Text>
+                <Text style={styles.title}>직원합류 승인요청</Text>
               </View>
               <TouchableOpacity style={{ flex: 1 }} onPress={() => onClose()}>
                 <Image source={require('../../../assets/image/icon/icon_close_b.png')} style={styles.closeImg} />
               </TouchableOpacity>
             </View>
             <Image source={require('../../../assets/image/icon/icon_popup_b.png')} style={styles.imgContainer} />
-            <Text style={styles.txt}>초기화된 비밀번호를 </Text>
-            <Text style={styles.txt}>휴대폰 번호로 보내드렸습니다.</Text>
-            <Text style={styles.redTxt}>※ [개인정보관리]에서 변경 가능합니다.</Text>
-
-            <TouchableOpacity style={styles.blueBtn} onPress={() => btnAction()}>
-              <Text style={styles.btnTxtWhite}>로그인 하기</Text>
-            </TouchableOpacity>
+            <Text style={styles.txt}>새로운 직원합류 승인요청이 있습니다.</Text>
+            <View style={{ flexDirection: 'row', marginTop: 20 }}>
+              <TouchableOpacity
+                style={styles.blueBtn}
+                onPress={() => {
+                  onClose();
+                  navigation.navigate('StaffManagement');
+                }}>
+                <Text style={styles.btnTxtWhite}>확인</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>
@@ -99,4 +90,4 @@ const FindPwdModal = ({ modalOpen, onClose, navigation }) => {
   );
 };
 
-export default FindPwdModal;
+export default StaffRequestModal;

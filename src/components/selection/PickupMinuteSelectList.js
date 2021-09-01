@@ -3,19 +3,19 @@ import { StyleSheet, View } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { pt15 } from 'styles/fontSizePack';
 
-const initItems = [{ label: '00분', value: '00' }];
-for (let i = 10; i < 60; i = i + 10) {
+const initItems = [];
+for (let i = 10; i < 121; i = i + 10) {
   initItems.push({ label: `${i}분`, value: `${i}` });
 }
 
-const MinuteSelectList = ({ value, onChange, openFlag, openCtrl }) => {
+const PickupMinuteSelectList = ({ value, onChange, openFlag, openCtrl }) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgb(242, 243, 245)',
       fontFamily: 'S-CoreDream-4Regular',
       fontSize: pt15,
       borderColor: 'rgb(242, 243, 245)',
-      width: 150,
+      width: '100%',
       marginRight: 10,
     },
     txt: {
@@ -50,4 +50,4 @@ const MinuteSelectList = ({ value, onChange, openFlag, openCtrl }) => {
   );
 };
 
-export default MinuteSelectList;
+export default PickupMinuteSelectList;

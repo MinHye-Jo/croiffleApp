@@ -5,6 +5,16 @@ export const shopList = () => {
   return http.post('/shop/list', {});
 };
 
+// 매장 직원 리스트
+export const shopStaffList = shopId => {
+  return http.post(`/shop/employee/${shopId}`, {});
+};
+
+// 매장 직원 승인, 거부, 퇴직처리
+export const shopStaffManage = (shopId, userId, status) => {
+  return http.post('/shop/employee/manage', { shopId, userId, status });
+};
+
 // 매장 상세정보
 export const shopDetail = (shopId, xpos, ypos) => {
   return http.post(`/shop/detail/${shopId}`, { shopId, xpos, ypos });

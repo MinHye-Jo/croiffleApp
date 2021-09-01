@@ -30,6 +30,11 @@ export const orderReady = (orderId, shopId) => {
   return http.post(`/order/ready/${orderId}`, { shopId });
 };
 
+// 주문 취소
+export const orderCancel = (orderId, shopId) => {
+  return http.post(`/order/employee/cancel/${orderId}`, { shopId });
+};
+
 // 주문 픽업완료
 export const orderComplete = (orderId, shopId, orderUniqueness) => {
   return http.post(`/order/complete/${orderId}`, { shopId, orderUniqueness });

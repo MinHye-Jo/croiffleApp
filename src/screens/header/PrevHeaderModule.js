@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, View, TouchableOpacity, Text } from 'react-native';
+import { Image, View, TouchableOpacity, Text, Dimensions } from 'react-native';
 import { Header } from 'react-native-elements';
-import styles from 'styles/commonStyle';
+import styles from 'styles/naviStyle';
 import DeviceInfo from 'react-native-device-info';
 
 const osType = DeviceInfo.getSystemName() === 'Android' ? 'ANDROID' : 'iOS';
@@ -30,7 +30,10 @@ const renderCenterTitle = props => (
 const PrevHeaderModule = props => {
   return (
     <Header
-      containerStyle={{ height: osType == 'iOS' ? 100 : 80, alignItems: 'center' }}
+      containerStyle={{
+        height: osType == 'iOS' && Dimensions.get('window').height > 800 ? 100 : 80,
+        alignItems: 'center',
+      }}
       backgroundColor="rgb(0, 191, 213)"
       placement="center"
       leftComponent={renderPrevBtn(props)}

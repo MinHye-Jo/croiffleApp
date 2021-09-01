@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { pt15 } from 'styles/fontSizePack';
 
 const AddButton = ({ onClick }) => {
   const styles = StyleSheet.create({
@@ -11,7 +12,7 @@ const AddButton = ({ onClick }) => {
     },
     btnTxt: {
       color: '#fff',
-      fontSize: 15,
+      fontSize: pt15,
       fontFamily: 'S-CoreDream-5Medium',
     },
   });

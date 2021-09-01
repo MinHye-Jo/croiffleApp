@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import Modal from 'react-native-modal';
+import { pt20, pt18 } from 'styles/fontSizePack';
 
 const OrderNoticeModal = ({ modalOpen, onClose, navigation, data }) => {
   const styles = StyleSheet.create({
@@ -35,11 +36,11 @@ const OrderNoticeModal = ({ modalOpen, onClose, navigation, data }) => {
     },
     title: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 20,
+      fontSize: pt20,
     },
     txt: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 18,
+      fontSize: pt18,
     },
     redBtn: {
       flex: 1,
@@ -47,7 +48,7 @@ const OrderNoticeModal = ({ modalOpen, onClose, navigation, data }) => {
       alignItems: 'center',
       justifyContent: 'center',
       height: 50,
-      fontSize: 20,
+      fontSize: pt20,
       marginRight: 10,
       backgroundColor: 'rgb(255, 96, 1)',
     },
@@ -57,12 +58,12 @@ const OrderNoticeModal = ({ modalOpen, onClose, navigation, data }) => {
       alignItems: 'center',
       justifyContent: 'center',
       height: 50,
-      fontSize: 20,
+      fontSize: pt20,
       backgroundColor: 'rgb(0, 191, 213)',
     },
     btnTxtWhite: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 18,
+      fontSize: pt18,
       color: '#ffff',
     },
   });

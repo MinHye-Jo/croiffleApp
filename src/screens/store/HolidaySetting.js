@@ -25,10 +25,7 @@ const HolidaySetting = props => {
   const basicTmpData = { type: '2', startDate: tmpDate, endDate: tmpDate, shopId: shopId };
 
   // type ( 1: 정기휴무, 2: 임시휴무)
-  const [holidayData, setHolidayData] = useState([
-    { type: '1', regularType: '1', dayOfWeek: '1', shopId: shopId },
-    { type: '2', startDate: tmpDate, endDate: tmpDate, shopId: shopId },
-  ]);
+  const [holidayData, setHolidayData] = useState([]);
 
   //공휴일
   const [holidayFlag, setHolidayFlag] = useState('1');
@@ -101,7 +98,7 @@ const HolidaySetting = props => {
   };
 
   return (
-    <ScrollView style={styles.topContainer}>
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <DefaultModal
         modalOpen={modalOpen}
         onClose={() => setModalOpen(false)}

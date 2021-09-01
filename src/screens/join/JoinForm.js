@@ -5,6 +5,7 @@ import { ScrollView, View, TextInput, Text, TouchableOpacity } from 'react-nativ
 import styles from 'styles/commonStyle';
 import TextInputMask from 'components/TextInputMask';
 import StoreSelectList from 'components/selection/StoreSelectList';
+import PositionSelectList from 'components/selection/PositionSelectList';
 import DefaultModal from 'components/modal/DefaultModal';
 import validateHook from 'hook/validateHook';
 
@@ -14,6 +15,7 @@ const JoinForm = props => {
   // 회원가입 데이터
   const [signUpInfo, setSignUpInfo] = useState({
     shopId: 0,
+    role: 0,
     id: '',
     name: '',
     password: '',
@@ -45,7 +47,7 @@ const JoinForm = props => {
   useEffect(() => {
     let emptyChk = true;
     for (const key in signUpInfo) {
-      if (signUpInfo[key] == '') {
+      if (!signUpInfo[key]) {
         emptyChk = false;
         break;
       }
@@ -99,9 +101,9 @@ const JoinForm = props => {
     if (data && data.return_code == 200) {
       setModalData(
         '인증번호 발송',
-        '입력하신 번호로 인증번호가 발송되었습니다.',
+        '인증번호가 발송되었습니다.',
         '인증번호가 오지 않을 경우',
-        '입력하신 번호가 정확한지 확인하여 주세요.',
+        '입력하신 번호를 확인하여 주세요.',
       );
     } else {
       setModalData('인증번호 발송 실패', data.return_message);
@@ -161,7 +163,7 @@ const JoinForm = props => {
   };
 
   return (
-    <ScrollView style={styles.topContainer}>
+    <ScrollView style={styles.topContainer} showsVerticalScrollIndicator={false}>
       <DefaultModal
         modalOpen={modalOpen}
         onClose={() => setModalOpen(false)}
@@ -177,10 +179,24 @@ const JoinForm = props => {
           <Text style={styles.font5M15blue}> (필수)</Text>
         </View>
 
-        <StoreSelectList
-          value={signUpInfo.shopId}
-          onChange={shopId => {
-            setSignUpInfo({ ...signUpInfo, shopId });
+        <View style={{ zIndex: 9999 }}>
+          <StoreSelectList
+            value={signUpInfo.shopId}
+            onChange={shopId => {
+              setSignUpInfo({ ...signUpInfo, shopId });
+            }}
+          />
+        </View>
+
+        <View style={{ ...styles.row, marginTop: 20, marginBottom: 10 }}>
+          <Text style={styles.font5M15}>직책</Text>
+          <Text style={styles.font5M15blue}> (필수)</Text>
+        </View>
+
+        <PositionSelectList
+          value={signUpInfo.role}
+          onChange={role => {
+            setSignUpInfo({ ...signUpInfo, role });
           }}
         />
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import { SafeAreaView, View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import messaging from '@react-native-firebase/messaging';
 
 import OrderHistoryButton from 'components/button/OrderHistoryButton';
 import StoreManageButton from 'components/button/StoreManageButton';
@@ -22,9 +23,13 @@ const CustomSidebarMenu = props => {
   // 로그아웃 버튼 클릭시 데이터 초기화
   const logoutAction = async () => {
     await logout();
+    // 토픽 해제
+    const topic = `croiffle-order-employee-${userInfo.shopId}`;
+    messaging().unsubscribeFromTopic(topic);
+
+    // 데이터 리셋
     await AsyncStorage.removeItem('token');
     resetData();
-
     window.userInfo = null;
     props.navigation.navigate('LoginPage');
   };
@@ -54,8 +59,20 @@ const CustomSidebarMenu = props => {
       </View>
       {/* 사이드메뉴 항목 */}
       <View style={{ ...styles.hr, marginBottom: 0 }} />
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ paddingLeft: 20, paddingTop: 20, paddingBottom: 10 }}>
+          {window.userInfo && window.userInfo.role == 'ROLE_SHOP_ADMIN' ? (
+            <TouchableOpacity onPress={() => props.navigation.navigate('StaffManagement')}>
+              <View style={{ ...styles.row, paddingBottom: 10 }}>
+                <View style={styles.rowFlex2Left}>
+                  <Text style={styles.font5M15}>직원목록</Text>
+                </View>
+                <View style={styles.rowFlex1Right}>
+                  <IconNextBlack />
+                </View>
+              </View>
+            </TouchableOpacity>
+          ) : null}
           <TouchableOpacity onPress={() => props.navigation.navigate('PersonalInfo')}>
             <View style={{ ...styles.row, paddingBottom: 10 }}>
               <View style={styles.rowFlex2Left}>
@@ -110,7 +127,7 @@ const CustomSidebarMenu = props => {
         <View style={styles.hr} />
       </ScrollView>
 
-      {/* 로그인 로그아웃 */}
+      {/* 로그아웃 */}
       <TouchableOpacity style={naviStyle.logoutBtn} onPress={logoutAction}>
         <Text style={styles.font5M15}>로그아웃</Text>
       </TouchableOpacity>

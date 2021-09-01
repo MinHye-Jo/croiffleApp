@@ -6,11 +6,14 @@ import OrderPreparing from 'components/image/OrderPreparing';
 import OrderComplete from 'components/image/OrderComplete';
 import OrderDenial from 'components/image/OrderDenial';
 import OrderPickupDone from 'components/image/OrderPickupDone';
+import OrderCancel from 'components/image/OrderCancel';
+import { pt15, pt13 } from 'styles/fontSizePack';
 
 const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
   const price = data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  const orderDate = moment(data.createdAt).format('YYYY-MM-DD');
-  const blockStatus = data.status == '4' || data.status == '5' ? true : false;
+  const orderDate = moment(data.createdAt).format('YYYY-MM-DD hh:mm');
+  const blockStatus =
+    data.status == '4' || data.status == '5' || data.status == '6' || data.status == '7' ? true : false;
   const img = data.menuImgUrl ? { uri: data.menuImgUrl } : require('../../../assets/image/croiffle_basil.jpg');
 
   const styles = StyleSheet.create({
@@ -46,19 +49,33 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
       borderRadius: 5,
       position: 'absolute',
     },
-    fontBlack: {
+    fontBlack15: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
+    },
+    fontBlack14: {
+      fontFamily: 'S-CoreDream-5Medium',
+      fontSize: pt13,
     },
     fontBlue: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt13,
       color: 'rgb(0, 191, 213)',
     },
-    fontGrey: {
+    fontGrey15: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 15,
+      fontSize: pt15,
       color: 'rgb(174, 174, 174)',
+    },
+    fontGrey14: {
+      fontFamily: 'S-CoreDream-5Medium',
+      fontSize: pt13,
+      color: 'rgb(174, 174, 174)',
+    },
+    fontOrange: {
+      fontFamily: 'S-CoreDream-5Medium',
+      fontSize: pt13,
+      color: 'rgb(255, 96, 1)',
     },
   });
 
@@ -74,6 +91,9 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
         return <OrderPickupDone />;
       case '5':
         return <OrderDenial />;
+      case '6':
+      case '7':
+        return <OrderCancel />;
     }
   };
 
@@ -90,25 +110,36 @@ const OrderMenuDetail = ({ navigation, data, reFreshData }) => {
         <View style={{ flex: 1, marginRight: 10 }}>
           <View style={styles.imgContainer}>
             <Image source={img} style={styles.img} resizeMode="cover" />
+            <View style={styles.imgBlockContainer} />
             {renderSwitch()}
           </View>
-          {blockStatus && <View style={styles.imgBlockContainer} />}
         </View>
 
         <View style={{ flex: 2, marginTop: 5, position: 'relative', marginBottom: 5 }}>
-          <Text style={!blockStatus ? styles.fontBlack : styles.fontGrey}>{data.orderName}</Text>
-          <View style={{ flexDirection: 'row', marginTop: 10 }}>
-            <Text style={!blockStatus ? styles.fontBlack : styles.fontGrey}>픽업시간 </Text>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey}>{data.pickupHour}</Text>
-              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey}>시 </Text>
-              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey}>{data.pickupMinute}</Text>
-              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey}>분</Text>
+          <Text style={!blockStatus ? styles.fontBlack15 : styles.fontGrey15}>{data.orderName}</Text>
+          <View style={{ flexDirection: 'row', marginTop: 5 }}>
+            <View style={{ flex: 0.5 }}>
+              <Text style={!blockStatus ? styles.fontBlack14 : styles.fontGrey14}>{price}원 </Text>
+            </View>
+            <View style={{ flex: 1 }}>
+              <Text style={data.paymentType == 1 && !blockStatus ? styles.fontOrange : styles.fontGrey14}>
+                {data.paymentType == 1 ? '현장결제' : '결제완료'}
+              </Text>
             </View>
           </View>
-          <View style={{ flexDirection: 'row', marginTop: 20 }}>
-            <Text style={styles.fontGrey}>{price}원 </Text>
-            <Text style={styles.fontGrey}>{orderDate}</Text>
+          <View style={{ flexDirection: 'row', marginTop: 5 }}>
+            <View style={{ flex: 0.5 }}>
+              <Text style={!blockStatus ? styles.fontBlack14 : styles.fontGrey14}>픽업시간 </Text>
+            </View>
+            <View style={{ flexDirection: 'row', flex: 1 }}>
+              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey14}>{data.pickupHour}</Text>
+              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey14}>시 </Text>
+              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey14}>{data.pickupMinute}</Text>
+              <Text style={!blockStatus ? styles.fontBlue : styles.fontGrey14}>분</Text>
+            </View>
+          </View>
+          <View style={{ flexDirection: 'row', marginTop: 5 }}>
+            <Text style={styles.fontGrey14}>{orderDate}</Text>
           </View>
         </View>
       </View>

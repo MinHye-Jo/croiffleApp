@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
 import Modal from 'react-native-modal';
+import { pt20, pt18, pt15 } from 'styles/fontSizePack';
 
 const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, modalTextThi }) => {
   const styles = StyleSheet.create({
@@ -51,11 +52,11 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
     },
     title: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 20,
+      fontSize: pt20,
     },
     txt: {
       fontFamily: 'S-CoreDream-4Regular',
-      fontSize: 15,
+      fontSize: pt15,
     },
     blueBtn: {
       borderRadius: 5,
@@ -64,12 +65,12 @@ const DefaultModal = ({ modalOpen, onClose, title, modalText, modalTextSec, moda
       marginTop: 20,
       width: '100%',
       height: 50,
-      fontSize: 20,
+      fontSize: pt20,
       backgroundColor: 'rgb(0, 191, 213)',
     },
     btnTxtWhite: {
       fontFamily: 'S-CoreDream-5Medium',
-      fontSize: 18,
+      fontSize: pt18,
       color: '#ffff',
     },
   });

@@ -13,6 +13,8 @@ const orderCntMap = {
   3: 'comCnt',
   4: 'doneCnt',
   5: 'doneCnt',
+  6: 'doneCnt',
+  7: 'doneCnt',
 };
 
 const cntData = {
@@ -35,7 +37,7 @@ const OrderHistory = props => {
       let statusTmp = 0;
       const cntTempData = { ...cntData };
       cntRe.data.response.forEach(o => {
-        if (o.status == 4 || o.status == 5) {
+        if (o.status == 4 || o.status == 5 || o.status == 6 || o.status == 7) {
           statusTmp += o.count;
           cntTempData[orderCntMap[o.status]] = statusTmp;
         } else {
@@ -66,7 +68,7 @@ const OrderHistory = props => {
       <View style={{ backgroundColor: '#fff', padding: 10 }}>
         <OrderTabButton onClick={v => orderTabClick(v)} orderCnt={orderCnt} />
       </View>
-      <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }}>
+      <ScrollView style={{ backgroundColor: 'rgb(242, 243, 245)' }} showsVerticalScrollIndicator={false}>
         <View style={{ padding: 20 }}>
           {orderData
             ? orderData.map(o => (

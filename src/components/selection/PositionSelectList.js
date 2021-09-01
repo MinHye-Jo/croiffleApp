@@ -3,9 +3,7 @@ import { StyleSheet } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { pt15 } from 'styles/fontSizePack';
 
-import { shopList } from 'services/shop';
-
-const StoreSelectList = ({ value, onChange, disabled }) => {
+const PositionSelectList = ({ value, onChange, disabled }) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgb(242, 243, 245)',
@@ -18,22 +16,15 @@ const StoreSelectList = ({ value, onChange, disabled }) => {
     },
   });
 
+  const items = [
+    { label: '선택', value: 0 },
+    { label: '관리자', value: 'ROLE_SHOP_ADMIN' },
+    { label: '직원', value: 'ROLE_EMPLOYEE' },
+  ];
+
   const [selectValue, setSelectValue] = useState(0);
   const [open, setOpen] = useState(false);
-  const [items, setItems] = useState([]);
   const disableFlag = disabled ? disabled : false;
-
-  // 매장정보 불러오기
-  useEffect(async () => {
-    const dataItems = [{ label: '선택', value: 0 }];
-    const { data } = await shopList();
-
-    if (data.response) {
-      data.response.map(o => dataItems.push({ label: o.shopName, value: o.shopId }));
-    }
-
-    setItems(dataItems);
-  }, []);
 
   useEffect(() => {
     setSelectValue(value);
@@ -57,4 +48,4 @@ const StoreSelectList = ({ value, onChange, disabled }) => {
   );
 };
 
-export default StoreSelectList;
+export default PositionSelectList;

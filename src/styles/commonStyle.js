@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { pt25, pt20, pt15, pt12, pt10 } from 'styles/fontSizePack';
 
 const styles = StyleSheet.create({
   topContainer: {
@@ -20,29 +21,20 @@ const styles = StyleSheet.create({
   },
   font5M15: {
     fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 15,
+    fontSize: pt15,
   },
   font5M15blue: {
     fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 15,
+    fontSize: pt15,
     color: 'rgb(0, 191, 213)',
-  },
-  font5M20: {
-    fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 20,
   },
   font4R10: {
     fontFamily: 'S-CoreDream-4Regular',
-    fontSize: 10,
+    fontSize: pt10,
   },
   font4R15: {
     fontFamily: 'S-CoreDream-4Regular',
-    fontSize: 15,
-  },
-  prevHeaderFont: {
-    fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 20,
-    color: '#fff',
+    fontSize: pt15,
   },
   hr: {
     borderBottomColor: 'rgb(225, 225, 225)',
@@ -51,12 +43,12 @@ const styles = StyleSheet.create({
   },
   loginFont: {
     fontFamily: 'S-CoreDream-4Regular',
-    fontSize: 25,
+    fontSize: pt25,
     color: 'rgb(0, 191,213)',
   },
   loginFont2: {
     fontFamily: 'S-CoreDream-4Regular',
-    fontSize: 15,
+    fontSize: pt15,
     paddingTop: 10,
   },
   greyInput: {
@@ -64,6 +56,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgb(242, 243, 245)',
     backgroundColor: 'rgb(242, 243, 245)',
     fontFamily: 'S-CoreDream-4Regular',
+    fontSize: pt15,
     height: 50,
     padding: 10,
   },
@@ -72,7 +65,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
-    fontSize: 20,
+    fontSize: pt20,
     backgroundColor: 'rgb(0, 191, 213)',
   },
   greyBtn: {
@@ -80,21 +73,44 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
-    fontSize: 20,
+    fontSize: pt20,
     backgroundColor: 'rgb(174, 174, 174)',
+  },
+  whiteBtn: {
+    borderRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 50,
+    fontSize: pt20,
+    backgroundColor: '#ffffff',
   },
   redBtn: {
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
-    fontSize: 20,
+    fontSize: pt20,
     backgroundColor: 'rgb(255, 96, 1)',
   },
   btnTxtWhite: {
     fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 15,
+    fontSize: pt15,
     color: '#ffff',
+  },
+  btnTxtBlue: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: pt15,
+    color: 'rgb(0, 191, 213)',
+  },
+  btnTxtGrey: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: pt15,
+    color: 'rgb(174, 174, 174)',
+  },
+  btnTxtRed: {
+    fontFamily: 'S-CoreDream-5Medium',
+    fontSize: pt15,
+    color: 'rgb(255, 83, 83)',
   },
   greyBox: {
     borderRadius: 5,
@@ -151,7 +167,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     fontFamily: 'S-CoreDream-4Regular',
-    fontSize: 15,
+    fontSize: pt15,
   },
   redText: {
     color: 'rgb(255, 83, 83)',
@@ -160,7 +176,7 @@ const styles = StyleSheet.create({
   errText: {
     color: 'rgb(255, 83, 83)',
     fontFamily: 'S-CoreDream-5Medium',
-    fontSize: 12,
+    fontSize: pt12,
   },
 });
 
